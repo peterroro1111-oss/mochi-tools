@@ -1,0 +1,156 @@
+'use client';
+
+import { useState, useRef, useEffect } from 'react';
+
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    pdfjsLib: any;
+  }
+}
+
+export default function PdfToImagePage() {
+  const [file, setFile] = useState<File | null>(null);
+  const [images, setImages] = useState<string[]>([]);
+  const [processing, setProcessing] = useState(false);
+  const [format, setFormat] = useState<'png' | 'jpeg'>('png');
+  const [scale, setScale] = useState(2);
+  const [loaded, setLoaded] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+    script.onload = () => {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      setLoaded(true);
+    };
+    document.head.appendChild(script);
+  }, []);
+
+  const convert = async () => {
+    if (!file || !loaded) return;
+    setProcessing(true);
+    setImages([]);
+    try {
+      const data = await file.arrayBuffer();
+      const pdf = await window.pdfjsLib.getDocument({ data }).promise;
+      const results: string[] = [];
+
+      const canvas = canvasRef.current!;
+      const ctx = canvas.getContext('2d')!;
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const dataUrl = canvas.toDataURL(`image/${format}`, format === 'jpeg' ? 0.92 : undefined);
+        results.push(dataUrl);
+      }
+
+      setImages(results);
+    } catch (err) {
+      alert('轉換失敗，請確認檔案是否正常');
+      console.error(err);
+    } finally {
+      setProcessing(false);
+    }
+  };
+
+  const downloadAll = () => {
+    images.forEach((img, i) => {
+      const a = document.createElement('a');
+      a.href = img;
+      a.download = `page_${i + 1}.${format}`;
+      a.click();
+    });
+  };
+
+  const downloadOne = (img: string, index: number) => {
+    const a = document.createElement('a');
+    a.href = img;
+    a.download = `page_${index + 1}.${format}`;
+    a.click();
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-12">
+      <h1 className="text-3xl font-bold mb-2">🖼️ PDF 轉圖片</h1>
+      <p className="text-gray-400 mb-8">將 PDF 每一頁轉成 PNG 或 JPG 圖片。</p>
+
+      <canvas ref={canvasRef} className="hidden" />
+
+      {!file ? (
+        <div
+          onClick={() => document.getElementById('file-input')?.click()}
+          className="border-2 border-dashed border-gray-700 hover:border-gray-500 rounded-2xl p-12 text-center cursor-pointer bg-gray-900/50 transition-all"
+        >
+          <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => { setFile(e.target.files?.[0] || null); setImages([]); }} />
+          <div className="text-4xl mb-3">📄</div>
+          <p className="font-medium">選擇 PDF 檔案</p>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between">
+            <p className="font-medium">{file.name}</p>
+            <button onClick={() => { setFile(null); setImages([]); }} className="text-sm text-gray-400 hover:text-red-400">換檔案</button>
+          </div>
+
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label className="block text-sm text-gray-400 mb-2">格式</label>
+              <div className="flex gap-2">
+                {(['png', 'jpeg'] as const).map(f => (
+                  <button key={f} onClick={() => setFormat(f)}
+                    className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all ${format === f ? 'bg-blue-600' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}>
+                    {f.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm text-gray-400 mb-2">解析度</label>
+              <div className="flex gap-2">
+                {[1, 2, 3].map(s => (
+                  <button key={s} onClick={() => setScale(s)}
+                    className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all ${scale === s ? 'bg-blue-600' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}>
+                    {s}x
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <button onClick={convert} disabled={processing || !loaded}
+            className="w-full py-3 bg-orange-600 hover:bg-orange-500 disabled:bg-gray-700 rounded-xl font-medium transition-all active:scale-[0.98]">
+            {!loaded ? '載入中...' : processing ? '轉換中...' : '🖼️ 開始轉換'}
+          </button>
+
+          {images.length > 0 && (
+            <div className="space-y-4 animate-fadeIn">
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-gray-400">共 {images.length} 張圖片</p>
+                <button onClick={downloadAll} className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-xl text-sm font-medium transition-all">
+                  📥 全部下載
+                </button>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {images.map((img, i) => (
+                  <div key={i} className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden group cursor-pointer" onClick={() => downloadOne(img, i)}>
+                    <img src={img} alt={`Page ${i + 1}`} className="w-full" />
+                    <div className="p-2 text-center text-xs text-gray-400 group-hover:text-white transition-colors">
+                      第 {i + 1} 頁 — 點擊下載
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
