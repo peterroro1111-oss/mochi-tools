@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mochitools.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://mochitools.com/pdf</loc><priority>0.9</priority></url>
-  <url><loc>https://mochitools.com/pdf/merge</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/pdf/split</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/pdf/rotate</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/pdf/page-numbers</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/pdf/compress</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/pdf/to-image</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/remove-bg</loc><priority>0.9</priority></url>
-  <url><loc>https://mochitools.com/photo</loc><priority>0.9</priority></url>
+  <url><loc>https://mochitools.com</loc><priority>1.0</priority></url>
+  <url><loc>https://mochitools.com/pdf</loc><priority>0.8</priority></url>
+  <url><loc>https://mochitools.com/pdf/merge</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/pdf/split</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/pdf/rotate</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/pdf/compress</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/pdf/page-numbers</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/pdf/to-image</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/image</loc><priority>0.8</priority></url>
+  <url><loc>https://mochitools.com/image/compress</loc><priority>0.8</priority></url>
+  <url><loc>https://mochitools.com/convert</loc><priority>0.8</priority></url>
+  <url><loc>https://mochitools.com/convert/png-to-jpg</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/convert/jpg-to-png</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/convert/png-to-webp</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/convert/webp-to-png</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/convert/jpg-to-webp</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/convert/webp-to-jpg</loc><priority>0.7</priority></url>
+  <url><loc>https://mochitools.com/remove-bg</loc><priority>0.8</priority></url>
+  <url><loc>https://mochitools.com/photo</loc><priority>0.8</priority></url>
 </urlset>

@@ -12,6 +12,16 @@ const categories = [
     iconBg: 'bg-blue-100',
   },
   {
+    href: '/image',
+    icon: '🖼️',
+    name: '圖片工具',
+    desc: '圖片壓縮、PNG/JPG/WebP 格式互轉',
+    gradient: 'from-amber-50 to-yellow-50',
+    border: 'border-amber-200 hover:border-amber-400',
+    shadow: 'hover:shadow-amber-100/50',
+    iconBg: 'bg-amber-100',
+  },
+  {
     href: '/remove-bg',
     icon: '🎨',
     name: 'AI 去背',

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 
 export const metadata: Metadata = {
   title: 'Mochi Tools — 免費線上工具 🍡',
-  description: '免費 PDF 工具、AI 去背、AI 證件照，全部線上搞定，不上傳伺服器',
+  description: '免費 PDF 工具、圖片壓縮、格式轉換、AI 去背、AI 證件照，全部線上搞定，不上傳伺服器',
   openGraph: {
     title: 'Mochi Tools — 免費線上工具 🍡',
     description: '免費 PDF 工具、AI 去背、AI 證件照，全部線上搞定',

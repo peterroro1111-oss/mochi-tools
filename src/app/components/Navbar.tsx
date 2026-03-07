@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 
 const links = [
   { href: '/pdf', label: '📄 PDF 工具' },
+  { href: '/image', label: '🖼️ 圖片工具' },
   { href: '/remove-bg', label: '🎨 AI 去背' },
   { href: '/photo', label: '📸 證件照' },
 ];
