@@ -79,14 +79,14 @@ export default function PdfToImagePage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">🖼️ PDF 轉圖片</h1>
-      <p className="text-gray-400 mb-8">將 PDF 每一頁轉成 PNG 或 JPG 圖片。</p>
+      <p className="text-gray-500 mb-8">將 PDF 每一頁轉成 PNG 或 JPG 圖片。</p>
 
       <canvas ref={canvasRef} className="hidden" />
 
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-700 hover:border-gray-500 rounded-2xl p-12 text-center cursor-pointer bg-gray-900/50 transition-all"
+          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => { setFile(e.target.files?.[0] || null); setImages([]); }} />
           <div className="text-4xl mb-3">📄</div>
@@ -94,29 +94,29 @@ export default function PdfToImagePage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between">
+          <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-between">
             <p className="font-medium">{file.name}</p>
-            <button onClick={() => { setFile(null); setImages([]); }} className="text-sm text-gray-400 hover:text-red-400">換檔案</button>
+            <button onClick={() => { setFile(null); setImages([]); }} className="text-sm text-gray-500 hover:text-red-500">換檔案</button>
           </div>
 
           <div className="flex gap-4">
             <div className="flex-1">
-              <label className="block text-sm text-gray-400 mb-2">格式</label>
+              <label className="block text-sm text-gray-500 mb-2">格式</label>
               <div className="flex gap-2">
                 {(['png', 'jpeg'] as const).map(f => (
                   <button key={f} onClick={() => setFormat(f)}
-                    className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all ${format === f ? 'bg-blue-600' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}>
+                    className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all ${format === f ? 'bg-blue-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
                     {f.toUpperCase()}
                   </button>
                 ))}
               </div>
             </div>
             <div className="flex-1">
-              <label className="block text-sm text-gray-400 mb-2">解析度</label>
+              <label className="block text-sm text-gray-500 mb-2">解析度</label>
               <div className="flex gap-2">
                 {[1, 2, 3].map(s => (
                   <button key={s} onClick={() => setScale(s)}
-                    className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all ${scale === s ? 'bg-blue-600' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}>
+                    className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all ${scale === s ? 'bg-blue-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
                     {s}x
                   </button>
                 ))}
@@ -125,23 +125,23 @@ export default function PdfToImagePage() {
           </div>
 
           <button onClick={convert} disabled={processing || !loaded}
-            className="w-full py-3 bg-orange-600 hover:bg-orange-500 disabled:bg-gray-700 rounded-xl font-medium transition-all active:scale-[0.98]">
+            className="w-full py-3 bg-amber-500 hover:bg-amber-400 disabled:bg-gray-300 rounded-xl font-medium transition-all active:scale-[0.98]">
             {!loaded ? '載入中...' : processing ? '轉換中...' : '🖼️ 開始轉換'}
           </button>
 
           {images.length > 0 && (
             <div className="space-y-4 animate-fadeIn">
               <div className="flex items-center justify-between">
-                <p className="text-sm text-gray-400">共 {images.length} 張圖片</p>
-                <button onClick={downloadAll} className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-xl text-sm font-medium transition-all">
+                <p className="text-sm text-gray-500">共 {images.length} 張圖片</p>
+                <button onClick={downloadAll} className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 rounded-xl text-sm font-medium transition-all">
                   📥 全部下載
                 </button>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {images.map((img, i) => (
-                  <div key={i} className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden group cursor-pointer" onClick={() => downloadOne(img, i)}>
+                  <div key={i} className="bg-white border border-gray-200 rounded-xl overflow-hidden group cursor-pointer" onClick={() => downloadOne(img, i)}>
                     <img src={img} alt={`Page ${i + 1}`} className="w-full" />
-                    <div className="p-2 text-center text-xs text-gray-400 group-hover:text-white transition-colors">
+                    <div className="p-2 text-center text-xs text-gray-500 group-hover:text-white transition-colors">
                       第 {i + 1} 頁 — 點擊下載
                     </div>
                   </div>

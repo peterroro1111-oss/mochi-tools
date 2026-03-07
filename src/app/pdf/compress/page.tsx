@@ -42,12 +42,12 @@ export default function CompressPdfPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">🗜️ 壓縮 PDF</h1>
-      <p className="text-gray-400 mb-8">移除多餘資料，縮小 PDF 檔案大小。</p>
+      <p className="text-gray-500 mb-8">移除多餘資料，縮小 PDF 檔案大小。</p>
 
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-700 hover:border-gray-500 rounded-2xl p-12 text-center cursor-pointer bg-gray-900/50 transition-all"
+          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => e.target.files?.[0] && loadFile(e.target.files[0])} />
           <div className="text-4xl mb-3">📄</div>
@@ -55,30 +55,30 @@ export default function CompressPdfPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between">
+          <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-between">
             <div>
               <p className="font-medium">{file.name}</p>
               <p className="text-sm text-gray-500">原始大小：{formatSize(file.size)}</p>
             </div>
-            <button onClick={() => { setFile(null); setResult(null); }} className="text-sm text-gray-400 hover:text-red-400">換檔案</button>
+            <button onClick={() => { setFile(null); setResult(null); }} className="text-sm text-gray-500 hover:text-red-500">換檔案</button>
           </div>
 
           {!result ? (
             <button onClick={compress} disabled={processing}
-              className="w-full py-3 bg-green-600 hover:bg-green-500 disabled:bg-gray-700 rounded-xl font-medium transition-all active:scale-[0.98]">
+              className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-300 rounded-xl font-medium transition-all active:scale-[0.98]">
               {processing ? '壓縮中...' : '🗜️ 開始壓縮'}
             </button>
           ) : (
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center animate-fadeIn">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 text-center animate-fadeIn">
               <div className="text-4xl mb-3">{reduction > 5 ? '✅' : 'ℹ️'}</div>
               <p className="text-lg font-bold mb-1">
                 {reduction > 5 ? `縮小了 ${reduction.toFixed(1)}%` : '此檔案已經很小了'}
               </p>
-              <p className="text-sm text-gray-400 mb-4">
+              <p className="text-sm text-gray-500 mb-4">
                 {formatSize(file.size)} → {formatSize(result.size)}
               </p>
               <a href={result.url} download={`compressed_${file.name}`}
-                className="inline-block px-6 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-xl font-medium transition-all">
+                className="inline-block px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 rounded-xl font-medium transition-all">
                 📥 下載壓縮後的 PDF
               </a>
             </div>

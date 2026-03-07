@@ -44,12 +44,12 @@ export default function RotatePdfPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">🔄 旋轉 PDF</h1>
-      <p className="text-gray-400 mb-8">旋轉 PDF 所有頁面的方向。</p>
+      <p className="text-gray-500 mb-8">旋轉 PDF 所有頁面的方向。</p>
 
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-700 hover:border-gray-500 rounded-2xl p-12 text-center cursor-pointer bg-gray-900/50 transition-all"
+          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => e.target.files?.[0] && loadFile(e.target.files[0])} />
           <div className="text-4xl mb-3">📄</div>
@@ -57,12 +57,12 @@ export default function RotatePdfPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between">
+          <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-between">
             <div>
               <p className="font-medium">{file.name}</p>
               <p className="text-sm text-gray-500">共 {file.pages} 頁</p>
             </div>
-            <button onClick={() => setFile(null)} className="text-sm text-gray-400 hover:text-red-400">換檔案</button>
+            <button onClick={() => setFile(null)} className="text-sm text-gray-500 hover:text-red-500">換檔案</button>
           </div>
 
           <div className="flex gap-3">
@@ -71,7 +71,7 @@ export default function RotatePdfPage() {
                 key={deg}
                 onClick={() => setRotation(deg)}
                 className={`flex-1 py-3 rounded-xl font-medium transition-all ${
-                  rotation === deg ? 'bg-blue-600' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                  rotation === deg ? 'bg-blue-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                 }`}
               >
                 ↻ {deg}°
@@ -82,7 +82,7 @@ export default function RotatePdfPage() {
           <button
             onClick={rotatePdf}
             disabled={processing}
-            className="w-full py-3 bg-pink-600 hover:bg-pink-500 disabled:bg-gray-700 rounded-xl font-medium transition-all active:scale-[0.98]"
+            className="w-full py-3 bg-pink-600 hover:bg-pink-500 disabled:bg-gray-300 rounded-xl font-medium transition-all active:scale-[0.98]"
           >
             {processing ? '旋轉中...' : '🔄 旋轉並下載'}
           </button>

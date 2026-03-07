@@ -69,12 +69,12 @@ export default function SplitPdfPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">✂️ 拆分 PDF</h1>
-      <p className="text-gray-400 mb-8">選擇要保留的頁面，擷取成新的 PDF。</p>
+      <p className="text-gray-500 mb-8">選擇要保留的頁面，擷取成新的 PDF。</p>
 
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-700 hover:border-gray-500 rounded-2xl p-12 text-center cursor-pointer bg-gray-900/50 transition-all"
+          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => e.target.files?.[0] && loadFile(e.target.files[0])} />
           <div className="text-4xl mb-3">📄</div>
@@ -82,21 +82,21 @@ export default function SplitPdfPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between">
+          <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-between">
             <div>
               <p className="font-medium">{file.name}</p>
               <p className="text-sm text-gray-500">共 {file.pages} 頁</p>
             </div>
-            <button onClick={() => setFile(null)} className="text-sm text-gray-400 hover:text-red-400">換檔案</button>
+            <button onClick={() => setFile(null)} className="text-sm text-gray-500 hover:text-red-500">換檔案</button>
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 mb-2">頁碼範圍（例如：1-3,5,7-9）</label>
+            <label className="block text-sm text-gray-500 mb-2">頁碼範圍（例如：1-3,5,7-9）</label>
             <input
               type="text"
               value={range}
               onChange={(e) => setRange(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:border-blue-500 text-white"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 text-white"
               placeholder="1-3,5,7-9"
             />
           </div>
@@ -104,7 +104,7 @@ export default function SplitPdfPage() {
           <button
             onClick={splitPdf}
             disabled={splitting || !range.trim()}
-            className="w-full py-3 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 rounded-xl font-medium transition-all active:scale-[0.98]"
+            className="w-full py-3 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 rounded-xl font-medium transition-all active:scale-[0.98]"
           >
             {splitting ? '拆分中...' : '✂️ 拆分並下載'}
           </button>

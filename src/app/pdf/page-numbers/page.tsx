@@ -58,12 +58,12 @@ export default function PageNumbersPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">🔢 加頁碼</h1>
-      <p className="text-gray-400 mb-8">自動為 PDF 每一頁加上頁碼。</p>
+      <p className="text-gray-500 mb-8">自動為 PDF 每一頁加上頁碼。</p>
 
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-700 hover:border-gray-500 rounded-2xl p-12 text-center cursor-pointer bg-gray-900/50 transition-all"
+          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => e.target.files?.[0] && loadFile(e.target.files[0])} />
           <div className="text-4xl mb-3">📄</div>
@@ -71,23 +71,23 @@ export default function PageNumbersPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between">
+          <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-between">
             <div>
               <p className="font-medium">{file.name}</p>
               <p className="text-sm text-gray-500">共 {file.pages} 頁</p>
             </div>
-            <button onClick={() => setFile(null)} className="text-sm text-gray-400 hover:text-red-400">換檔案</button>
+            <button onClick={() => setFile(null)} className="text-sm text-gray-500 hover:text-red-500">換檔案</button>
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 mb-2">頁碼位置</label>
+            <label className="block text-sm text-gray-500 mb-2">頁碼位置</label>
             <div className="flex gap-3">
               {([['bottom-center', '底部置中'], ['bottom-right', '底部右側'], ['top-center', '頂部置中']] as const).map(([val, label]) => (
                 <button
                   key={val}
                   onClick={() => setPosition(val)}
                   className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                    position === val ? 'bg-blue-600' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                    position === val ? 'bg-blue-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                   }`}
                 >
                   {label}
@@ -99,7 +99,7 @@ export default function PageNumbersPage() {
           <button
             onClick={addPageNumbers}
             disabled={processing}
-            className="w-full py-3 bg-cyan-600 hover:bg-cyan-500 disabled:bg-gray-700 rounded-xl font-medium transition-all active:scale-[0.98]"
+            className="w-full py-3 bg-cyan-600 hover:bg-cyan-500 disabled:bg-gray-300 rounded-xl font-medium transition-all active:scale-[0.98]"
           >
             {processing ? '處理中...' : '🔢 加頁碼並下載'}
           </button>

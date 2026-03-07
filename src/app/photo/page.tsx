@@ -20,15 +20,11 @@ type BgOption = (typeof BG_COLORS)[number];
 
 async function removeBg(imgUrl: string, onProgress: (msg: string) => void): Promise<Blob> {
   onProgress('載入去背模型中（首次約需 30-60 秒）...');
-
-  // Dynamically import from CDN to avoid webpack bundling issues
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @next/next/no-assign-module-variable
-  // @ts-expect-error CDN dynamic import
-  const bgModule = await import(/* webpackIgnore: true */ 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/dist/index.mjs');
-
+  const { removeBackground } = await import('@imgly/background-removal');
   onProgress('正在去除背景...');
-  const blob: Blob = await bgModule.removeBackground(imgUrl, {
-    publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/dist/',
+  const blob: Blob = await removeBackground(imgUrl, {
+    model: 'isnet' as const,
+    output: { format: 'image/png' as const, quality: 1 },
     progress: (key: string, current: number, total: number) => {
       if (total > 0) {
         const pct = Math.round((current / total) * 100);
@@ -38,49 +34,7 @@ async function removeBg(imgUrl: string, onProgress: (msg: string) => void): Prom
       }
     },
   });
-
   return blob;
-}
-
-function renderPhoto(
-  canvas: HTMLCanvasElement,
-  img: HTMLImageElement,
-  size: SizeOption,
-  bg: BgOption
-): string {
-  const ctx = canvas.getContext('2d')!;
-  const { w, h } = size;
-  canvas.width = w;
-  canvas.height = h;
-
-  // Fill background
-  ctx.fillStyle = bg.value;
-  ctx.fillRect(0, 0, w, h);
-
-  // Smart crop: keep head (upper-center)
-  const imgW = img.width;
-  const imgH = img.height;
-  const targetRatio = w / h;
-  const imgRatio = imgW / imgH;
-
-  let sx: number, sy: number, sw: number, sh: number;
-
-  if (imgRatio > targetRatio) {
-    // Image wider than target — crop sides, center horizontally
-    sh = imgH;
-    sw = imgH * targetRatio;
-    sx = (imgW - sw) / 2;
-    sy = 0;
-  } else {
-    // Image taller than target — crop bottom, keep top (head)
-    sw = imgW;
-    sh = imgW / targetRatio;
-    sx = 0;
-    sy = 0;
-  }
-
-  ctx.drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
-  return canvas.toDataURL('image/png');
 }
 
 export default function PhotoPage() {
@@ -92,33 +46,39 @@ export default function PhotoPage() {
   const [bgColor, setBgColor] = useState<BgOption>(BG_COLORS[0]);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const [offsetX, setOffsetX] = useState(0);
+  const [offsetY, setOffsetY] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const dragStart = useRef({ x: 0, y: 0, ox: 0, oy: 0 });
+  const rafId = useRef(0);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const previewContainerRef = useRef<HTMLDivElement>(null);
 
   const handleUpload = async (file: File) => {
     if (!file.type.startsWith('image/')) {
       alert('請上傳圖片檔案');
       return;
     }
-
     const url = URL.createObjectURL(file);
     setOriginalUrl(url);
     setStep('processing');
     setError(null);
-
     try {
       const blob = await removeBg(url, setProgress);
       const blobUrl = URL.createObjectURL(blob);
-
       const img = new Image();
       await new Promise<void>((resolve, reject) => {
         img.onload = () => resolve();
         img.onerror = () => reject(new Error('無法載入去背圖片'));
         img.src = blobUrl;
       });
-
       setRemovedBgImg(img);
+      setZoom(1);
+      setOffsetX(0);
+      setOffsetY(0);
       setStep('edit');
       setProgress('');
     } catch (err) {
@@ -129,16 +89,94 @@ export default function PhotoPage() {
     }
   };
 
-  // Re-render preview when size/bg/image changes
-  const updatePreview = useCallback(() => {
+  const renderPhoto = useCallback(() => {
     if (!removedBgImg || !canvasRef.current) return;
-    const url = renderPhoto(canvasRef.current, removedBgImg, selectedSize, bgColor);
-    setPreviewUrl(url);
-  }, [removedBgImg, selectedSize, bgColor]);
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d')!;
+    const { w, h } = selectedSize;
+    canvas.width = w;
+    canvas.height = h;
+
+    ctx.fillStyle = bgColor.value;
+    ctx.fillRect(0, 0, w, h);
+
+    const img = removedBgImg;
+    const targetRatio = w / h;
+    const imgRatio = img.width / img.height;
+
+    let drawW: number, drawH: number;
+    if (imgRatio > targetRatio) {
+      drawH = h * zoom;
+      drawW = drawH * imgRatio;
+    } else {
+      drawW = w * zoom;
+      drawH = drawW / imgRatio;
+    }
+
+    const drawX = (w - drawW) / 2 + offsetX * w;
+    const drawY = (h - drawH) / 2 + offsetY * h;
+
+    ctx.drawImage(img, drawX, drawY, drawW, drawH);
+    setPreviewUrl(canvas.toDataURL('image/png'));
+  }, [removedBgImg, selectedSize, bgColor, zoom, offsetX, offsetY]);
 
   useEffect(() => {
-    updatePreview();
-  }, [updatePreview]);
+    renderPhoto();
+  }, [renderPhoto]);
+
+  // Immediate canvas render (no state, for drag smoothness)
+  const renderImmediate = useCallback((ox: number, oy: number) => {
+    if (!removedBgImg || !canvasRef.current) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d')!;
+    const { w, h } = selectedSize;
+    canvas.width = w;
+    canvas.height = h;
+    ctx.fillStyle = bgColor.value;
+    ctx.fillRect(0, 0, w, h);
+    const img = removedBgImg;
+    const targetRatio = w / h;
+    const imgRatio = img.width / img.height;
+    let drawW: number, drawH: number;
+    if (imgRatio > targetRatio) {
+      drawH = h * zoom;
+      drawW = drawH * imgRatio;
+    } else {
+      drawW = w * zoom;
+      drawH = drawW / imgRatio;
+    }
+    const drawX = (w - drawW) / 2 + ox * w;
+    const drawY = (h - drawH) / 2 + oy * h;
+    ctx.drawImage(img, drawX, drawY, drawW, drawH);
+    setPreviewUrl(canvas.toDataURL('image/png'));
+  }, [removedBgImg, selectedSize, bgColor, zoom]);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    setDragging(true);
+    dragStart.current = { x: e.clientX, y: e.clientY, ox: offsetX, oy: offsetY };
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragging || !previewContainerRef.current) return;
+    e.preventDefault();
+    const rect = previewContainerRef.current.getBoundingClientRect();
+    const newOx = dragStart.current.ox + (e.clientX - dragStart.current.x) / rect.width;
+    const newOy = dragStart.current.oy + (e.clientY - dragStart.current.y) / rect.height;
+    cancelAnimationFrame(rafId.current);
+    rafId.current = requestAnimationFrame(() => renderImmediate(newOx, newOy));
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (!dragging || !previewContainerRef.current) return;
+    setDragging(false);
+    const rect = previewContainerRef.current.getBoundingClientRect();
+    const dx = (e.clientX - dragStart.current.x) / rect.width;
+    const dy = (e.clientY - dragStart.current.y) / rect.height;
+    setOffsetX(dragStart.current.ox + dx);
+    setOffsetY(dragStart.current.oy + dy);
+  };
 
   const downloadPhoto = () => {
     if (!previewUrl) return;
@@ -155,26 +193,28 @@ export default function PhotoPage() {
     setPreviewUrl(null);
     setStep('upload');
     setError(null);
+    setZoom(1);
+    setOffsetX(0);
+    setOffsetY(0);
   };
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">📸 AI 證件照</h1>
-      <p className="text-gray-400 mb-8">
+      <p className="text-gray-500 mb-8">
         上傳照片，自動去背並生成標準證件照。所有處理在瀏覽器完成，不上傳伺服器。
       </p>
 
-      {/* Upload */}
       {step === 'upload' && (
         <>
           {error && (
-            <div className="mb-4 p-3 bg-red-900/30 border border-red-700 rounded-xl text-red-300 text-sm">
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-500 text-sm">
               {error}
             </div>
           )}
           <div
             onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-gray-700 hover:border-gray-500 rounded-2xl p-12 text-center cursor-pointer transition-all bg-gray-900/50"
+            className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer transition-all bg-white/80"
           >
             <input
               ref={fileInputRef}
@@ -190,21 +230,19 @@ export default function PhotoPage() {
         </>
       )}
 
-      {/* Processing */}
       {step === 'processing' && (
         <div className="mt-8 text-center py-16">
           <div className="inline-block mb-4">
-            <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
           </div>
           <p className="text-gray-300 text-lg">{progress || '處理中...'}</p>
           <p className="text-gray-500 text-sm mt-2">首次使用需下載 AI 模型，請耐心等候</p>
         </div>
       )}
 
-      {/* Edit */}
       {step === 'edit' && (
         <div className="space-y-6">
-          {/* Size Selection */}
+          {/* Size */}
           <div>
             <label className="text-sm font-medium text-gray-300 mb-2 block">照片尺寸</label>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -214,8 +252,8 @@ export default function PhotoPage() {
                   onClick={() => setSelectedSize(size)}
                   className={`px-3 py-2.5 rounded-xl text-sm border transition-all ${
                     selectedSize.id === size.id
-                      ? 'border-blue-500 bg-blue-500/20 text-blue-300'
-                      : 'border-gray-700 hover:border-gray-500 text-gray-400'
+                      ? 'border-emerald-500 bg-emerald-50 text-emerald-600'
+                      : 'border-gray-300 hover:border-emerald-400 text-gray-500'
                   }`}
                 >
                   <div className="font-medium">{size.label}</div>
@@ -225,7 +263,7 @@ export default function PhotoPage() {
             </div>
           </div>
 
-          {/* Background Color */}
+          {/* Background */}
           <div>
             <label className="text-sm font-medium text-gray-300 mb-2 block">背景顏色</label>
             <div className="flex gap-3">
@@ -235,28 +273,50 @@ export default function PhotoPage() {
                   onClick={() => setBgColor(color)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border transition-all ${
                     bgColor.id === color.id
-                      ? 'border-blue-500 bg-blue-500/20'
-                      : 'border-gray-700 hover:border-gray-500'
+                      ? 'border-emerald-500 bg-emerald-50'
+                      : 'border-gray-300 hover:border-emerald-400'
                   }`}
                 >
-                  <div
-                    className="w-5 h-5 rounded-full border border-gray-600"
-                    style={{ backgroundColor: color.value }}
-                  />
+                  <div className="w-5 h-5 rounded-full border border-gray-600" style={{ backgroundColor: color.value }} />
                   <span className="text-sm">{color.label}</span>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Preview */}
+          {/* Zoom */}
+          <div>
+            <label className="text-sm font-medium text-gray-300 mb-2 block">
+              縮放 {Math.round(zoom * 100)}%
+            </label>
+            <input
+              type="range" min="0.5" max="2" step="0.05" value={zoom}
+              onChange={(e) => setZoom(Number(e.target.value))}
+              className="w-full accent-emerald-500"
+            />
+            <div className="flex justify-between text-xs text-gray-500 mt-1">
+              <span>縮小</span>
+              <span>放大</span>
+            </div>
+          </div>
+
+          {/* Preview — draggable with CSS transform for smooth touch */}
           <div className="flex flex-col items-center gap-4">
-            <div className="border border-gray-700 rounded-xl overflow-hidden bg-gray-900 p-4 inline-block">
+            <div
+              ref={previewContainerRef}
+              className="border border-gray-300 rounded-xl overflow-hidden bg-white p-4 inline-block select-none touch-none"
+              style={{ cursor: dragging ? 'grabbing' : 'grab' }}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerUp}
+            >
               {previewUrl && (
                 <img
                   src={previewUrl}
                   alt="證件照預覽"
-                  className="rounded"
+                  className="rounded pointer-events-none"
+                  draggable={false}
                   style={{
                     width: selectedSize.w > selectedSize.h ? 300 : 200,
                     height: 'auto',
@@ -266,21 +326,29 @@ export default function PhotoPage() {
               )}
             </div>
             <p className="text-xs text-gray-500">
-              輸出尺寸：{selectedSize.w} × {selectedSize.h} px（{selectedSize.desc}，300 DPI）
+              👆 拖曳照片調整位置 · 輸出：{selectedSize.w} × {selectedSize.h} px（{selectedSize.desc}）
             </p>
+            {(offsetX !== 0 || offsetY !== 0) && (
+              <button
+                onClick={() => { setOffsetX(0); setOffsetY(0); }}
+                className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+              >
+                重置位置
+              </button>
+            )}
           </div>
 
           {/* Actions */}
           <div className="flex gap-3 justify-center pt-2">
             <button
               onClick={downloadPhoto}
-              className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-xl font-medium transition-all active:scale-95"
+              className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 rounded-xl font-medium transition-all active:scale-95"
             >
               📥 下載證件照
             </button>
             <button
               onClick={reset}
-              className="px-6 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-xl font-medium transition-all active:scale-95"
+              className="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 rounded-xl font-medium transition-all active:scale-95"
             >
               🔄 重新上傳
             </button>

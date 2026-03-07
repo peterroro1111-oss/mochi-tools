@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Body -->
+  <ellipse cx="100" cy="140" rx="55" ry="45" fill="#f5f5f5" stroke="#333" stroke-width="3"/>
+  <!-- Head -->
+  <circle cx="100" cy="80" r="50" fill="white" stroke="#333" stroke-width="3"/>
+  <!-- Ears -->
+  <circle cx="60" cy="40" r="18" fill="#333"/>
+  <circle cx="140" cy="40" r="18" fill="#333"/>
+  <circle cx="60" cy="40" r="10" fill="#555"/>
+  <circle cx="140" cy="40" r="10" fill="#555"/>
+  <!-- Eye patches -->
+  <ellipse cx="78" cy="78" rx="18" ry="16" fill="#333" transform="rotate(-10 78 78)"/>
+  <ellipse cx="122" cy="78" rx="18" ry="16" fill="#333" transform="rotate(10 122 78)"/>
+  <!-- Eyes (sparkly) -->
+  <circle cx="78" cy="78" r="8" fill="white"/>
+  <circle cx="122" cy="78" r="8" fill="white"/>
+  <circle cx="80" cy="76" r="4.5" fill="#333"/>
+  <circle cx="124" cy="76" r="4.5" fill="#333"/>
+  <!-- Eye sparkle -->
+  <circle cx="82" cy="74" r="1.8" fill="white"/>
+  <circle cx="126" cy="74" r="1.8" fill="white"/>
+  <!-- Nose -->
+  <ellipse cx="100" cy="92" rx="5" ry="3.5" fill="#333"/>
+  <!-- Mouth (smile) -->
+  <path d="M92 96 Q100 104 108 96" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <ellipse cx="68" cy="94" rx="8" ry="5" fill="#ffb3b3" opacity="0.6"/>
+  <ellipse cx="132" cy="94" rx="8" ry="5" fill="#ffb3b3" opacity="0.6"/>
+  <!-- Arms -->
+  <ellipse cx="55" cy="135" rx="18" ry="12" fill="#333" transform="rotate(-20 55 135)"/>
+  <ellipse cx="145" cy="135" rx="18" ry="12" fill="#333" transform="rotate(20 145 135)"/>
+  <!-- Feet -->
+  <ellipse cx="78" cy="175" rx="16" ry="10" fill="#333"/>
+  <ellipse cx="122" cy="175" rx="16" ry="10" fill="#333"/>
+  <!-- Paw pads -->
+  <ellipse cx="78" cy="177" rx="5" ry="3" fill="#555"/>
+  <ellipse cx="122" cy="177" rx="5" ry="3" fill="#555"/>
+  <!-- Holding a wrench -->
+  <g transform="translate(140, 115) rotate(30)">
+    <rect x="-3" y="-25" width="6" height="30" rx="2" fill="#888"/>
+    <circle cx="0" cy="-28" r="8" fill="none" stroke="#888" stroke-width="5"/>
+  </g>
+</svg>
