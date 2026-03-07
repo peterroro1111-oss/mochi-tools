@@ -74,7 +74,7 @@ export default function SplitPdfPage() {
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
+          className="border-2 border-dashed border-pink-200 hover:border-pink-400 rounded-2xl p-12 text-center cursor-pointer bg-white transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => e.target.files?.[0] && loadFile(e.target.files[0])} />
           <div className="text-4xl mb-3">📄</div>
@@ -96,7 +96,7 @@ export default function SplitPdfPage() {
               type="text"
               value={range}
               onChange={(e) => setRange(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 text-white"
+              className="w-full px-4 py-3 bg-white border border-pink-200 rounded-xl focus:outline-none focus:border-blue-500 text-white"
               placeholder="1-3,5,7-9"
             />
           </div>

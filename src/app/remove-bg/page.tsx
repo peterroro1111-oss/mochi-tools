@@ -16,7 +16,6 @@ export default function RemoveBgPage() {
       alert('請上傳圖片檔案');
       return;
     }
-
     const url = URL.createObjectURL(file);
     setOriginalUrl(url);
     setStep('processing');
@@ -27,7 +26,6 @@ export default function RemoveBgPage() {
     try {
       setProgress('載入去背模型中（首次約需 30-60 秒）...');
       const { removeBackground } = await import('@imgly/background-removal');
-
       setProgress('正在去除背景...');
       const blob: Blob = await removeBackground(url, {
         model: 'isnet' as const,
@@ -41,9 +39,7 @@ export default function RemoveBgPage() {
           }
         },
       });
-
-      const blobUrl = URL.createObjectURL(blob);
-      setResultUrl(blobUrl);
+      setResultUrl(URL.createObjectURL(blob));
       setStep('done');
     } catch (err) {
       console.error(err);
@@ -73,22 +69,24 @@ export default function RemoveBgPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">🎨 AI 去背</h1>
-      <p className="text-gray-500 mb-8">
-        一鍵移除圖片背景，輸出透明 PNG。所有處理在瀏覽器完成，不上傳伺服器。
-      </p>
+    <div className="max-w-3xl mx-auto px-4 py-10 md:py-12">
+      <div className="mb-8">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2">🎨 AI 去背</h1>
+        <p className="text-sm md:text-base text-[#b89b8a]">
+          一鍵移除圖片背景，輸出透明 PNG。所有處理在瀏覽器完成 🔒
+        </p>
+      </div>
 
       {step === 'upload' && (
         <>
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-500 text-sm">
+            <div className="mb-4 p-4 bg-red-50 border-2 border-red-200 rounded-2xl text-red-500 text-sm">
               {error}
             </div>
           )}
           <div
             onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer transition-all bg-white/80"
+            className="upload-zone"
           >
             <input
               ref={fileInputRef}
@@ -97,20 +95,20 @@ export default function RemoveBgPage() {
               className="hidden"
               onChange={(e) => e.target.files?.[0] && handleUpload(e.target.files[0])}
             />
-            <div className="text-4xl mb-3">🖼️</div>
-            <p className="font-medium">點擊上傳圖片</p>
-            <p className="text-sm text-gray-500 mt-1">支援 JPG、PNG、WebP</p>
+            <div className="text-5xl mb-4">🖼️</div>
+            <p className="font-bold text-gray-700 text-lg">點擊上傳圖片</p>
+            <p className="text-sm text-[#b89b8a] mt-2">支援 JPG、PNG、WebP</p>
           </div>
         </>
       )}
 
       {step === 'processing' && (
-        <div className="mt-8 text-center py-16">
+        <div className="mt-8 text-center py-16 bg-white rounded-3xl border-2 border-pink-100">
           <div className="inline-block mb-4">
-            <div className="w-12 h-12 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-14 h-14 border-4 border-pink-400 border-t-transparent rounded-full animate-spin" />
           </div>
-          <p className="text-gray-300 text-lg">{progress || '處理中...'}</p>
-          <p className="text-gray-500 text-sm mt-2">首次使用需下載 AI 模型，請耐心等候</p>
+          <p className="text-gray-600 text-lg font-medium">{progress || '處理中...'}</p>
+          <p className="text-sm text-[#b89b8a] mt-2">首次使用需下載 AI 模型，請耐心等候 🍡</p>
         </div>
       )}
 
@@ -119,43 +117,37 @@ export default function RemoveBgPage() {
           <div className="flex justify-center">
             <button
               onClick={() => setCompare(!compare)}
-              className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-xl text-sm font-medium transition-all"
+              className="btn-secondary text-sm"
             >
               {compare ? '🔙 查看去背結果' : '🔄 對比原圖'}
             </button>
           </div>
 
           <div className="flex justify-center">
-            <div className="border border-gray-300 rounded-xl overflow-hidden bg-white p-4 inline-block">
+            <div className="bg-white border-2 border-pink-100 rounded-2xl overflow-hidden p-4 inline-block">
               <div
-                className="rounded"
+                className="rounded-xl overflow-hidden"
                 style={{
                   backgroundImage: compare
                     ? 'none'
-                    : 'repeating-conic-gradient(#303030 0% 25%, #404040 0% 50%)',
+                    : 'repeating-conic-gradient(#f0f0f0 0% 25%, #fff 0% 50%)',
                   backgroundSize: '16px 16px',
                 }}
               >
                 <img
                   src={compare ? originalUrl! : resultUrl}
                   alt={compare ? '原圖' : '去背結果'}
-                  className="rounded max-h-[500px] max-w-full object-contain"
+                  className="rounded-xl max-h-[400px] md:max-h-[500px] max-w-full object-contain"
                 />
               </div>
             </div>
           </div>
 
-          <div className="flex gap-3 justify-center pt-2">
-            <button
-              onClick={download}
-              className="px-6 py-2.5 bg-violet-500 hover:bg-violet-400 rounded-xl font-medium transition-all active:scale-95"
-            >
+          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+            <button onClick={download} className="btn-mochi">
               📥 下載透明 PNG
             </button>
-            <button
-              onClick={reset}
-              className="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 rounded-xl font-medium transition-all active:scale-95"
-            >
+            <button onClick={reset} className="btn-secondary">
               🔄 處理另一張
             </button>
           </div>

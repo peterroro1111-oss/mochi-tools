@@ -47,7 +47,7 @@ export default function CompressPdfPage() {
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
+          className="border-2 border-dashed border-pink-200 hover:border-pink-400 rounded-2xl p-12 text-center cursor-pointer bg-white transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => e.target.files?.[0] && loadFile(e.target.files[0])} />
           <div className="text-4xl mb-3">📄</div>
@@ -65,7 +65,7 @@ export default function CompressPdfPage() {
 
           {!result ? (
             <button onClick={compress} disabled={processing}
-              className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-300 rounded-xl font-medium transition-all active:scale-[0.98]">
+              className="w-full py-3 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white disabled:bg-gray-300 rounded-xl font-medium transition-all active:scale-[0.98]">
               {processing ? '壓縮中...' : '🗜️ 開始壓縮'}
             </button>
           ) : (
@@ -78,7 +78,7 @@ export default function CompressPdfPage() {
                 {formatSize(file.size)} → {formatSize(result.size)}
               </p>
               <a href={result.url} download={`compressed_${file.name}`}
-                className="inline-block px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 rounded-xl font-medium transition-all">
+                className="inline-block px-6 py-2.5 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white rounded-xl font-medium transition-all">
                 📥 下載壓縮後的 PDF
               </a>
             </div>

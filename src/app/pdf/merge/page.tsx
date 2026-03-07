@@ -86,7 +86,7 @@ export default function MergePdfPage() {
         onDrop={onDrop}
         onClick={() => document.getElementById('file-input')?.click()}
         className={`border-2 border-dashed rounded-2xl p-12 text-center transition-all cursor-pointer
-          ${isDragging ? 'border-blue-400 bg-blue-400/10' : 'border-gray-300 hover:border-emerald-400 bg-white/80'}`}
+          ${isDragging ? 'border-blue-400 bg-blue-400/10' : 'border-pink-200 hover:border-pink-400 bg-white'}`}
       >
         <input
           id="file-input"
@@ -125,7 +125,7 @@ export default function MergePdfPage() {
             <button
               onClick={mergePdfs}
               disabled={files.length < 2 || merging}
-              className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-300 disabled:text-gray-500 rounded-xl font-medium transition-all active:scale-95"
+              className="px-6 py-2.5 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white disabled:bg-gray-300 disabled:text-gray-500 rounded-xl font-medium transition-all active:scale-95"
             >
               {merging ? '合併中...' : '📑 合併並下載'}
             </button>

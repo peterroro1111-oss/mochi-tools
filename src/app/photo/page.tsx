@@ -3,10 +3,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
 const SIZES = [
-  { id: '2inch', label: '2吋 (身分證/駕照)', w: 413, h: 531, desc: '35×45mm' },
+  { id: '2inch', label: '2吋', w: 413, h: 531, desc: '35×45mm' },
   { id: '1inch', label: '1吋', w: 295, h: 354, desc: '25×30mm' },
   { id: 'passport', label: '護照', w: 413, h: 531, desc: '35×45mm' },
-  { id: 'visa', label: '美簽 (51×51mm)', w: 600, h: 600, desc: '51×51mm' },
+  { id: 'visa', label: '美簽', w: 600, h: 600, desc: '51×51mm' },
 ] as const;
 
 const BG_COLORS = [
@@ -96,14 +96,11 @@ export default function PhotoPage() {
     const { w, h } = selectedSize;
     canvas.width = w;
     canvas.height = h;
-
     ctx.fillStyle = bgColor.value;
     ctx.fillRect(0, 0, w, h);
-
     const img = removedBgImg;
     const targetRatio = w / h;
     const imgRatio = img.width / img.height;
-
     let drawW: number, drawH: number;
     if (imgRatio > targetRatio) {
       drawH = h * zoom;
@@ -112,10 +109,8 @@ export default function PhotoPage() {
       drawW = w * zoom;
       drawH = drawW / imgRatio;
     }
-
     const drawX = (w - drawW) / 2 + offsetX * w;
     const drawY = (h - drawH) / 2 + offsetY * h;
-
     ctx.drawImage(img, drawX, drawY, drawW, drawH);
     setPreviewUrl(canvas.toDataURL('image/png'));
   }, [removedBgImg, selectedSize, bgColor, zoom, offsetX, offsetY]);
@@ -124,7 +119,6 @@ export default function PhotoPage() {
     renderPhoto();
   }, [renderPhoto]);
 
-  // Immediate canvas render (no state, for drag smoothness)
   const renderImmediate = useCallback((ox: number, oy: number) => {
     if (!removedBgImg || !canvasRef.current) return;
     const canvas = canvasRef.current;
@@ -199,22 +193,24 @@ export default function PhotoPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">📸 AI 證件照</h1>
-      <p className="text-gray-500 mb-8">
-        上傳照片，自動去背並生成標準證件照。所有處理在瀏覽器完成，不上傳伺服器。
-      </p>
+    <div className="max-w-3xl mx-auto px-4 py-10 md:py-12">
+      <div className="mb-8">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2">📸 AI 證件照</h1>
+        <p className="text-sm md:text-base text-[#b89b8a]">
+          上傳照片，自動去背並生成標準證件照。所有處理在瀏覽器完成 🔒
+        </p>
+      </div>
 
       {step === 'upload' && (
         <>
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-500 text-sm">
+            <div className="mb-4 p-4 bg-red-50 border-2 border-red-200 rounded-2xl text-red-500 text-sm">
               {error}
             </div>
           )}
           <div
             onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer transition-all bg-white/80"
+            className="upload-zone"
           >
             <input
               ref={fileInputRef}
@@ -223,20 +219,20 @@ export default function PhotoPage() {
               className="hidden"
               onChange={(e) => e.target.files?.[0] && handleUpload(e.target.files[0])}
             />
-            <div className="text-4xl mb-3">📷</div>
-            <p className="font-medium">點擊上傳照片</p>
-            <p className="text-sm text-gray-500 mt-1">建議使用正面免冠照片，效果最佳</p>
+            <div className="text-5xl mb-4">📷</div>
+            <p className="font-bold text-gray-700 text-lg">點擊上傳照片</p>
+            <p className="text-sm text-[#b89b8a] mt-2">建議使用正面免冠照片，效果最佳</p>
           </div>
         </>
       )}
 
       {step === 'processing' && (
-        <div className="mt-8 text-center py-16">
+        <div className="mt-8 text-center py-16 bg-white rounded-3xl border-2 border-pink-100">
           <div className="inline-block mb-4">
-            <div className="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-14 h-14 border-4 border-pink-400 border-t-transparent rounded-full animate-spin" />
           </div>
-          <p className="text-gray-300 text-lg">{progress || '處理中...'}</p>
-          <p className="text-gray-500 text-sm mt-2">首次使用需下載 AI 模型，請耐心等候</p>
+          <p className="text-gray-600 text-lg font-medium">{progress || '處理中...'}</p>
+          <p className="text-sm text-[#b89b8a] mt-2">首次使用需下載 AI 模型，請耐心等候 🍡</p>
         </div>
       )}
 
@@ -244,19 +240,15 @@ export default function PhotoPage() {
         <div className="space-y-6">
           {/* Size */}
           <div>
-            <label className="text-sm font-medium text-gray-300 mb-2 block">照片尺寸</label>
+            <label className="text-sm font-bold text-gray-600 mb-3 block">照片尺寸</label>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
               {SIZES.map((size) => (
                 <button
                   key={size.id}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-3 py-2.5 rounded-xl text-sm border transition-all ${
-                    selectedSize.id === size.id
-                      ? 'border-emerald-500 bg-emerald-50 text-emerald-600'
-                      : 'border-gray-300 hover:border-emerald-400 text-gray-500'
-                  }`}
+                  className={`select-btn ${selectedSize.id === size.id ? 'active' : ''}`}
                 >
-                  <div className="font-medium">{size.label}</div>
+                  <div className="font-bold">{size.label}</div>
                   <div className="text-xs opacity-60">{size.desc}</div>
                 </button>
               ))}
@@ -265,20 +257,19 @@ export default function PhotoPage() {
 
           {/* Background */}
           <div>
-            <label className="text-sm font-medium text-gray-300 mb-2 block">背景顏色</label>
+            <label className="text-sm font-bold text-gray-600 mb-3 block">背景顏色</label>
             <div className="flex gap-3">
               {BG_COLORS.map((color) => (
                 <button
                   key={color.id}
                   onClick={() => setBgColor(color)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border transition-all ${
-                    bgColor.id === color.id
-                      ? 'border-emerald-500 bg-emerald-50'
-                      : 'border-gray-300 hover:border-emerald-400'
-                  }`}
+                  className={`select-btn flex items-center gap-2 ${bgColor.id === color.id ? 'active' : ''}`}
                 >
-                  <div className="w-5 h-5 rounded-full border border-gray-600" style={{ backgroundColor: color.value }} />
-                  <span className="text-sm">{color.label}</span>
+                  <div
+                    className="w-5 h-5 rounded-full border-2"
+                    style={{ backgroundColor: color.value, borderColor: color.value === '#ffffff' ? '#e0e0e0' : color.value }}
+                  />
+                  <span>{color.label}</span>
                 </button>
               ))}
             </div>
@@ -286,25 +277,25 @@ export default function PhotoPage() {
 
           {/* Zoom */}
           <div>
-            <label className="text-sm font-medium text-gray-300 mb-2 block">
+            <label className="text-sm font-bold text-gray-600 mb-3 block">
               縮放 {Math.round(zoom * 100)}%
             </label>
             <input
               type="range" min="0.5" max="2" step="0.05" value={zoom}
               onChange={(e) => setZoom(Number(e.target.value))}
-              className="w-full accent-emerald-500"
+              className="w-full accent-pink-400"
             />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <div className="flex justify-between text-xs text-[#b89b8a] mt-1">
               <span>縮小</span>
               <span>放大</span>
             </div>
           </div>
 
-          {/* Preview — draggable with CSS transform for smooth touch */}
+          {/* Preview */}
           <div className="flex flex-col items-center gap-4">
             <div
               ref={previewContainerRef}
-              className="border border-gray-300 rounded-xl overflow-hidden bg-white p-4 inline-block select-none touch-none"
+              className="bg-white border-2 border-pink-100 rounded-2xl overflow-hidden p-4 inline-block select-none touch-none"
               style={{ cursor: dragging ? 'grabbing' : 'grab' }}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
@@ -315,23 +306,24 @@ export default function PhotoPage() {
                 <img
                   src={previewUrl}
                   alt="證件照預覽"
-                  className="rounded pointer-events-none"
+                  className="rounded-xl pointer-events-none"
                   draggable={false}
                   style={{
-                    width: selectedSize.w > selectedSize.h ? 300 : 200,
+                    width: selectedSize.w > selectedSize.h ? 280 : 200,
+                    maxWidth: '70vw',
                     height: 'auto',
                     aspectRatio: `${selectedSize.w}/${selectedSize.h}`,
                   }}
                 />
               )}
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-[#b89b8a]">
               👆 拖曳照片調整位置 · 輸出：{selectedSize.w} × {selectedSize.h} px（{selectedSize.desc}）
             </p>
             {(offsetX !== 0 || offsetY !== 0) && (
               <button
                 onClick={() => { setOffsetX(0); setOffsetY(0); }}
-                className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+                className="text-xs text-pink-400 hover:text-pink-500 transition-colors"
               >
                 重置位置
               </button>
@@ -339,17 +331,11 @@ export default function PhotoPage() {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-3 justify-center pt-2">
-            <button
-              onClick={downloadPhoto}
-              className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 rounded-xl font-medium transition-all active:scale-95"
-            >
+          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+            <button onClick={downloadPhoto} className="btn-mochi">
               📥 下載證件照
             </button>
-            <button
-              onClick={reset}
-              className="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 rounded-xl font-medium transition-all active:scale-95"
-            >
+            <button onClick={reset} className="btn-secondary">
               🔄 重新上傳
             </button>
           </div>

@@ -2,15 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --mochi-pink: #f8a4b8;
+  --mochi-pink-light: #fde4eb;
+  --mochi-pink-dark: #e8849a;
+  --mochi-brown: #8b6f5e;
+  --mochi-brown-light: #b89b8a;
+  --mochi-cream: #fef9f4;
+  --mochi-blush: #fff0f3;
+}
+
 body {
-  @apply bg-[#faf9f6] text-gray-800;
+  @apply text-gray-700;
+  background: var(--mochi-cream);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-wiggle:hover {
+  animation: wiggle 0.4s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--mochi-pink); border-radius: 3px; }
+
+/* Tool card hover */
+.tool-card {
+  @apply bg-white rounded-2xl border-2 border-pink-100 p-6 transition-all duration-300;
+}
+.tool-card:hover {
+  @apply border-pink-300 shadow-lg -translate-y-1;
+  box-shadow: 0 8px 30px rgba(248, 164, 184, 0.15);
+}
+
+/* Mochi button */
+.btn-mochi {
+  @apply px-6 py-3 rounded-2xl font-bold transition-all duration-200 active:scale-95;
+  background: linear-gradient(135deg, #f8a4b8, #f48fb1);
+  color: white;
+  box-shadow: 0 4px 15px rgba(248, 164, 184, 0.3);
+}
+.btn-mochi:hover {
+  background: linear-gradient(135deg, #f48fb1, #ec6d8e);
+  box-shadow: 0 6px 20px rgba(248, 164, 184, 0.4);
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-2xl font-bold transition-all duration-200 active:scale-95;
+  background: white;
+  color: #8b6f5e;
+  border: 2px solid #f0e0d6;
+}
+.btn-secondary:hover {
+  border-color: #f8a4b8;
+  background: #fff0f3;
+}
+
+/* Upload zone */
+.upload-zone {
+  @apply border-2 border-dashed rounded-3xl p-10 text-center cursor-pointer transition-all duration-300;
+  border-color: #f0d4dc;
+  background: white;
+}
+.upload-zone:hover {
+  border-color: var(--mochi-pink);
+  background: var(--mochi-blush);
+  transform: scale(1.01);
+}
+
+/* Selection button */
+.select-btn {
+  @apply px-4 py-2.5 rounded-xl text-sm border-2 transition-all duration-200;
+  border-color: #f0e0d6;
+  color: #8b6f5e;
+}
+.select-btn:hover {
+  border-color: var(--mochi-pink);
+  background: var(--mochi-blush);
+}
+.select-btn.active {
+  border-color: var(--mochi-pink);
+  background: var(--mochi-pink-light);
+  color: #c2185b;
 }

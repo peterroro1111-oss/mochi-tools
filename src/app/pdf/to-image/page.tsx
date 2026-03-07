@@ -86,7 +86,7 @@ export default function PdfToImagePage() {
       {!file ? (
         <div
           onClick={() => document.getElementById('file-input')?.click()}
-          className="border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 text-center cursor-pointer bg-white/80 transition-all"
+          className="border-2 border-dashed border-pink-200 hover:border-pink-400 rounded-2xl p-12 text-center cursor-pointer bg-white transition-all"
         >
           <input id="file-input" type="file" accept=".pdf" className="hidden" onChange={(e) => { setFile(e.target.files?.[0] || null); setImages([]); }} />
           <div className="text-4xl mb-3">📄</div>
@@ -133,7 +133,7 @@ export default function PdfToImagePage() {
             <div className="space-y-4 animate-fadeIn">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-gray-500">共 {images.length} 張圖片</p>
-                <button onClick={downloadAll} className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 rounded-xl text-sm font-medium transition-all">
+                <button onClick={downloadAll} className="px-4 py-2 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white rounded-xl text-sm font-medium transition-all">
                   📥 全部下載
                 </button>
               </div>
