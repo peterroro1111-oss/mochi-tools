@@ -24,29 +24,74 @@
     "whyTitle": "Why Mochi Tools?",
     "whySubtitle": "Simple and handy tools, soft like mochi 🍡",
     "categories": {
-      "pdf": { "name": "PDF Tools", "desc": "Merge, split, rotate, compress, add page numbers, convert to images" },
-      "image": { "name": "Image Tools", "desc": "Image compression, PNG/JPG/WebP format conversion" },
-      "removeBg": { "name": "AI Remove BG", "desc": "One-click background removal, essential for e-commerce & design" },
-      "photo": { "name": "AI ID Photo", "desc": "Upload a selfie, automatically generate a standard ID photo" },
-      "utility": { "name": "Utility Tools", "desc": "QR Code generator and other handy tools" }
+      "pdf": {
+        "name": "PDF Tools",
+        "desc": "Merge, split, rotate, compress, add page numbers, convert to images"
+      },
+      "image": {
+        "name": "Image Tools",
+        "desc": "Image compression, PNG/JPG/WebP format conversion"
+      },
+      "removeBg": {
+        "name": "AI Remove BG",
+        "desc": "One-click background removal, essential for e-commerce & design"
+      },
+      "photo": {
+        "name": "AI ID Photo",
+        "desc": "Upload a selfie, automatically generate a standard ID photo"
+      },
+      "utility": {
+        "name": "Utility Tools",
+        "desc": "QR Code generator and other handy tools"
+      }
     },
     "features": {
-      "privacy": { "title": "Privacy First", "desc": "Files are processed locally in your browser, never uploaded to servers" },
-      "speed": { "title": "Lightning Fast", "desc": "Pure frontend processing, no waiting for server responses" },
-      "free": { "title": "Completely Free", "desc": "All tools are free to use, no registration required" },
-      "mobile": { "title": "Mobile Friendly", "desc": "Perfectly supports phones and tablets, use anywhere anytime" }
+      "privacy": {
+        "title": "Privacy First",
+        "desc": "Files are processed locally in your browser, never uploaded to servers"
+      },
+      "speed": {
+        "title": "Lightning Fast",
+        "desc": "Pure frontend processing, no waiting for server responses"
+      },
+      "free": {
+        "title": "Completely Free",
+        "desc": "All tools are free to use, no registration required"
+      },
+      "mobile": {
+        "title": "Mobile Friendly",
+        "desc": "Perfectly supports phones and tablets, use anywhere anytime"
+      }
     }
   },
   "pdfIndex": {
     "title": "📄 PDF Tools",
     "subtitle": "All PDF tools process locally in your browser — files are never uploaded to servers 🔒",
     "tools": {
-      "merge": { "name": "📑 Merge PDF", "desc": "Combine multiple PDFs into one" },
-      "split": { "name": "✂️ Split PDF", "desc": "Extract specific pages" },
-      "rotate": { "name": "🔄 Rotate PDF", "desc": "Rotate page orientation" },
-      "pageNumbers": { "name": "🔢 Add Page Numbers", "desc": "Auto-add page numbers" },
-      "compress": { "name": "🗜️ Compress PDF", "desc": "Reduce file size" },
-      "toImage": { "name": "🖼️ PDF to Image", "desc": "Convert to JPG/PNG" }
+      "merge": {
+        "name": "📑 Merge PDF",
+        "desc": "Combine multiple PDFs into one"
+      },
+      "split": {
+        "name": "✂️ Split PDF",
+        "desc": "Extract specific pages"
+      },
+      "rotate": {
+        "name": "🔄 Rotate PDF",
+        "desc": "Rotate page orientation"
+      },
+      "pageNumbers": {
+        "name": "🔢 Add Page Numbers",
+        "desc": "Auto-add page numbers"
+      },
+      "compress": {
+        "name": "🗜️ Compress PDF",
+        "desc": "Reduce file size"
+      },
+      "toImage": {
+        "name": "🖼️ PDF to Image",
+        "desc": "Convert to JPG/PNG"
+      }
     }
   },
   "pdfMerge": {
@@ -165,9 +210,18 @@
     "title": "Image Tools",
     "subtitle": "Compress, convert — all free, no server uploads 🔒",
     "tools": {
-      "compress": { "name": "🗜️ Image Compression", "desc": "Compress JPG, PNG, WebP to significantly reduce file size" },
-      "convert": { "name": "🔄 Format Conversion", "desc": "Convert between PNG, JPG, WebP — 6 combinations" },
-      "watermark": { "name": "💧 Image Watermark", "desc": "Add text watermark to protect your images" }
+      "compress": {
+        "name": "🗜️ Image Compression",
+        "desc": "Compress JPG, PNG, WebP to significantly reduce file size"
+      },
+      "convert": {
+        "name": "🔄 Format Conversion",
+        "desc": "Convert between PNG, JPG, WebP — 6 combinations"
+      },
+      "watermark": {
+        "name": "💧 Image Watermark",
+        "desc": "Add text watermark to protect your images"
+      }
     }
   },
   "imageCompress": {
@@ -179,9 +233,18 @@
     "subtitle": "Supports JPG, PNG, WebP — batch compress multiple images 🔒",
     "qualityLabel": "Compression level",
     "presets": {
-      "light": { "label": "🌟 Light", "desc": "Nearly lossless quality" },
-      "recommended": { "label": "👍 Recommended", "desc": "Balance of quality & size" },
-      "maximum": { "label": "🗜️ Smallest File", "desc": "Maximum compression" }
+      "light": {
+        "label": "🌟 Light",
+        "desc": "Nearly lossless quality"
+      },
+      "recommended": {
+        "label": "👍 Recommended",
+        "desc": "Balance of quality & size"
+      },
+      "maximum": {
+        "label": "🗜️ Smallest File",
+        "desc": "Maximum compression"
+      }
     },
     "dropzone": "Drop images here",
     "dropzoneProcessing": "Compressing...",
@@ -265,7 +328,8 @@
     "altResult": "Background removed",
     "downloadPng": "📥 Download Transparent PNG",
     "processAnother": "🔄 Process Another",
-    "error": "Background removal failed. Please try another photo or check your connection."
+    "error": "Background removal failed. Please try another photo or check your connection.",
+    "mobileHint": "📱 Mobile note: AI background removal requires downloading a large AI model (~40MB) and may fail on mobile due to memory limits. For best results, please use a desktop browser."
   },
   "photo": {
     "meta": {
@@ -304,7 +368,8 @@
     "resetPosition": "Reset position",
     "downloadBtn": "📥 Download ID Photo",
     "reupload": "🔄 Upload Another",
-    "error": "Background removal failed. Please try another photo or check your connection."
+    "error": "Background removal failed. Please try another photo or check your connection.",
+    "mobileHint": "📱 Mobile note: AI ID Photo requires a large AI model and may fail on mobile. Please use a desktop browser for best results."
   },
   "qrcode": {
     "meta": {

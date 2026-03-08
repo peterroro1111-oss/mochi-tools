@@ -24,29 +24,74 @@
     "whyTitle": "為什麼選擇 Mochi Tools？",
     "whySubtitle": "簡單好用的小工具，像麻糬一樣軟 Q 🍡",
     "categories": {
-      "pdf": { "name": "PDF 工具", "desc": "合併、拆分、旋轉、壓縮、加頁碼、轉圖片" },
-      "image": { "name": "圖片工具", "desc": "圖片壓縮、PNG/JPG/WebP 格式互轉" },
-      "removeBg": { "name": "AI 去背", "desc": "一鍵移除圖片背景，電商、設計必備" },
-      "photo": { "name": "AI 證件照", "desc": "上傳自拍，自動生成標準證件照" },
-      "utility": { "name": "實用工具", "desc": "QR Code 產生器等實用小工具" }
+      "pdf": {
+        "name": "PDF 工具",
+        "desc": "合併、拆分、旋轉、壓縮、加頁碼、轉圖片"
+      },
+      "image": {
+        "name": "圖片工具",
+        "desc": "圖片壓縮、PNG/JPG/WebP 格式互轉"
+      },
+      "removeBg": {
+        "name": "AI 去背",
+        "desc": "一鍵移除圖片背景，電商、設計必備"
+      },
+      "photo": {
+        "name": "AI 證件照",
+        "desc": "上傳自拍，自動生成標準證件照"
+      },
+      "utility": {
+        "name": "實用工具",
+        "desc": "QR Code 產生器等實用小工具"
+      }
     },
     "features": {
-      "privacy": { "title": "隱私安全", "desc": "檔案在瀏覽器本地處理，絕不上傳伺服器" },
-      "speed": { "title": "極速處理", "desc": "純前端運算，不需等待伺服器回應" },
-      "free": { "title": "完全免費", "desc": "所有工具免費使用，無需註冊帳號" },
-      "mobile": { "title": "手機友善", "desc": "完美支援手機與平板，隨時隨地使用" }
+      "privacy": {
+        "title": "隱私安全",
+        "desc": "檔案在瀏覽器本地處理，絕不上傳伺服器"
+      },
+      "speed": {
+        "title": "極速處理",
+        "desc": "純前端運算，不需等待伺服器回應"
+      },
+      "free": {
+        "title": "完全免費",
+        "desc": "所有工具免費使用，無需註冊帳號"
+      },
+      "mobile": {
+        "title": "手機友善",
+        "desc": "完美支援手機與平板，隨時隨地使用"
+      }
     }
   },
   "pdfIndex": {
     "title": "📄 PDF 工具",
     "subtitle": "所有 PDF 工具都在瀏覽器本地處理，檔案不會上傳到伺服器 🔒",
     "tools": {
-      "merge": { "name": "📑 合併 PDF", "desc": "多個 PDF 合成一個" },
-      "split": { "name": "✂️ 拆分 PDF", "desc": "擷取指定頁面" },
-      "rotate": { "name": "🔄 旋轉 PDF", "desc": "旋轉頁面方向" },
-      "pageNumbers": { "name": "🔢 加頁碼", "desc": "自動加上頁碼" },
-      "compress": { "name": "🗜️ 壓縮 PDF", "desc": "縮小檔案大小" },
-      "toImage": { "name": "🖼️ PDF 轉圖片", "desc": "轉成 JPG/PNG" }
+      "merge": {
+        "name": "📑 合併 PDF",
+        "desc": "多個 PDF 合成一個"
+      },
+      "split": {
+        "name": "✂️ 拆分 PDF",
+        "desc": "擷取指定頁面"
+      },
+      "rotate": {
+        "name": "🔄 旋轉 PDF",
+        "desc": "旋轉頁面方向"
+      },
+      "pageNumbers": {
+        "name": "🔢 加頁碼",
+        "desc": "自動加上頁碼"
+      },
+      "compress": {
+        "name": "🗜️ 壓縮 PDF",
+        "desc": "縮小檔案大小"
+      },
+      "toImage": {
+        "name": "🖼️ PDF 轉圖片",
+        "desc": "轉成 JPG/PNG"
+      }
     }
   },
   "pdfMerge": {
@@ -165,9 +210,18 @@
     "title": "圖片工具",
     "subtitle": "壓縮、轉檔，全部免費、不上傳伺服器 🔒",
     "tools": {
-      "compress": { "name": "🗜️ 圖片壓縮", "desc": "壓縮 JPG、PNG、WebP，大幅縮小檔案大小" },
-      "convert": { "name": "🔄 格式轉換", "desc": "PNG、JPG、WebP 互相轉換，6 種組合任你選" },
-      "watermark": { "name": "💧 圖片浮水印", "desc": "為圖片加上文字浮水印，保護作品版權" }
+      "compress": {
+        "name": "🗜️ 圖片壓縮",
+        "desc": "壓縮 JPG、PNG、WebP，大幅縮小檔案大小"
+      },
+      "convert": {
+        "name": "🔄 格式轉換",
+        "desc": "PNG、JPG、WebP 互相轉換，6 種組合任你選"
+      },
+      "watermark": {
+        "name": "💧 圖片浮水印",
+        "desc": "為圖片加上文字浮水印，保護作品版權"
+      }
     }
   },
   "imageCompress": {
@@ -179,9 +233,18 @@
     "subtitle": "支援 JPG、PNG、WebP，批次壓縮多張圖片 🔒",
     "qualityLabel": "壓縮程度",
     "presets": {
-      "light": { "label": "🌟 輕度壓縮", "desc": "畫質幾乎不變" },
-      "recommended": { "label": "👍 推薦", "desc": "畫質與大小平衡" },
-      "maximum": { "label": "🗜️ 最小檔案", "desc": "大幅縮小" }
+      "light": {
+        "label": "🌟 輕度壓縮",
+        "desc": "畫質幾乎不變"
+      },
+      "recommended": {
+        "label": "👍 推薦",
+        "desc": "畫質與大小平衡"
+      },
+      "maximum": {
+        "label": "🗜️ 最小檔案",
+        "desc": "大幅縮小"
+      }
     },
     "dropzone": "拖放圖片到這裡",
     "dropzoneProcessing": "壓縮中...",
@@ -265,7 +328,8 @@
     "altResult": "去背結果",
     "downloadPng": "📥 下載透明 PNG",
     "processAnother": "🔄 處理另一張",
-    "error": "去背失敗，請嘗試其他照片或檢查網路連線"
+    "error": "去背失敗，請嘗試其他照片或檢查網路連線",
+    "mobileHint": "📱 手機提示：AI 去背需要下載大型 AI 模型（約 40MB），在手機上可能會因記憶體不足而失敗。建議使用電腦瀏覽器以獲得最佳體驗。"
   },
   "photo": {
     "meta": {
@@ -304,7 +368,8 @@
     "resetPosition": "重置位置",
     "downloadBtn": "📥 下載證件照",
     "reupload": "🔄 重新上傳",
-    "error": "去背失敗，請嘗試其他照片或檢查網路連線"
+    "error": "去背失敗，請嘗試其他照片或檢查網路連線",
+    "mobileHint": "📱 手機提示：AI 證件照需要下載大型 AI 模型，在手機上可能會失敗。建議使用電腦瀏覽器。"
   },
   "qrcode": {
     "meta": {

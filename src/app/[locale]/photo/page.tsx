@@ -198,6 +198,10 @@ export default function PhotoPage() {
         </p>
       </div>
 
+      <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-700 md:hidden">
+        {t('mobileHint')}
+      </div>
+
       {step === 'upload' && (
         <>
           {error && (
