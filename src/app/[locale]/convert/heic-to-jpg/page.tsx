@@ -108,9 +108,6 @@ export default function HeicToJpgPage() {
       </div>
 
       {/* Mobile hint */}
-      <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-700 md:hidden">
-        {t('mobileHint')}
-      </div>
 
       {/* Quality slider */}
       <div className="bg-white rounded-2xl border-2 border-pink-100 p-5 mb-6">

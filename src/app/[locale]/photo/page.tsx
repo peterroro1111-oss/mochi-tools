@@ -223,9 +223,6 @@ export default function PhotoPage() {
         </p>
       </div>
 
-      <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-700 md:hidden">
-        {t('mobileHint')}
-      </div>
 
       {modelCached === true && step === 'upload' && (
         <div className="mb-4 p-3 bg-emerald-50 border-2 border-emerald-200 rounded-2xl text-emerald-700 text-sm text-center">
