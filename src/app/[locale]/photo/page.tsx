@@ -88,19 +88,52 @@ export default function PhotoPage() {
           }
         },
       });
-      // Post-process: fix semi-transparent pixels on subject
+      // Post-process: refine edges
       const rawImg = new Image();
       const processedBlob = await new Promise<Blob>((resolve) => {
         rawImg.onload = () => {
+          const w = rawImg.width, h = rawImg.height;
           const canvas = document.createElement('canvas');
-          canvas.width = rawImg.width;
-          canvas.height = rawImg.height;
+          canvas.width = w;
+          canvas.height = h;
           const ctx = canvas.getContext('2d')!;
           ctx.drawImage(rawImg, 0, 0);
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const imageData = ctx.getImageData(0, 0, w, h);
           const data = imageData.data;
-          for (let i = 3; i < data.length; i += 4) {
-            data[i] = data[i] < 30 ? 0 : 255;
+          const alpha = new Uint8Array(w * h);
+          for (let i = 0; i < alpha.length; i++) alpha[i] = data[i * 4 + 3];
+          // Erode 1px
+          const eroded = new Uint8Array(w * h);
+          for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+              let min = 255;
+              for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                  const nx = x + dx, ny = y + dy;
+                  if (nx >= 0 && nx < w && ny >= 0 && ny < h) min = Math.min(min, alpha[ny * w + nx]);
+                  else min = 0;
+                }
+              }
+              eroded[y * w + x] = min;
+            }
+          }
+          // Smooth 3x3
+          const smoothed = new Uint8Array(w * h);
+          for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+              let sum = 0, count = 0;
+              for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                  const nx = x + dx, ny = y + dy;
+                  if (nx >= 0 && nx < w && ny >= 0 && ny < h) { sum += eroded[ny * w + nx]; count++; }
+                }
+              }
+              smoothed[y * w + x] = Math.round(sum / count);
+            }
+          }
+          for (let i = 0; i < smoothed.length; i++) {
+            const a = smoothed[i];
+            data[i * 4 + 3] = a < 20 ? 0 : a > 200 ? 255 : a;
           }
           ctx.putImageData(imageData, 0, 0);
           canvas.toBlob((b) => resolve(b!), 'image/png');

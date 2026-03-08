@@ -64,20 +64,62 @@ export default function RemoveBgPage() {
           }
         },
       });
-      // Post-process: fix semi-transparent pixels on subject
+      // Post-process: refine edges
       const img = new Image();
       const processedBlob = await new Promise<Blob>((resolve) => {
         img.onload = () => {
+          const w = img.width, h = img.height;
           const canvas = document.createElement('canvas');
-          canvas.width = img.width;
-          canvas.height = img.height;
+          canvas.width = w;
+          canvas.height = h;
           const ctx = canvas.getContext('2d')!;
           ctx.drawImage(img, 0, 0);
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const imageData = ctx.getImageData(0, 0, w, h);
           const data = imageData.data;
-          // Threshold alpha: < 30 → fully transparent, >= 30 → fully opaque
-          for (let i = 3; i < data.length; i += 4) {
-            data[i] = data[i] < 30 ? 0 : 255;
+          const alpha = new Uint8Array(w * h);
+          for (let i = 0; i < alpha.length; i++) alpha[i] = data[i * 4 + 3];
+
+          // 1. Erode alpha by 1px to remove edge fringe
+          const eroded = new Uint8Array(w * h);
+          for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+              let min = 255;
+              for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                  const nx = x + dx, ny = y + dy;
+                  if (nx >= 0 && nx < w && ny >= 0 && ny < h) {
+                    min = Math.min(min, alpha[ny * w + nx]);
+                  } else {
+                    min = 0;
+                  }
+                }
+              }
+              eroded[y * w + x] = min;
+            }
+          }
+
+          // 2. Smooth alpha edges with 3x3 box blur
+          const smoothed = new Uint8Array(w * h);
+          for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+              let sum = 0, count = 0;
+              for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                  const nx = x + dx, ny = y + dy;
+                  if (nx >= 0 && nx < w && ny >= 0 && ny < h) {
+                    sum += eroded[ny * w + nx];
+                    count++;
+                  }
+                }
+              }
+              smoothed[y * w + x] = Math.round(sum / count);
+            }
+          }
+
+          // 3. Apply: threshold body (>128 → opaque), keep smooth edges
+          for (let i = 0; i < smoothed.length; i++) {
+            const a = smoothed[i];
+            data[i * 4 + 3] = a < 20 ? 0 : a > 200 ? 255 : a;
           }
           ctx.putImageData(imageData, 0, 0);
           canvas.toBlob((b) => resolve(b!), 'image/png');
