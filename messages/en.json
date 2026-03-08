@@ -399,18 +399,85 @@
   "qrcode": {
     "meta": {
       "title": "QR Code Generator — Free Online | Mochi Tools 🍡",
-      "description": "Free online QR Code generator. Custom size, colors, real-time preview and PNG download. Processed locally in your browser."
+      "description": "Free online QR Code generator. Support URL, text, email, location, phone, WhatsApp, PayPal, Bitcoin, events. Custom size, colors, real-time preview and PNG download."
     },
     "title": "QR Code Generator",
-    "subtitle": "Enter text or URL to generate QR Code instantly 🔒",
-    "inputLabel": "Text or URL",
-    "inputPlaceholder": "Enter text or paste a URL...",
+    "subtitle": "Generate QR codes for URLs, contacts, payments, events and more 🔒",
+    "tabs": {
+      "url": "🔗 URL",
+      "text": "📝 Text",
+      "email": "📧 Email",
+      "location": "📍 Location",
+      "phone": "📞 Phone",
+      "wifi": "📶 Wi-Fi",
+      "paypal": "💳 PayPal",
+      "bitcoin": "₿ Bitcoin",
+      "event": "🎉 Event"
+    },
+    "url": {
+      "label": "URL",
+      "placeholder": "https://example.com"
+    },
+    "text": {
+      "label": "Text content",
+      "placeholder": "Enter your text here..."
+    },
+    "email": {
+      "to": "Recipient email",
+      "toPlaceholder": "name@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Email subject...",
+      "body": "Body",
+      "bodyPlaceholder": "Email body..."
+    },
+    "location": {
+      "lat": "Latitude",
+      "latPlaceholder": "e.g. 25.0330",
+      "lng": "Longitude",
+      "lngPlaceholder": "e.g. 121.5654"
+    },
+    "phone": {
+      "label": "Phone number",
+      "placeholder": "+1234567890"
+    },
+    "wifi": {
+      "ssid": "Network name (SSID)",
+      "ssidPlaceholder": "MyWiFi",
+      "password": "Password",
+      "passwordPlaceholder": "Enter password...",
+      "encryption": "Encryption",
+      "wpa": "WPA/WPA2",
+      "wep": "WEP",
+      "none": "None"
+    },
+    "paypal": {
+      "username": "PayPal.me username",
+      "usernamePlaceholder": "username",
+      "amount": "Amount (optional)",
+      "amountPlaceholder": "10.00"
+    },
+    "bitcoin": {
+      "address": "Bitcoin address",
+      "addressPlaceholder": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+      "amount": "Amount BTC (optional)",
+      "amountPlaceholder": "0.001",
+      "label": "Label (optional)",
+      "labelPlaceholder": "Payment for..."
+    },
+    "event": {
+      "titleLabel": "Event name",
+      "titlePlaceholder": "Meeting, Party, etc.",
+      "locationLabel": "Location",
+      "locationPlaceholder": "123 Main St...",
+      "start": "Start time",
+      "end": "End time"
+    },
     "sizeLabel": "Size",
     "fgColorLabel": "Foreground color",
     "bgColorLabel": "Background color",
     "preview": "Preview",
     "downloadBtn": "📥 Download PNG",
-    "emptyHint": "Enter content to generate a QR Code"
+    "emptyHint": "Fill in the fields above to generate a QR Code"
   },
   "heicToJpg": {
     "meta": {

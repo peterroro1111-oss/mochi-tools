@@ -399,18 +399,85 @@
   "qrcode": {
     "meta": {
       "title": "QR Code 產生器 — 免費線上生成 | Mochi Tools 🍡",
-      "description": "免費線上 QR Code 產生器，自訂大小、顏色，即時預覽並下載 PNG。瀏覽器本地處理，不上傳伺服器。"
+      "description": "免費線上 QR Code 產生器，支援網址、文字、Email、定位、電話、WhatsApp、PayPal、比特幣、活動。自訂大小顏色，即時預覽下載 PNG。"
     },
     "title": "QR Code 產生器",
-    "subtitle": "輸入文字或網址，即時產生 QR Code 🔒",
-    "inputLabel": "文字或網址",
-    "inputPlaceholder": "輸入文字或貼上網址...",
+    "subtitle": "產生網址、聯絡方式、付款、活動等各種 QR Code 🔒",
+    "tabs": {
+      "url": "🔗 網址",
+      "text": "📝 文字",
+      "email": "📧 Email",
+      "location": "📍 定位",
+      "phone": "📞 電話",
+      "wifi": "📶 Wi-Fi",
+      "paypal": "💳 PayPal",
+      "bitcoin": "₿ 比特幣",
+      "event": "🎉 活動"
+    },
+    "url": {
+      "label": "網址",
+      "placeholder": "https://example.com"
+    },
+    "text": {
+      "label": "文字內容",
+      "placeholder": "輸入你的文字..."
+    },
+    "email": {
+      "to": "收件人信箱",
+      "toPlaceholder": "name@example.com",
+      "subject": "主旨",
+      "subjectPlaceholder": "郵件主旨...",
+      "body": "內容",
+      "bodyPlaceholder": "郵件內容..."
+    },
+    "location": {
+      "lat": "緯度",
+      "latPlaceholder": "例如 25.0330",
+      "lng": "經度",
+      "lngPlaceholder": "例如 121.5654"
+    },
+    "phone": {
+      "label": "電話號碼",
+      "placeholder": "+886912345678"
+    },
+    "wifi": {
+      "ssid": "網路名稱 (SSID)",
+      "ssidPlaceholder": "MyWiFi",
+      "password": "密碼",
+      "passwordPlaceholder": "輸入密碼...",
+      "encryption": "加密方式",
+      "wpa": "WPA/WPA2",
+      "wep": "WEP",
+      "none": "無加密"
+    },
+    "paypal": {
+      "username": "PayPal.me 用戶名",
+      "usernamePlaceholder": "username",
+      "amount": "金額（選填）",
+      "amountPlaceholder": "10.00"
+    },
+    "bitcoin": {
+      "address": "比特幣地址",
+      "addressPlaceholder": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+      "amount": "金額 BTC（選填）",
+      "amountPlaceholder": "0.001",
+      "label": "標籤（選填）",
+      "labelPlaceholder": "付款用途..."
+    },
+    "event": {
+      "titleLabel": "活動名稱",
+      "titlePlaceholder": "會議、聚會等",
+      "locationLabel": "地點",
+      "locationPlaceholder": "台北市信義區...",
+      "start": "開始時間",
+      "end": "結束時間"
+    },
     "sizeLabel": "大小",
     "fgColorLabel": "前景色",
     "bgColorLabel": "背景色",
     "preview": "預覽",
     "downloadBtn": "📥 下載 PNG",
-    "emptyHint": "請輸入內容以產生 QR Code"
+    "emptyHint": "填寫上方欄位以產生 QR Code"
   },
   "heicToJpg": {
     "meta": {
