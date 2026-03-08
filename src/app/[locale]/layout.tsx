@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 import Navbar from '../components/Navbar';
+import ServiceWorkerRegistrar from '../components/ServiceWorkerRegistrar';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -55,6 +56,7 @@ export default async function LocaleLayout({
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5F05EGCK7T');` }} />
       </head>
       <body>
+        <ServiceWorkerRegistrar />
         <NextIntlClientProvider messages={messages}>
           <div className="min-h-screen flex flex-col">
             <Navbar />

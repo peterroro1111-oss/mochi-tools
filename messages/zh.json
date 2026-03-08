@@ -322,6 +322,8 @@
     "processingBg": "去背處理中: {pct}%",
     "processing": "處理中...",
     "modelHint": "首次使用需下載 AI 模型，請耐心等候 🍡",
+    "cachedReady": "⚡ 已快取，秒速處理",
+    "modelCachedBadge": "✅ 模型已快取",
     "compareOriginal": "🔄 對比原圖",
     "compareResult": "🔙 查看去背結果",
     "altOriginal": "原圖",
@@ -329,7 +331,7 @@
     "downloadPng": "📥 下載透明 PNG",
     "processAnother": "🔄 處理另一張",
     "error": "去背失敗，請嘗試其他照片或檢查網路連線",
-    "mobileHint": "📱 手機提示：AI 去背需要下載大型 AI 模型（約 40MB），在手機上可能會因記憶體不足而失敗。建議使用電腦瀏覽器以獲得最佳體驗。"
+    "mobileHint": "📱 手機提示：首次使用需下載 AI 模型（約 40MB），之後會自動快取，再次使用秒速處理。在手機上可能會因記憶體不足而失敗。"
   },
   "photo": {
     "meta": {
@@ -347,6 +349,8 @@
     "processingBg": "去背處理中: {pct}%",
     "processing": "處理中...",
     "modelHint": "首次使用需下載 AI 模型，請耐心等候 🍡",
+    "cachedReady": "⚡ 已快取，秒速處理",
+    "modelCachedBadge": "✅ 模型已快取",
     "sizeLabel": "照片尺寸",
     "sizes": {
       "2inch": "2吋",
@@ -369,7 +373,7 @@
     "downloadBtn": "📥 下載證件照",
     "reupload": "🔄 重新上傳",
     "error": "去背失敗，請嘗試其他照片或檢查網路連線",
-    "mobileHint": "📱 手機提示：AI 證件照需要下載大型 AI 模型，在手機上可能會失敗。建議使用電腦瀏覽器。"
+    "mobileHint": "📱 手機提示：首次使用需下載 AI 模型（約 40MB），之後會自動快取，再次使用秒速處理。在手機上可能會因記憶體不足而失敗。"
   },
   "qrcode": {
     "meta": {

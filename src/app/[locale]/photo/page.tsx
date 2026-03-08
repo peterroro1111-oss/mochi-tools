@@ -24,6 +24,7 @@ export default function PhotoPage() {
   const t = useTranslations('photo');
   const [step, setStep] = useState<'upload' | 'processing' | 'edit'>('upload');
   const [progress, setProgress] = useState('');
+  const [progressPct, setProgressPct] = useState(0);
   const [originalUrl, setOriginalUrl] = useState<string | null>(null);
   const [removedBgImg, setRemovedBgImg] = useState<HTMLImageElement | null>(null);
   const [selectedSize, setSelectedSize] = useState<SizeOption>(SIZES[0]);
@@ -34,12 +35,26 @@ export default function PhotoPage() {
   const [offsetX, setOffsetX] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
   const [dragging, setDragging] = useState(false);
+  const [modelCached, setModelCached] = useState<boolean | null>(null);
   const dragStart = useRef({ x: 0, y: 0, ox: 0, oy: 0 });
   const rafId = useRef(0);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const previewContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      const handler = (e: MessageEvent) => {
+        if (e.data?.type === 'MODEL_CACHE_STATUS') {
+          setModelCached(e.data.cached);
+        }
+      };
+      navigator.serviceWorker.addEventListener('message', handler);
+      navigator.serviceWorker.controller.postMessage({ type: 'CHECK_MODEL_CACHE' });
+      return () => navigator.serviceWorker.removeEventListener('message', handler);
+    }
+  }, []);
 
   const handleUpload = async (file: File) => {
     if (!file.type.startsWith('image/')) {
@@ -50,6 +65,7 @@ export default function PhotoPage() {
     setOriginalUrl(url);
     setStep('processing');
     setError(null);
+    setProgressPct(0);
     try {
       setProgress(t('loadingModel'));
       const { removeBackground } = await import('@imgly/background-removal');
@@ -60,9 +76,15 @@ export default function PhotoPage() {
         progress: (key: string, current: number, total: number) => {
           if (total > 0) {
             const pct = Math.round((current / total) * 100);
-            if (key.includes('fetch')) setProgress(t('downloadingModel', { pct: String(pct) }));
-            else if (key.includes('inference')) setProgress(t('processingBg', { pct: String(pct) }));
-            else setProgress(`${key}: ${pct}%`);
+            if (key.includes('fetch')) {
+              setProgress(t('downloadingModel', { pct: String(pct) }));
+              setProgressPct(pct * 0.5);
+            } else if (key.includes('inference')) {
+              setProgress(t('processingBg', { pct: String(pct) }));
+              setProgressPct(50 + pct * 0.5);
+            } else {
+              setProgress(`${key}: ${pct}%`);
+            }
           }
         },
       });
@@ -74,6 +96,7 @@ export default function PhotoPage() {
         img.src = blobUrl;
       });
       setRemovedBgImg(img);
+      setModelCached(true);
       setZoom(1);
       setOffsetX(0);
       setOffsetY(0);
@@ -84,6 +107,8 @@ export default function PhotoPage() {
       setError(t('error'));
       setStep('upload');
       setProgress('');
+    } finally {
+      setProgressPct(0);
     }
   };
 
@@ -202,6 +227,12 @@ export default function PhotoPage() {
         {t('mobileHint')}
       </div>
 
+      {modelCached === true && step === 'upload' && (
+        <div className="mb-4 p-3 bg-emerald-50 border-2 border-emerald-200 rounded-2xl text-emerald-700 text-sm text-center">
+          {t('cachedReady')}
+        </div>
+      )}
+
       {step === 'upload' && (
         <>
           {error && (
@@ -233,12 +264,28 @@ export default function PhotoPage() {
             <div className="w-14 h-14 border-4 border-pink-400 border-t-transparent rounded-full animate-spin" />
           </div>
           <p className="text-gray-600 text-lg font-medium">{progress || t('processing')}</p>
+          {progressPct > 0 && (
+            <div className="mx-auto mt-4 w-64 bg-pink-100 rounded-full h-3 overflow-hidden">
+              <div
+                className="bg-pink-400 h-3 rounded-full transition-all duration-300"
+                style={{ width: `${progressPct}%` }}
+              />
+            </div>
+          )}
           <p className="text-sm text-[#b89b8a] mt-2">{t('modelHint')}</p>
         </div>
       )}
 
       {step === 'edit' && (
         <div className="space-y-6">
+          {modelCached === true && (
+            <div className="text-center">
+              <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-emerald-600 text-xs">
+                {t('modelCachedBadge')}
+              </span>
+            </div>
+          )}
+
           {/* Size */}
           <div>
             <label className="text-sm font-bold text-gray-600 mb-3 block">{t('sizeLabel')}</label>

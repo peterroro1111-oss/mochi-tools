@@ -322,6 +322,8 @@
     "processingBg": "Processing: {pct}%",
     "processing": "Processing...",
     "modelHint": "First use requires downloading AI model, please wait 🍡",
+    "cachedReady": "⚡ Cached, instant processing",
+    "modelCachedBadge": "✅ Model cached",
     "compareOriginal": "🔄 Compare Original",
     "compareResult": "🔙 View Result",
     "altOriginal": "Original",
@@ -329,7 +331,7 @@
     "downloadPng": "📥 Download Transparent PNG",
     "processAnother": "🔄 Process Another",
     "error": "Background removal failed. Please try another photo or check your connection.",
-    "mobileHint": "📱 Mobile note: AI background removal requires downloading a large AI model (~40MB) and may fail on mobile due to memory limits. For best results, please use a desktop browser."
+    "mobileHint": "📱 Mobile note: First use requires downloading AI model (~40MB). After that, the model is cached and subsequent uses are instant. May fail on mobile due to memory limits."
   },
   "photo": {
     "meta": {
@@ -347,6 +349,8 @@
     "processingBg": "Processing: {pct}%",
     "processing": "Processing...",
     "modelHint": "First use requires downloading AI model, please wait 🍡",
+    "cachedReady": "⚡ Cached, instant processing",
+    "modelCachedBadge": "✅ Model cached",
     "sizeLabel": "Photo size",
     "sizes": {
       "2inch": "2 inch",
@@ -369,7 +373,7 @@
     "downloadBtn": "📥 Download ID Photo",
     "reupload": "🔄 Upload Another",
     "error": "Background removal failed. Please try another photo or check your connection.",
-    "mobileHint": "📱 Mobile note: AI ID Photo requires a large AI model and may fail on mobile. Please use a desktop browser for best results."
+    "mobileHint": "📱 Mobile note: First use requires downloading AI model (~40MB). After that, the model is cached and subsequent uses are instant. May fail on mobile due to memory limits."
   },
   "qrcode": {
     "meta": {

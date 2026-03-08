@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
 
@@ -8,11 +8,26 @@ export default function RemoveBgPage() {
   const t = useTranslations('removeBg');
   const [step, setStep] = useState<'upload' | 'processing' | 'done'>('upload');
   const [progress, setProgress] = useState('');
+  const [progressPct, setProgressPct] = useState(0);
   const [originalUrl, setOriginalUrl] = useState<string | null>(null);
   const [resultUrl, setResultUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [compare, setCompare] = useState(false);
+  const [modelCached, setModelCached] = useState<boolean | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      const handler = (e: MessageEvent) => {
+        if (e.data?.type === 'MODEL_CACHE_STATUS') {
+          setModelCached(e.data.cached);
+        }
+      };
+      navigator.serviceWorker.addEventListener('message', handler);
+      navigator.serviceWorker.controller.postMessage({ type: 'CHECK_MODEL_CACHE' });
+      return () => navigator.serviceWorker.removeEventListener('message', handler);
+    }
+  }, []);
 
   const handleUpload = async (file: File) => {
     if (!file.type.startsWith('image/')) {
@@ -25,27 +40,32 @@ export default function RemoveBgPage() {
     setError(null);
     setResultUrl(null);
     setCompare(false);
+    setProgressPct(0);
 
     try {
       setProgress(t('loadingModel'));
       const { removeBackground } = await import('@imgly/background-removal');
       setProgress(t('removingBg'));
-      // Use lighter model on mobile for better compatibility
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const modelName = isMobile ? 'isnet_fp16' : 'isnet';
       const blob: Blob = await removeBackground(url, {
-        model: modelName as 'isnet',
+        model: 'isnet' as const,
         output: { format: 'image/png' as const, quality: 1 },
         progress: (key: string, current: number, total: number) => {
           if (total > 0) {
             const pct = Math.round((current / total) * 100);
-            if (key.includes('fetch')) setProgress(t('downloadingModel', { pct: String(pct) }));
-            else if (key.includes('inference')) setProgress(t('processingBg', { pct: String(pct) }));
-            else setProgress(`${key}: ${pct}%`);
+            if (key.includes('fetch')) {
+              setProgress(t('downloadingModel', { pct: String(pct) }));
+              setProgressPct(pct * 0.5);
+            } else if (key.includes('inference')) {
+              setProgress(t('processingBg', { pct: String(pct) }));
+              setProgressPct(50 + pct * 0.5);
+            } else {
+              setProgress(`${key}: ${pct}%`);
+            }
           }
         },
       });
       setResultUrl(URL.createObjectURL(blob));
+      setModelCached(true);
       setStep('done');
     } catch (err) {
       console.error(err);
@@ -53,6 +73,7 @@ export default function RemoveBgPage() {
       setStep('upload');
     } finally {
       setProgress('');
+      setProgressPct(0);
     }
   };
 
@@ -86,6 +107,12 @@ export default function RemoveBgPage() {
         {t('mobileHint')}
       </div>
 
+      {modelCached === true && step === 'upload' && (
+        <div className="mb-4 p-3 bg-emerald-50 border-2 border-emerald-200 rounded-2xl text-emerald-700 text-sm text-center">
+          {t('cachedReady')}
+        </div>
+      )}
+
       {step === 'upload' && (
         <>
           {error && (
@@ -117,12 +144,28 @@ export default function RemoveBgPage() {
             <div className="w-14 h-14 border-4 border-pink-400 border-t-transparent rounded-full animate-spin" />
           </div>
           <p className="text-gray-600 text-lg font-medium">{progress || t('processing')}</p>
+          {progressPct > 0 && (
+            <div className="mx-auto mt-4 w-64 bg-pink-100 rounded-full h-3 overflow-hidden">
+              <div
+                className="bg-pink-400 h-3 rounded-full transition-all duration-300"
+                style={{ width: `${progressPct}%` }}
+              />
+            </div>
+          )}
           <p className="text-sm text-[#b89b8a] mt-2">{t('modelHint')}</p>
         </div>
       )}
 
       {step === 'done' && resultUrl && (
         <div className="space-y-6 animate-fadeIn">
+          {modelCached === true && (
+            <div className="text-center">
+              <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-emerald-600 text-xs">
+                {t('modelCachedBadge')}
+              </span>
+            </div>
+          )}
+
           <div className="flex justify-center">
             <button
               onClick={() => setCompare(!compare)}
