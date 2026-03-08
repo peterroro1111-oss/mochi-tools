@@ -30,8 +30,11 @@ export default function RemoveBgPage() {
       setProgress(t('loadingModel'));
       const { removeBackground } = await import('@imgly/background-removal');
       setProgress(t('removingBg'));
+      // Use lighter model on mobile for better compatibility
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const modelName = isMobile ? 'isnet_fp16' : 'isnet';
       const blob: Blob = await removeBackground(url, {
-        model: 'isnet' as const,
+        model: modelName as 'isnet',
         output: { format: 'image/png' as const, quality: 1 },
         progress: (key: string, current: number, total: number) => {
           if (total > 0) {
