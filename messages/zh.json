@@ -432,9 +432,8 @@
     },
     "location": {
       "lat": "緯度",
-      "latPlaceholder": "例如 25.0330",
       "lng": "經度",
-      "lngPlaceholder": "例如 121.5654"
+      "searchPlaceholder": "搜尋地點（例如：台北101）"
     },
     "phone": {
       "label": "電話號碼",

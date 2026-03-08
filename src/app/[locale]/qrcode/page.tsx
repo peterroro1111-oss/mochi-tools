@@ -4,6 +4,9 @@ import { useState, useRef, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { QRCodeCanvas } from 'qrcode.react';
 import { downloadFile } from '@/app/utils/download';
+import dynamic from 'next/dynamic';
+
+const LocationMap = dynamic(() => import('@/components/LocationMap'), { ssr: false });
 
 type QRType = 'url' | 'text' | 'email' | 'location' | 'phone' | 'wifi' | 'paypal' | 'bitcoin' | 'event';
 
@@ -28,8 +31,9 @@ export default function QRCodePage() {
   const [emailTo, setEmailTo] = useState('');
   const [emailSubject, setEmailSubject] = useState('');
   const [emailBody, setEmailBody] = useState('');
-  const [lat, setLat] = useState('');
-  const [lng, setLng] = useState('');
+  const [lat, setLat] = useState(23.5);
+  const [lng, setLng] = useState(121.0);
+  const [locationTouched, setLocationTouched] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [ssid, setSsid] = useState('');
   const [wifiPass, setWifiPass] = useState('');
@@ -59,7 +63,7 @@ export default function QRCodePage() {
         return `mailto:${emailTo}${qs ? '?' + qs : ''}`;
       }
       case 'location':
-        return (lat && lng) ? `geo:${lat},${lng}` : '';
+        return locationTouched ? `geo:${lat.toFixed(6)},${lng.toFixed(6)}` : '';
       case 'phone':
         return phoneNumber ? `tel:${phoneNumber}` : '';
       case 'wifi':
@@ -91,7 +95,7 @@ export default function QRCodePage() {
       default:
         return '';
     }
-  }, [activeTab, urlValue, textValue, emailTo, emailSubject, emailBody, lat, lng, phoneNumber, ssid, wifiPass, encryption, paypalUsername, paypalAmount, btcAddress, btcAmount, btcLabel, eventTitle, eventLocation, eventStart, eventEnd]);
+  }, [activeTab, urlValue, textValue, emailTo, emailSubject, emailBody, lat, lng, locationTouched, phoneNumber, ssid, wifiPass, encryption, paypalUsername, paypalAmount, btcAddress, btcAmount, btcLabel, eventTitle, eventLocation, eventStart, eventEnd]);
 
   const download = useCallback(() => {
     const canvas = qrRef.current?.querySelector('canvas');
@@ -140,16 +144,18 @@ export default function QRCodePage() {
         );
       case 'location':
         return (
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label className={labelClass}>{t('location.lat')}</label>
-              <input type="text" value={lat} onChange={(e) => setLat(e.target.value)} placeholder={t('location.latPlaceholder')} className={inputClass} />
-            </div>
-            <div>
-              <label className={labelClass}>{t('location.lng')}</label>
-              <input type="text" value={lng} onChange={(e) => setLng(e.target.value)} placeholder={t('location.lngPlaceholder')} className={inputClass} />
-            </div>
-          </div>
+          <LocationMap
+            lat={lat}
+            lng={lng}
+            onPositionChange={(newLat, newLng) => {
+              setLat(newLat);
+              setLng(newLng);
+              setLocationTouched(true);
+            }}
+            searchPlaceholder={t('location.searchPlaceholder')}
+            latLabel={t('location.lat')}
+            lngLabel={t('location.lng')}
+          />
         );
       case 'phone':
         return (

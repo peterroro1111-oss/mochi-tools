@@ -432,9 +432,8 @@
     },
     "location": {
       "lat": "Latitude",
-      "latPlaceholder": "e.g. 25.0330",
       "lng": "Longitude",
-      "lngPlaceholder": "e.g. 121.5654"
+      "searchPlaceholder": "Search location (e.g. Taipei 101)"
     },
     "phone": {
       "label": "Phone number",
