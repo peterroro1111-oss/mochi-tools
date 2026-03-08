@@ -43,7 +43,7 @@
       },
       "utility": {
         "name": "Utility Tools",
-        "desc": "JSON formatter, Base64, color converter, Markdown preview & more"
+        "desc": "QR Code, color converter, favicon, palette extractor & more"
       }
     },
     "features": {
@@ -535,42 +535,18 @@
   "toolsIndex": {
     "meta": {
       "title": "Utility Tools — Free Online Developer Tools | Mochi Tools 🍡",
-      "description": "Free online utility tools: JSON formatter, Base64 encoder, color converter, character counter, Markdown preview, timestamp converter and more."
+      "description": "Free online utility tools: color converter, favicon generator, color palette extractor, QR code generator and more."
     },
     "title": "🔧 Utility Tools",
     "subtitle": "Handy tools for everyone — all free, no server uploads 🔒",
     "tools": {
-      "json": {
-        "name": "{ } JSON Formatter",
-        "desc": "Format, minify, and syntax-highlight JSON"
-      },
-      "base64": {
-        "name": "🔐 Base64 Encoder",
-        "desc": "Encode/decode text and files to Base64"
-      },
       "color": {
         "name": "🎨 Color Converter",
         "desc": "Real-time HEX, RGB, HSL conversion"
       },
-      "charCount": {
-        "name": "🔤 Character Counter",
-        "desc": "Characters, words, paragraphs, reading time"
-      },
-      "markdown": {
-        "name": "📝 Markdown Preview",
-        "desc": "Live Markdown preview with GFM support"
-      },
-      "timestamp": {
-        "name": "⏱️ Timestamp Converter",
-        "desc": "Convert Unix timestamps and dates"
-      },
       "favicon": {
         "name": "⭐ Favicon Generator",
         "desc": "Generate all favicon sizes from one image"
-      },
-      "ogImage": {
-        "name": "🖼️ OG Image Generator",
-        "desc": "Create social sharing OG images"
       },
       "palette": {
         "name": "🎨 Color Palette Extractor",

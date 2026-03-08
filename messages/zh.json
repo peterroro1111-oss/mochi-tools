@@ -43,7 +43,7 @@
       },
       "utility": {
         "name": "實用工具",
-        "desc": "JSON 格式化、Base64、顏色轉換、Markdown 預覽等"
+        "desc": "QR Code、顏色轉換、Favicon、色彩擷取等"
       }
     },
     "features": {
@@ -535,42 +535,18 @@
   "toolsIndex": {
     "meta": {
       "title": "實用工具 — 免費線上開發者工具 | Mochi Tools 🍡",
-      "description": "免費線上實用工具：JSON 格式化、Base64 編碼、顏色轉換、字數統計、Markdown 預覽、時間戳轉換等。"
+      "description": "免費線上實用工具：顏色轉換、Favicon 產生器、色彩擷取、QR Code 產生器等。"
     },
     "title": "🔧 實用工具",
     "subtitle": "各種方便的小工具，全部免費、不上傳伺服器 🔒",
     "tools": {
-      "json": {
-        "name": "{ } JSON 格式化",
-        "desc": "格式化、壓縮、語法高亮 JSON"
-      },
-      "base64": {
-        "name": "🔐 Base64 編碼",
-        "desc": "文字與 Base64 互轉、支援檔案"
-      },
       "color": {
         "name": "🎨 顏色轉換",
         "desc": "HEX、RGB、HSL 即時互轉"
       },
-      "charCount": {
-        "name": "🔤 字數統計",
-        "desc": "字元、字數、段落、閱讀時間"
-      },
-      "markdown": {
-        "name": "📝 Markdown 預覽",
-        "desc": "即時預覽 Markdown，支援 GFM"
-      },
-      "timestamp": {
-        "name": "⏱️ 時間戳轉換",
-        "desc": "Unix 時間戳與日期互轉"
-      },
       "favicon": {
         "name": "⭐ Favicon 產生器",
         "desc": "上傳圖片產生所有尺寸 Favicon"
-      },
-      "ogImage": {
-        "name": "🖼️ OG 圖片產生器",
-        "desc": "產生社群分享用 OG 圖片"
       },
       "palette": {
         "name": "🎨 色彩擷取",
