@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "title": "Mochi Tools — Free Online Tools 🍡",
+    "description": "Free PDF tools, image compression, format conversion, AI background removal, AI ID photo — all done online, no server uploads",
+    "ogTitle": "Mochi Tools — Free Online Tools 🍡",
+    "ogDescription": "Free PDF tools, AI background removal, AI ID photo — all done online"
+  },
+  "navbar": {
+    "pdf": "📄 PDF Tools",
+    "image": "🖼️ Image Tools",
+    "removeBg": "🎨 AI Remove BG",
+    "photo": "📸 ID Photo",
+    "menu": "Menu"
+  },
+  "footer": {
+    "tagline": "Mochi Tools · Free, secure, no server uploads",
+    "madeWith": "Made with love 🍡"
+  },
+  "home": {
+    "heroTitle": "Free Online Tools",
+    "heroSubtitle": "PDF processing, AI background removal, ID photos",
+    "heroPrivacy": "All processed in your browser, ",
+    "heroHighlight": "files never leave your computer",
+    "whyTitle": "Why Mochi Tools?",
+    "whySubtitle": "Simple and handy tools, soft like mochi 🍡",
+    "categories": {
+      "pdf": { "name": "PDF Tools", "desc": "Merge, split, rotate, compress, add page numbers, convert to images" },
+      "image": { "name": "Image Tools", "desc": "Image compression, PNG/JPG/WebP format conversion" },
+      "removeBg": { "name": "AI Remove BG", "desc": "One-click background removal, essential for e-commerce & design" },
+      "photo": { "name": "AI ID Photo", "desc": "Upload a selfie, automatically generate a standard ID photo" }
+    },
+    "features": {
+      "privacy": { "title": "Privacy First", "desc": "Files are processed locally in your browser, never uploaded to servers" },
+      "speed": { "title": "Lightning Fast", "desc": "Pure frontend processing, no waiting for server responses" },
+      "free": { "title": "Completely Free", "desc": "All tools are free to use, no registration required" },
+      "mobile": { "title": "Mobile Friendly", "desc": "Perfectly supports phones and tablets, use anywhere anytime" }
+    }
+  },
+  "pdfIndex": {
+    "title": "📄 PDF Tools",
+    "subtitle": "All PDF tools process locally in your browser — files are never uploaded to servers 🔒",
+    "tools": {
+      "merge": { "name": "📑 Merge PDF", "desc": "Combine multiple PDFs into one" },
+      "split": { "name": "✂️ Split PDF", "desc": "Extract specific pages" },
+      "rotate": { "name": "🔄 Rotate PDF", "desc": "Rotate page orientation" },
+      "pageNumbers": { "name": "🔢 Add Page Numbers", "desc": "Auto-add page numbers" },
+      "compress": { "name": "🗜️ Compress PDF", "desc": "Reduce file size" },
+      "toImage": { "name": "🖼️ PDF to Image", "desc": "Convert to JPG/PNG" }
+    }
+  },
+  "pdfMerge": {
+    "meta": {
+      "title": "Merge PDF — Combine Multiple PDFs | Mochi Tools",
+      "description": "Free online PDF merge tool. Combine multiple PDF files into one with drag-and-drop reordering. Processed locally in your browser."
+    },
+    "title": "📑 Merge PDF",
+    "subtitle": "Select multiple PDF files and merge them into one. Drag to reorder.",
+    "dropzone": "Drop PDF files here, or click to select",
+    "dropzoneHint": "Multiple files supported, files are not uploaded to servers",
+    "selectFile": "Select PDF file",
+    "pages": "pages",
+    "fileCount": "{count} files, {pages} pages",
+    "mergeBtn": "📑 Merge & Download",
+    "merging": "Merging...",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "remove": "Remove",
+    "readError": "Cannot read this PDF",
+    "mergeError": "Merge failed. Please check if the files are valid."
+  },
+  "pdfSplit": {
+    "meta": {
+      "title": "Split PDF — Extract Specific Pages | Mochi Tools",
+      "description": "Free online PDF split tool. Specify page ranges to extract pages. Processed locally in your browser."
+    },
+    "title": "✂️ Split PDF",
+    "subtitle": "Select pages to keep and extract them into a new PDF.",
+    "selectFile": "Select PDF file",
+    "totalPages": "{count} pages",
+    "changeFile": "Change file",
+    "rangeLabel": "Page range (e.g., 1-3,5,7-9)",
+    "rangePlaceholder": "1-3,5,7-9",
+    "splitBtn": "✂️ Split & Download",
+    "splitting": "Splitting...",
+    "readError": "Cannot read this PDF",
+    "splitError": "Split failed",
+    "rangeError": "Please enter a valid page range"
+  },
+  "pdfCompress": {
+    "meta": {
+      "title": "Compress PDF — Reduce File Size | Mochi Tools",
+      "description": "Free online PDF compression tool. Remove redundant data to reduce file size. Processed locally in your browser."
+    },
+    "title": "🗜️ Compress PDF",
+    "subtitle": "Remove redundant data to reduce PDF file size.",
+    "selectFile": "Select PDF file",
+    "originalSize": "Original size: {size}",
+    "changeFile": "Change file",
+    "compressBtn": "🗜️ Start Compression",
+    "compressing": "Compressing...",
+    "reduced": "Reduced by {percent}%",
+    "alreadySmall": "This file is already compact",
+    "downloadBtn": "📥 Download Compressed PDF",
+    "compressError": "Compression failed"
+  },
+  "pdfRotate": {
+    "meta": {
+      "title": "Rotate PDF — Change Page Orientation | Mochi Tools",
+      "description": "Free online PDF rotation tool. Supports 90/180/270 degree rotation. Processed locally in your browser."
+    },
+    "title": "🔄 Rotate PDF",
+    "subtitle": "Rotate all pages of your PDF.",
+    "selectFile": "Select PDF file",
+    "totalPages": "{count} pages",
+    "changeFile": "Change file",
+    "rotateBtn": "🔄 Rotate & Download",
+    "rotating": "Rotating...",
+    "readError": "Cannot read this PDF",
+    "rotateError": "Rotation failed"
+  },
+  "pdfPageNumbers": {
+    "meta": {
+      "title": "Add Page Numbers to PDF | Mochi Tools",
+      "description": "Free online PDF page numbering tool. Three position options. Processed locally in your browser."
+    },
+    "title": "🔢 Add Page Numbers",
+    "subtitle": "Automatically add page numbers to every page of your PDF.",
+    "selectFile": "Select PDF file",
+    "totalPages": "{count} pages",
+    "changeFile": "Change file",
+    "positionLabel": "Number position",
+    "bottomCenter": "Bottom center",
+    "bottomRight": "Bottom right",
+    "topCenter": "Top center",
+    "addBtn": "🔢 Add Numbers & Download",
+    "processing": "Processing...",
+    "readError": "Cannot read this PDF",
+    "addError": "Failed to add page numbers"
+  },
+  "pdfToImage": {
+    "meta": {
+      "title": "PDF to Image — Convert to JPG/PNG | Mochi Tools",
+      "description": "Free online PDF to image converter. Supports PNG/JPG formats with adjustable resolution. Processed locally in your browser."
+    },
+    "title": "🖼️ PDF to Image",
+    "subtitle": "Convert each page of your PDF to PNG or JPG images.",
+    "selectFile": "Select PDF file",
+    "changeFile": "Change file",
+    "formatLabel": "Format",
+    "resolutionLabel": "Resolution",
+    "convertBtn": "🖼️ Start Conversion",
+    "converting": "Converting...",
+    "loading": "Loading...",
+    "imageCount": "{count} images",
+    "downloadAll": "📥 Download All",
+    "pageDownload": "Page {page} — Click to download",
+    "convertError": "Conversion failed. Please check if the file is valid."
+  },
+  "imageIndex": {
+    "meta": {
+      "title": "Image Tools - Compress & Convert | Mochi Tools 🍡",
+      "description": "Free online image tools: image compression, format conversion (PNG, JPG, WebP). Processed locally in your browser."
+    },
+    "title": "Image Tools",
+    "subtitle": "Compress, convert — all free, no server uploads 🔒",
+    "tools": {
+      "compress": { "name": "🗜️ Image Compression", "desc": "Compress JPG, PNG, WebP to significantly reduce file size" },
+      "convert": { "name": "🔄 Format Conversion", "desc": "Convert between PNG, JPG, WebP — 6 combinations" }
+    }
+  },
+  "imageCompress": {
+    "meta": {
+      "title": "Image Compression - Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online image compression tool. Supports JPG, PNG, WebP. Adjustable quality, batch compression. Processed locally in your browser."
+    },
+    "title": "Image Compression",
+    "subtitle": "Supports JPG, PNG, WebP — batch compress multiple images 🔒",
+    "qualityLabel": "Compression level",
+    "presets": {
+      "light": { "label": "🌟 Light", "desc": "Nearly lossless quality" },
+      "recommended": { "label": "👍 Recommended", "desc": "Balance of quality & size" },
+      "maximum": { "label": "🗜️ Smallest File", "desc": "Maximum compression" }
+    },
+    "dropzone": "Drop images here",
+    "dropzoneProcessing": "Compressing...",
+    "dropzoneHint": "Or click to select files (multiple allowed)",
+    "imageCount": "{count} images",
+    "spaceSaved": "Space saved",
+    "downloadAll": "📥 Download All (ZIP)",
+    "download": "📥 Download",
+    "clearAll": "Clear all"
+  },
+  "convertIndex": {
+    "meta": {
+      "title": "Image Format Conversion - Free Online | Mochi Tools 🍡",
+      "description": "Free online image format conversion tool. Supports PNG, JPG, WebP interconversion. Processed locally in your browser."
+    },
+    "title": "Image Format Conversion",
+    "subtitle": "Choose your conversion format — all free, no server uploads 🔒",
+    "formatConvert": "{from} to {to} format"
+  },
+  "convertTool": {
+    "title": "{from} to {to}",
+    "subtitle": "Free online conversion — processed locally in your browser, no server uploads 🔒",
+    "dropzone": "Drop {format} files here",
+    "dropzoneHint": "Or click to select a file",
+    "afterConvert": "After conversion",
+    "preview": "Preview",
+    "convertBtn": "Convert to {format}",
+    "converting": "Converting...",
+    "downloadBtn": "📥 Download {format}",
+    "reset": "Choose another"
+  },
+  "convertMeta": {
+    "pngToJpg": {
+      "title": "PNG to JPG - Free Online Converter | Mochi Tools 🍡",
+      "description": "Free PNG to JPG image conversion. Processed locally in your browser, fast and secure. Supports batch conversion."
+    },
+    "jpgToPng": {
+      "title": "JPG to PNG - Free Online Converter | Mochi Tools 🍡",
+      "description": "Free JPG/JPEG to PNG image conversion with transparency support. Processed locally in your browser."
+    },
+    "pngToWebp": {
+      "title": "PNG to WebP - Free Online Converter | Mochi Tools 🍡",
+      "description": "Free PNG to WebP conversion for significantly smaller files. Processed locally in your browser."
+    },
+    "webpToPng": {
+      "title": "WebP to PNG - Free Online Converter | Mochi Tools 🍡",
+      "description": "Free WebP to PNG conversion. Processed locally in your browser, preserves transparency."
+    },
+    "jpgToWebp": {
+      "title": "JPG to WebP - Free Online Converter | Mochi Tools 🍡",
+      "description": "Free JPG/JPEG to WebP conversion for smaller files and faster loading. Processed locally in your browser."
+    },
+    "webpToJpg": {
+      "title": "WebP to JPG - Free Online Converter | Mochi Tools 🍡",
+      "description": "Free WebP to JPG conversion for better compatibility. Processed locally in your browser."
+    }
+  },
+  "removeBg": {
+    "meta": {
+      "title": "AI Background Removal — One-Click Remove | Mochi Tools",
+      "description": "Free online AI background removal tool. One-click remove image background to transparent PNG. Processed locally in your browser."
+    },
+    "title": "🎨 AI Remove Background",
+    "subtitle": "One-click background removal, output transparent PNG. All processing done in browser 🔒",
+    "uploadBtn": "Click to upload image",
+    "uploadHint": "Supports JPG, PNG, WebP",
+    "uploadError": "Please upload an image file",
+    "loadingModel": "Loading AI model (first time may take 30-60 seconds)...",
+    "removingBg": "Removing background...",
+    "downloadingModel": "Downloading model: {pct}%",
+    "processingBg": "Processing: {pct}%",
+    "processing": "Processing...",
+    "modelHint": "First use requires downloading AI model, please wait 🍡",
+    "compareOriginal": "🔄 Compare Original",
+    "compareResult": "🔙 View Result",
+    "altOriginal": "Original",
+    "altResult": "Background removed",
+    "downloadPng": "📥 Download Transparent PNG",
+    "processAnother": "🔄 Process Another",
+    "error": "Background removal failed. Please try another photo or check your connection."
+  },
+  "photo": {
+    "meta": {
+      "title": "AI ID Photo — Auto Generate Standard ID Photo | Mochi Tools",
+      "description": "Free online AI ID photo tool. Upload a photo to auto-remove background and generate standard ID photos with multiple sizes and background colors."
+    },
+    "title": "📸 AI ID Photo",
+    "subtitle": "Upload a photo to auto-remove background and generate a standard ID photo. All processing done in browser 🔒",
+    "uploadBtn": "Click to upload photo",
+    "uploadHint": "Front-facing photo without hat recommended for best results",
+    "uploadError": "Please upload an image file",
+    "loadingModel": "Loading AI model (first time may take 30-60 seconds)...",
+    "removingBg": "Removing background...",
+    "downloadingModel": "Downloading model: {pct}%",
+    "processingBg": "Processing: {pct}%",
+    "processing": "Processing...",
+    "modelHint": "First use requires downloading AI model, please wait 🍡",
+    "sizeLabel": "Photo size",
+    "sizes": {
+      "2inch": "2 inch",
+      "1inch": "1 inch",
+      "passport": "Passport",
+      "visa": "US Visa"
+    },
+    "bgLabel": "Background color",
+    "bgColors": {
+      "white": "White",
+      "blue": "Blue",
+      "red": "Red"
+    },
+    "zoomLabel": "Zoom {percent}%",
+    "zoomOut": "Zoom out",
+    "zoomIn": "Zoom in",
+    "previewAlt": "ID photo preview",
+    "previewHint": "👆 Drag to adjust position · Output: {w} × {h} px ({desc})",
+    "resetPosition": "Reset position",
+    "downloadBtn": "📥 Download ID Photo",
+    "reupload": "🔄 Upload Another",
+    "error": "Background removal failed. Please try another photo or check your connection."
+  },
+  "languageSwitcher": {
+    "label": "🌐"
+  }
+}

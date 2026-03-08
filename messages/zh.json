@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "title": "Mochi Tools — 免費線上工具 🍡",
+    "description": "免費 PDF 工具、圖片壓縮、格式轉換、AI 去背、AI 證件照，全部線上搞定，不上傳伺服器",
+    "ogTitle": "Mochi Tools — 免費線上工具 🍡",
+    "ogDescription": "免費 PDF 工具、AI 去背、AI 證件照，全部線上搞定"
+  },
+  "navbar": {
+    "pdf": "📄 PDF 工具",
+    "image": "🖼️ 圖片工具",
+    "removeBg": "🎨 AI 去背",
+    "photo": "📸 證件照",
+    "menu": "選單"
+  },
+  "footer": {
+    "tagline": "Mochi Tools · 免費、安全、不上傳伺服器",
+    "madeWith": "用愛做的小工具 🍡"
+  },
+  "home": {
+    "heroTitle": "免費線上工具",
+    "heroSubtitle": "PDF 處理、AI 去背、證件照",
+    "heroPrivacy": "全部在瀏覽器完成，",
+    "heroHighlight": "檔案不離開你的電腦",
+    "whyTitle": "為什麼選擇 Mochi Tools？",
+    "whySubtitle": "簡單好用的小工具，像麻糬一樣軟 Q 🍡",
+    "categories": {
+      "pdf": { "name": "PDF 工具", "desc": "合併、拆分、旋轉、壓縮、加頁碼、轉圖片" },
+      "image": { "name": "圖片工具", "desc": "圖片壓縮、PNG/JPG/WebP 格式互轉" },
+      "removeBg": { "name": "AI 去背", "desc": "一鍵移除圖片背景，電商、設計必備" },
+      "photo": { "name": "AI 證件照", "desc": "上傳自拍，自動生成標準證件照" }
+    },
+    "features": {
+      "privacy": { "title": "隱私安全", "desc": "檔案在瀏覽器本地處理，絕不上傳伺服器" },
+      "speed": { "title": "極速處理", "desc": "純前端運算，不需等待伺服器回應" },
+      "free": { "title": "完全免費", "desc": "所有工具免費使用，無需註冊帳號" },
+      "mobile": { "title": "手機友善", "desc": "完美支援手機與平板，隨時隨地使用" }
+    }
+  },
+  "pdfIndex": {
+    "title": "📄 PDF 工具",
+    "subtitle": "所有 PDF 工具都在瀏覽器本地處理，檔案不會上傳到伺服器 🔒",
+    "tools": {
+      "merge": { "name": "📑 合併 PDF", "desc": "多個 PDF 合成一個" },
+      "split": { "name": "✂️ 拆分 PDF", "desc": "擷取指定頁面" },
+      "rotate": { "name": "🔄 旋轉 PDF", "desc": "旋轉頁面方向" },
+      "pageNumbers": { "name": "🔢 加頁碼", "desc": "自動加上頁碼" },
+      "compress": { "name": "🗜️ 壓縮 PDF", "desc": "縮小檔案大小" },
+      "toImage": { "name": "🖼️ PDF 轉圖片", "desc": "轉成 JPG/PNG" }
+    }
+  },
+  "pdfMerge": {
+    "meta": {
+      "title": "合併 PDF — 多個 PDF 合成一個 | Mochi Tools",
+      "description": "免費線上合併 PDF 工具，將多個 PDF 檔案合成一個，拖曳排序，瀏覽器本地處理不上傳伺服器。"
+    },
+    "title": "📑 合併 PDF",
+    "subtitle": "選擇多個 PDF 檔案，合併成一個。可拖曳調整順序。",
+    "dropzone": "拖放 PDF 檔案到這裡，或點擊選擇",
+    "dropzoneHint": "支援多選，檔案不會上傳到伺服器",
+    "selectFile": "選擇 PDF 檔案",
+    "pages": "頁",
+    "fileCount": "共 {count} 個檔案，{pages} 頁",
+    "mergeBtn": "📑 合併並下載",
+    "merging": "合併中...",
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "remove": "移除",
+    "readError": "無法讀取此 PDF",
+    "mergeError": "合併失敗，請確認檔案是否正常"
+  },
+  "pdfSplit": {
+    "meta": {
+      "title": "拆分 PDF — 擷取指定頁面 | Mochi Tools",
+      "description": "免費線上拆分 PDF 工具，指定頁碼範圍擷取頁面，瀏覽器本地處理不上傳伺服器。"
+    },
+    "title": "✂️ 拆分 PDF",
+    "subtitle": "選擇要保留的頁面，擷取成新的 PDF。",
+    "selectFile": "選擇 PDF 檔案",
+    "totalPages": "共 {count} 頁",
+    "changeFile": "換檔案",
+    "rangeLabel": "頁碼範圍（例如：1-3,5,7-9）",
+    "rangePlaceholder": "1-3,5,7-9",
+    "splitBtn": "✂️ 拆分並下載",
+    "splitting": "拆分中...",
+    "readError": "無法讀取此 PDF",
+    "splitError": "拆分失敗",
+    "rangeError": "請輸入有效的頁碼範圍"
+  },
+  "pdfCompress": {
+    "meta": {
+      "title": "壓縮 PDF — 縮小檔案大小 | Mochi Tools",
+      "description": "免費線上壓縮 PDF 工具，移除多餘資料縮小檔案，瀏覽器本地處理不上傳伺服器。"
+    },
+    "title": "🗜️ 壓縮 PDF",
+    "subtitle": "移除多餘資料，縮小 PDF 檔案大小。",
+    "selectFile": "選擇 PDF 檔案",
+    "originalSize": "原始大小：{size}",
+    "changeFile": "換檔案",
+    "compressBtn": "🗜️ 開始壓縮",
+    "compressing": "壓縮中...",
+    "reduced": "縮小了 {percent}%",
+    "alreadySmall": "此檔案已經很小了",
+    "downloadBtn": "📥 下載壓縮後的 PDF",
+    "compressError": "壓縮失敗"
+  },
+  "pdfRotate": {
+    "meta": {
+      "title": "旋轉 PDF — 旋轉頁面方向 | Mochi Tools",
+      "description": "免費線上旋轉 PDF 工具，支援 90/180/270 度旋轉，瀏覽器本地處理不上傳伺服器。"
+    },
+    "title": "🔄 旋轉 PDF",
+    "subtitle": "旋轉 PDF 所有頁面的方向。",
+    "selectFile": "選擇 PDF 檔案",
+    "totalPages": "共 {count} 頁",
+    "changeFile": "換檔案",
+    "rotateBtn": "🔄 旋轉並下載",
+    "rotating": "旋轉中...",
+    "readError": "無法讀取此 PDF",
+    "rotateError": "旋轉失敗"
+  },
+  "pdfPageNumbers": {
+    "meta": {
+      "title": "加頁碼 PDF — 自動加上頁碼 | Mochi Tools",
+      "description": "免費線上 PDF 加頁碼工具，三種位置可選，瀏覽器本地處理不上傳伺服器。"
+    },
+    "title": "🔢 加頁碼",
+    "subtitle": "自動為 PDF 每一頁加上頁碼。",
+    "selectFile": "選擇 PDF 檔案",
+    "totalPages": "共 {count} 頁",
+    "changeFile": "換檔案",
+    "positionLabel": "頁碼位置",
+    "bottomCenter": "底部置中",
+    "bottomRight": "底部右側",
+    "topCenter": "頂部置中",
+    "addBtn": "🔢 加頁碼並下載",
+    "processing": "處理中...",
+    "readError": "無法讀取此 PDF",
+    "addError": "加頁碼失敗"
+  },
+  "pdfToImage": {
+    "meta": {
+      "title": "PDF 轉圖片 — 轉成 JPG/PNG | Mochi Tools",
+      "description": "免費線上 PDF 轉圖片工具，支援 PNG/JPG 格式，可調解析度，瀏覽器本地處理。"
+    },
+    "title": "🖼️ PDF 轉圖片",
+    "subtitle": "將 PDF 每一頁轉成 PNG 或 JPG 圖片。",
+    "selectFile": "選擇 PDF 檔案",
+    "changeFile": "換檔案",
+    "formatLabel": "格式",
+    "resolutionLabel": "解析度",
+    "convertBtn": "🖼️ 開始轉換",
+    "converting": "轉換中...",
+    "loading": "載入中...",
+    "imageCount": "共 {count} 張圖片",
+    "downloadAll": "📥 全部下載",
+    "pageDownload": "第 {page} 頁 — 點擊下載",
+    "convertError": "轉換失敗，請確認檔案是否正常"
+  },
+  "imageIndex": {
+    "meta": {
+      "title": "圖片工具 - 壓縮、轉檔 | Mochi Tools 🍡",
+      "description": "免費線上圖片工具：圖片壓縮、格式轉換（PNG、JPG、WebP）。瀏覽器本地處理，檔案不上傳伺服器。"
+    },
+    "title": "圖片工具",
+    "subtitle": "壓縮、轉檔，全部免費、不上傳伺服器 🔒",
+    "tools": {
+      "compress": { "name": "🗜️ 圖片壓縮", "desc": "壓縮 JPG、PNG、WebP，大幅縮小檔案大小" },
+      "convert": { "name": "🔄 格式轉換", "desc": "PNG、JPG、WebP 互相轉換，6 種組合任你選" }
+    }
+  },
+  "imageCompress": {
+    "meta": {
+      "title": "圖片壓縮 - 免費線上壓縮工具 | Mochi Tools 🍡",
+      "description": "免費線上圖片壓縮工具，支援 JPG、PNG、WebP。可調整壓縮品質，批次壓縮多張圖片。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "title": "圖片壓縮",
+    "subtitle": "支援 JPG、PNG、WebP，批次壓縮多張圖片 🔒",
+    "qualityLabel": "壓縮程度",
+    "presets": {
+      "light": { "label": "🌟 輕度壓縮", "desc": "畫質幾乎不變" },
+      "recommended": { "label": "👍 推薦", "desc": "畫質與大小平衡" },
+      "maximum": { "label": "🗜️ 最小檔案", "desc": "大幅縮小" }
+    },
+    "dropzone": "拖放圖片到這裡",
+    "dropzoneProcessing": "壓縮中...",
+    "dropzoneHint": "或點擊選擇檔案（可多選）",
+    "imageCount": "共 {count} 張圖片",
+    "spaceSaved": "節省空間",
+    "downloadAll": "📥 全部下載 (ZIP)",
+    "download": "📥 下載",
+    "clearAll": "清除全部"
+  },
+  "convertIndex": {
+    "meta": {
+      "title": "圖片格式轉換 - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費線上圖片格式轉換工具，支援 PNG、JPG、WebP 互轉。瀏覽器本地處理，檔案不上傳伺服器，安全又快速。"
+    },
+    "title": "圖片格式轉換",
+    "subtitle": "選擇你需要的轉換格式，全部免費、不上傳伺服器 🔒",
+    "formatConvert": "{from} 轉 {to} 格式"
+  },
+  "convertTool": {
+    "title": "{from} 轉 {to}",
+    "subtitle": "免費線上轉檔，瀏覽器本地處理，檔案不上傳伺服器 🔒",
+    "dropzone": "拖放 {format} 檔案到這裡",
+    "dropzoneHint": "或點擊選擇檔案",
+    "afterConvert": "轉換後",
+    "preview": "預覽",
+    "convertBtn": "轉換為 {format}",
+    "converting": "轉換中...",
+    "downloadBtn": "📥 下載 {format}",
+    "reset": "重新選擇"
+  },
+  "convertMeta": {
+    "pngToJpg": {
+      "title": "PNG 轉 JPG - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費將 PNG 圖片轉換為 JPG 格式。瀏覽器本地處理，不上傳伺服器，快速安全。支援批次轉換、高品質輸出。"
+    },
+    "jpgToPng": {
+      "title": "JPG 轉 PNG - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費將 JPG/JPEG 圖片轉換為 PNG 格式，保留透明度。瀏覽器本地處理，不上傳伺服器，快速安全。"
+    },
+    "pngToWebp": {
+      "title": "PNG 轉 WebP - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費將 PNG 圖片轉換為 WebP 格式，大幅縮小檔案大小。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "webpToPng": {
+      "title": "WebP 轉 PNG - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費將 WebP 圖片轉換為 PNG 格式。瀏覽器本地處理，不上傳伺服器，支援透明背景保留。"
+    },
+    "jpgToWebp": {
+      "title": "JPG 轉 WebP - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費將 JPG/JPEG 圖片轉換為 WebP 格式，檔案更小、載入更快。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "webpToJpg": {
+      "title": "WebP 轉 JPG - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費將 WebP 圖片轉換為 JPG 格式，相容性更高。瀏覽器本地處理，不上傳伺服器，快速安全。"
+    }
+  },
+  "removeBg": {
+    "meta": {
+      "title": "AI 去背 — 一鍵移除圖片背景 | Mochi Tools",
+      "description": "免費線上 AI 去背工具，一鍵移除圖片背景輸出透明 PNG，瀏覽器本地處理不上傳伺服器。"
+    },
+    "title": "🎨 AI 去背",
+    "subtitle": "一鍵移除圖片背景，輸出透明 PNG。所有處理在瀏覽器完成 🔒",
+    "uploadBtn": "點擊上傳圖片",
+    "uploadHint": "支援 JPG、PNG、WebP",
+    "uploadError": "請上傳圖片檔案",
+    "loadingModel": "載入去背模型中（首次約需 30-60 秒）...",
+    "removingBg": "正在去除背景...",
+    "downloadingModel": "下載模型: {pct}%",
+    "processingBg": "去背處理中: {pct}%",
+    "processing": "處理中...",
+    "modelHint": "首次使用需下載 AI 模型，請耐心等候 🍡",
+    "compareOriginal": "🔄 對比原圖",
+    "compareResult": "🔙 查看去背結果",
+    "altOriginal": "原圖",
+    "altResult": "去背結果",
+    "downloadPng": "📥 下載透明 PNG",
+    "processAnother": "🔄 處理另一張",
+    "error": "去背失敗，請嘗試其他照片或檢查網路連線"
+  },
+  "photo": {
+    "meta": {
+      "title": "AI 證件照 — 自動生成標準證件照 | Mochi Tools",
+      "description": "免費線上 AI 證件照工具，上傳照片自動去背生成標準證件照，支援多種尺寸和背景色。"
+    },
+    "title": "📸 AI 證件照",
+    "subtitle": "上傳照片，自動去背並生成標準證件照。所有處理在瀏覽器完成 🔒",
+    "uploadBtn": "點擊上傳照片",
+    "uploadHint": "建議使用正面免冠照片，效果最佳",
+    "uploadError": "請上傳圖片檔案",
+    "loadingModel": "載入去背模型中（首次約需 30-60 秒）...",
+    "removingBg": "正在去除背景...",
+    "downloadingModel": "下載模型: {pct}%",
+    "processingBg": "去背處理中: {pct}%",
+    "processing": "處理中...",
+    "modelHint": "首次使用需下載 AI 模型，請耐心等候 🍡",
+    "sizeLabel": "照片尺寸",
+    "sizes": {
+      "2inch": "2吋",
+      "1inch": "1吋",
+      "passport": "護照",
+      "visa": "美簽"
+    },
+    "bgLabel": "背景顏色",
+    "bgColors": {
+      "white": "白色",
+      "blue": "藍色",
+      "red": "紅色"
+    },
+    "zoomLabel": "縮放 {percent}%",
+    "zoomOut": "縮小",
+    "zoomIn": "放大",
+    "previewAlt": "證件照預覽",
+    "previewHint": "👆 拖曳照片調整位置 · 輸出：{w} × {h} px（{desc}）",
+    "resetPosition": "重置位置",
+    "downloadBtn": "📥 下載證件照",
+    "reupload": "🔄 重新上傳",
+    "error": "去背失敗，請嘗試其他照片或檢查網路連線"
+  },
+  "languageSwitcher": {
+    "label": "🌐"
+  }
+}

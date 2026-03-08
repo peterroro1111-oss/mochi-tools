@@ -1,22 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mochitools.com</loc><priority>1.0</priority></url>
-  <url><loc>https://mochitools.com/pdf</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/pdf/merge</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/pdf/split</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/pdf/rotate</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/pdf/compress</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/pdf/page-numbers</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/pdf/to-image</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/image</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/image/compress</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/convert</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/convert/png-to-jpg</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/convert/jpg-to-png</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/convert/png-to-webp</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/convert/webp-to-png</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/convert/jpg-to-webp</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/convert/webp-to-jpg</loc><priority>0.7</priority></url>
-  <url><loc>https://mochitools.com/remove-bg</loc><priority>0.8</priority></url>
-  <url><loc>https://mochitools.com/photo</loc><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mochitools.com/zh</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/pdf</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/pdf/merge</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/merge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/merge"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/merge</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/merge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/merge"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/pdf/split</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/split"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/split"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/split</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/split"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/split"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/pdf/rotate</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/rotate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/rotate"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/rotate</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/rotate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/rotate"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/pdf/compress</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/compress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/compress"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/compress</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/compress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/compress"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/pdf/page-numbers</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/page-numbers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/page-numbers"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/page-numbers</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/page-numbers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/page-numbers"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/pdf/to-image</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/to-image"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/to-image"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/to-image</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/to-image"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/to-image"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/image</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/image</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/image/compress</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/compress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/compress"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/image/compress</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/compress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/compress"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/png-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/png-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/png-to-jpg"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/png-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/png-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/png-to-jpg"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/jpg-to-png</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/jpg-to-png"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/jpg-to-png"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/jpg-to-png</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/jpg-to-png"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/jpg-to-png"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/png-to-webp</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/png-to-webp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/png-to-webp"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/png-to-webp</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/png-to-webp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/png-to-webp"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/webp-to-png</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/webp-to-png"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/webp-to-png"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/webp-to-png</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/webp-to-png"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/webp-to-png"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/jpg-to-webp</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/jpg-to-webp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/jpg-to-webp"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/jpg-to-webp</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/jpg-to-webp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/jpg-to-webp"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/webp-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/webp-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/webp-to-jpg"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/webp-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/webp-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/webp-to-jpg"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/remove-bg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/remove-bg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/remove-bg"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/remove-bg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/remove-bg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/remove-bg"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/photo</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/photo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/photo"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/photo</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/photo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/photo"/>
+    <priority>0.8</priority>
+  </url>
 </urlset>

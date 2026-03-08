@@ -1,19 +1,27 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-
-const links = [
-  { href: '/pdf', label: '📄 PDF 工具' },
-  { href: '/image', label: '🖼️ 圖片工具' },
-  { href: '/remove-bg', label: '🎨 AI 去背' },
-  { href: '/photo', label: '📸 證件照' },
-];
+import { useLocale, useTranslations } from 'next-intl';
+import { Link, usePathname, useRouter } from '@/i18n/routing';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations('navbar');
+  const locale = useLocale();
+  const router = useRouter();
+
+  const links = [
+    { href: '/pdf' as const, label: t('pdf') },
+    { href: '/image' as const, label: t('image') },
+    { href: '/remove-bg' as const, label: t('removeBg') },
+    { href: '/photo' as const, label: t('photo') },
+  ];
+
+  const switchLocale = () => {
+    const newLocale = locale === 'zh' ? 'en' : 'zh';
+    router.replace(pathname, { locale: newLocale });
+  };
 
   return (
     <nav className="sticky top-0 z-50 border-b-2 border-pink-100 bg-white/90 backdrop-blur-md">
@@ -41,20 +49,38 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          {/* Language switcher */}
+          <button
+            onClick={switchLocale}
+            className="ml-2 px-3 py-2 rounded-xl text-sm font-medium text-gray-500 hover:text-pink-500 hover:bg-pink-50 transition-all duration-200"
+            title={locale === 'zh' ? 'English' : '中文'}
+          >
+            🌐 {locale === 'zh' ? 'EN' : '中文'}
+          </button>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded-xl hover:bg-pink-50 transition-colors"
-          aria-label="選單"
-        >
-          <div className="w-5 flex flex-col gap-1">
-            <span className={`block h-0.5 bg-pink-400 rounded transition-all duration-300 ${open ? 'rotate-45 translate-y-1.5' : ''}`} />
-            <span className={`block h-0.5 bg-pink-400 rounded transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
-            <span className={`block h-0.5 bg-pink-400 rounded transition-all duration-300 ${open ? '-rotate-45 -translate-y-1.5' : ''}`} />
-          </div>
-        </button>
+        <div className="flex md:hidden items-center gap-1">
+          {/* Mobile language switcher */}
+          <button
+            onClick={switchLocale}
+            className="p-2 rounded-xl text-sm font-medium text-gray-500 hover:text-pink-500 hover:bg-pink-50 transition-colors"
+            title={locale === 'zh' ? 'English' : '中文'}
+          >
+            🌐
+          </button>
+          <button
+            onClick={() => setOpen(!open)}
+            className="p-2 rounded-xl hover:bg-pink-50 transition-colors"
+            aria-label={t('menu')}
+          >
+            <div className="w-5 flex flex-col gap-1">
+              <span className={`block h-0.5 bg-pink-400 rounded transition-all duration-300 ${open ? 'rotate-45 translate-y-1.5' : ''}`} />
+              <span className={`block h-0.5 bg-pink-400 rounded transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+              <span className={`block h-0.5 bg-pink-400 rounded transition-all duration-300 ${open ? '-rotate-45 -translate-y-1.5' : ''}`} />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
