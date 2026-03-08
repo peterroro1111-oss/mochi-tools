@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { downloadFile } from '@/app/utils/download';
 
 interface ConvertToolProps {
   fromFormat: string;
@@ -74,13 +75,12 @@ export default function ConvertTool({ fromFormat, toFormat, fromLabel, toLabel, 
     img.src = previewUrl;
   };
 
-  const download = () => {
+  const download = async () => {
     if (!resultUrl || !file) return;
-    const a = document.createElement('a');
-    a.href = resultUrl;
+    const resp = await fetch(resultUrl);
+    const blob = await resp.blob();
     const baseName = file.name.replace(/\.[^.]+$/, '');
-    a.download = `${baseName}.${extension}`;
-    a.click();
+    downloadFile(blob, `${baseName}.${extension}`);
   };
 
   const reset = () => {

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import { downloadFile } from '@/app/utils/download';
 
 interface OriginalFile {
   file: File;
@@ -121,12 +122,11 @@ export default function CompressPage() {
     handleFiles(e.dataTransfer.files);
   };
 
-  const downloadOne = (r: CompressedResult) => {
-    const a = document.createElement('a');
-    a.href = r.compressedUrl;
+  const downloadOne = async (r: CompressedResult) => {
+    const resp = await fetch(r.compressedUrl);
+    const blob = await resp.blob();
     const baseName = r.name.replace(/\.[^.]+$/, '');
-    a.download = `${baseName}_compressed.${r.name.split('.').pop()}`;
-    a.click();
+    downloadFile(blob, `${baseName}_compressed.${r.name.split('.').pop()}`);
   };
 
   const downloadAll = async () => {
@@ -141,10 +141,7 @@ export default function CompressPage() {
       zip.file(`${baseName}_compressed.${r.name.split('.').pop()}`, blob);
     }
     const zipBlob = await zip.generateAsync({ type: 'blob' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(zipBlob);
-    a.download = 'compressed_images.zip';
-    a.click();
+    downloadFile(zipBlob, 'compressed_images.zip');
   };
 
   const clearAll = () => {

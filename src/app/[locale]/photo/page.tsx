@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import { downloadFile } from '@/app/utils/download';
 
 const SIZES = [
   { id: '2inch', w: 413, h: 531, desc: '35×45mm' },
@@ -169,12 +170,11 @@ export default function PhotoPage() {
     setOffsetY(dragStart.current.oy + dy);
   };
 
-  const downloadPhoto = () => {
+  const downloadPhoto = async () => {
     if (!previewUrl) return;
-    const a = document.createElement('a');
-    a.href = previewUrl;
-    a.download = `photo_${selectedSize.id}_${bgColor.id}.png`;
-    a.click();
+    const resp = await fetch(previewUrl);
+    const blob = await resp.blob();
+    downloadFile(blob, `photo_${selectedSize.id}_${bgColor.id}.png`);
   };
 
   const reset = () => {

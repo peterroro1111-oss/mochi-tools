@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { PDFDocument } from 'pdf-lib';
+import { downloadFile } from '@/app/utils/download';
 
 interface PdfFile {
   name: string;
@@ -64,12 +65,7 @@ export default function MergePdfPage() {
       }
       const bytes = await merged.save();
       const blob = new Blob([bytes as BlobPart], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'merged.pdf';
-      a.click();
-      URL.revokeObjectURL(url);
+      downloadFile(blob, 'merged.pdf');
     } catch {
       alert(t('mergeError'));
     } finally {

@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { QRCodeCanvas } from 'qrcode.react';
+import { downloadFile } from '@/app/utils/download';
 
 export default function QRCodePage() {
   const t = useTranslations('qrcode');
@@ -15,10 +16,10 @@ export default function QRCodePage() {
   const download = useCallback(() => {
     const canvas = qrRef.current?.querySelector('canvas');
     if (!canvas) return;
-    const a = document.createElement('a');
-    a.href = canvas.toDataURL('image/png');
-    a.download = 'qrcode.png';
-    a.click();
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      downloadFile(blob, 'qrcode.png');
+    }, 'image/png');
   }, []);
 
   return (

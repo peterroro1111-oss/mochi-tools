@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import { downloadFile } from '@/app/utils/download';
 
 type Position = 'topLeft' | 'topCenter' | 'topRight' | 'centerLeft' | 'center' | 'centerRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'tiled';
 
@@ -103,11 +104,11 @@ export default function WatermarkPage() {
   const download = (format: 'png' | 'jpeg') => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const a = document.createElement('a');
-    a.href = canvas.toDataURL(`image/${format}`, format === 'jpeg' ? 0.92 : undefined);
-    const baseName = imageFile?.name.replace(/\.[^.]+$/, '') || 'watermarked';
-    a.download = `${baseName}_watermark.${format === 'jpeg' ? 'jpg' : 'png'}`;
-    a.click();
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      const baseName = imageFile?.name.replace(/\.[^.]+$/, '') || 'watermarked';
+      downloadFile(blob, `${baseName}_watermark.${format === 'jpeg' ? 'jpg' : 'png'}`);
+    }, `image/${format}`, format === 'jpeg' ? 0.92 : undefined);
   };
 
   const reset = () => {

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import { downloadFile } from '@/app/utils/download';
 
 declare global {
   interface Window {
@@ -62,20 +63,18 @@ export default function PdfToImagePage() {
     }
   };
 
-  const downloadAll = () => {
-    images.forEach((img, i) => {
-      const a = document.createElement('a');
-      a.href = img;
-      a.download = `page_${i + 1}.${format}`;
-      a.click();
-    });
+  const downloadAll = async () => {
+    for (let i = 0; i < images.length; i++) {
+      const resp = await fetch(images[i]);
+      const blob = await resp.blob();
+      downloadFile(blob, `page_${i + 1}.${format}`);
+    }
   };
 
-  const downloadOne = (img: string, index: number) => {
-    const a = document.createElement('a');
-    a.href = img;
-    a.download = `page_${index + 1}.${format}`;
-    a.click();
+  const downloadOne = async (img: string, index: number) => {
+    const resp = await fetch(img);
+    const blob = await resp.blob();
+    downloadFile(blob, `page_${index + 1}.${format}`);
   };
 
   return (

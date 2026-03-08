@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { downloadFile } from '@/app/utils/download';
 
 export default function RemoveBgPage() {
   const t = useTranslations('removeBg');
@@ -52,12 +53,11 @@ export default function RemoveBgPage() {
     }
   };
 
-  const download = () => {
+  const download = async () => {
     if (!resultUrl) return;
-    const a = document.createElement('a');
-    a.href = resultUrl;
-    a.download = 'removed_bg.png';
-    a.click();
+    const resp = await fetch(resultUrl);
+    const blob = await resp.blob();
+    downloadFile(blob, 'removed_bg.png');
   };
 
   const reset = () => {

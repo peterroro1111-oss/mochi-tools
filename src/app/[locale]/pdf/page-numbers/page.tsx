@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { downloadFile } from '@/app/utils/download';
 
 export default function PageNumbersPage() {
   const t = useTranslations('pdfPageNumbers');
@@ -44,12 +45,7 @@ export default function PageNumbersPage() {
 
       const bytes = await pdf.save();
       const blob = new Blob([bytes as BlobPart], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `numbered_${file.name}`;
-      a.click();
-      URL.revokeObjectURL(url);
+      downloadFile(blob, `numbered_${file.name}`);
     } catch {
       alert(t('addError'));
     } finally {

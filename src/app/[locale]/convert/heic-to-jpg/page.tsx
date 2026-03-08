@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { downloadFile } from '@/app/utils/download';
 
 interface ConvertedFile {
   name: string;
@@ -74,10 +75,7 @@ export default function HeicToJpgPage() {
   };
 
   const downloadOne = (r: ConvertedFile) => {
-    const a = document.createElement('a');
-    a.href = r.url;
-    a.download = r.name;
-    a.click();
+    downloadFile(r.blob, r.name);
   };
 
   const downloadAll = async () => {
@@ -89,10 +87,7 @@ export default function HeicToJpgPage() {
       zip.file(r.name, r.blob);
     }
     const zipBlob = await zip.generateAsync({ type: 'blob' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(zipBlob);
-    a.download = 'heic-to-jpg.zip';
-    a.click();
+    downloadFile(zipBlob, 'heic-to-jpg.zip');
   };
 
   const clearAll = () => {
