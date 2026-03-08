@@ -102,38 +102,28 @@ export default function PhotoPage() {
           const data = imageData.data;
           const alpha = new Uint8Array(w * h);
           for (let i = 0; i < alpha.length; i++) alpha[i] = data[i * 4 + 3];
-          // Erode 1px
-          const eroded = new Uint8Array(w * h);
-          for (let y = 0; y < h; y++) {
-            for (let x = 0; x < w; x++) {
-              let min = 255;
-              for (let dy = -1; dy <= 1; dy++) {
-                for (let dx = -1; dx <= 1; dx++) {
-                  const nx = x + dx, ny = y + dy;
-                  if (nx >= 0 && nx < w && ny >= 0 && ny < h) min = Math.min(min, alpha[ny * w + nx]);
-                  else min = 0;
+          // Erode 2px (two passes) for cleaner ID photo edges
+          let current = alpha;
+          for (let pass = 0; pass < 2; pass++) {
+            const eroded = new Uint8Array(w * h);
+            for (let y = 0; y < h; y++) {
+              for (let x = 0; x < w; x++) {
+                let min = 255;
+                for (let dy = -1; dy <= 1; dy++) {
+                  for (let dx = -1; dx <= 1; dx++) {
+                    const nx = x + dx, ny = y + dy;
+                    if (nx >= 0 && nx < w && ny >= 0 && ny < h) min = Math.min(min, current[ny * w + nx]);
+                    else min = 0;
+                  }
                 }
+                eroded[y * w + x] = min;
               }
-              eroded[y * w + x] = min;
             }
+            current = eroded;
           }
-          // Smooth 3x3
-          const smoothed = new Uint8Array(w * h);
-          for (let y = 0; y < h; y++) {
-            for (let x = 0; x < w; x++) {
-              let sum = 0, count = 0;
-              for (let dy = -1; dy <= 1; dy++) {
-                for (let dx = -1; dx <= 1; dx++) {
-                  const nx = x + dx, ny = y + dy;
-                  if (nx >= 0 && nx < w && ny >= 0 && ny < h) { sum += eroded[ny * w + nx]; count++; }
-                }
-              }
-              smoothed[y * w + x] = Math.round(sum / count);
-            }
-          }
-          for (let i = 0; i < smoothed.length; i++) {
-            const a = smoothed[i];
-            data[i * 4 + 3] = a < 20 ? 0 : a > 200 ? 255 : a;
+          // Hard threshold for ID photo (clean solid background needed)
+          for (let i = 0; i < current.length; i++) {
+            data[i * 4 + 3] = current[i] < 80 ? 0 : 255;
           }
           ctx.putImageData(imageData, 0, 0);
           canvas.toBlob((b) => resolve(b!), 'image/png');
