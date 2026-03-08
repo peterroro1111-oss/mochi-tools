@@ -263,8 +263,7 @@ export default function QRCodePage() {
 
       {/* Tab bar */}
       <div
-        className="flex gap-2 overflow-x-auto pb-2 mb-6"
-        style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}
+        className="flex flex-wrap gap-2 pb-2 mb-6"
       >
         {TAB_KEYS.map((key) => (
           <button
