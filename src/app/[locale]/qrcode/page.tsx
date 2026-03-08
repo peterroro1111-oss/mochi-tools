@@ -269,7 +269,7 @@ export default function QRCodePage() {
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`flex-shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${
+            className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
               activeTab === key
                 ? 'bg-gradient-to-r from-pink-400 to-rose-400 text-white shadow-sm'
                 : 'bg-pink-50 text-gray-600 hover:bg-pink-100'
