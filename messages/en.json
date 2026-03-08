@@ -338,7 +338,8 @@
     "downloadAll": "📥 Download All (ZIP)",
     "clearAll": "Clear all",
     "fileCount": "{count} files",
-    "convertError": "Conversion failed. Please check the file format."
+    "convertError": "Conversion failed. Please check the file format.",
+    "mobileHint": "📱 Mobile users: iOS/Android automatically converts photos to JPG when selecting. This tool is mainly for converting .heic files on desktop."
   },
   "watermark": {
     "meta": {

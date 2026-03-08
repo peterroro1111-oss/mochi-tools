@@ -338,7 +338,8 @@
     "downloadAll": "📥 全部下載 (ZIP)",
     "clearAll": "清除全部",
     "fileCount": "共 {count} 個檔案",
-    "convertError": "轉換失敗，請確認檔案格式"
+    "convertError": "轉換失敗，請確認檔案格式",
+    "mobileHint": "📱 手機用戶提示：iOS/Android 選取照片時會自動轉為 JPG，此工具主要適用於電腦端處理 .heic 檔案。"
   },
   "watermark": {
     "meta": {

@@ -112,6 +112,11 @@ export default function HeicToJpgPage() {
         <p className="text-[#b89b8a]">{t('subtitle')}</p>
       </div>
 
+      {/* Mobile hint */}
+      <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-700 md:hidden">
+        {t('mobileHint')}
+      </div>
+
       {/* Quality slider */}
       <div className="bg-white rounded-2xl border-2 border-pink-100 p-5 mb-6">
         <label className="text-sm font-medium text-gray-700 mb-2 block">
