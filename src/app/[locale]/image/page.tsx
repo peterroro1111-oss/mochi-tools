@@ -20,6 +20,24 @@ const tools = [
     gradient: 'from-sky-50 to-blue-50',
     border: 'border-sky-200 hover:border-sky-400',
   },
+  {
+    key: 'gif',
+    href: '/image/gif',
+    gradient: 'from-green-50 to-emerald-50',
+    border: 'border-green-200 hover:border-green-400',
+  },
+  {
+    key: 'annotate',
+    href: '/image/annotate',
+    gradient: 'from-orange-50 to-red-50',
+    border: 'border-orange-200 hover:border-orange-400',
+  },
+  {
+    key: 'resize',
+    href: '/image/resize',
+    gradient: 'from-purple-50 to-violet-50',
+    border: 'border-purple-200 hover:border-purple-400',
+  },
 ];
 
 export default async function ImageIndexPage() {

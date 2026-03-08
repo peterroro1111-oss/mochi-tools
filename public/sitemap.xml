@@ -265,4 +265,199 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/watermark"/>
     <priority>0.7</priority>
   </url>
+  <!-- Tools Index -->
+  <url>
+    <loc>https://mochitools.com/zh/tools</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools"/>
+    <priority>0.8</priority>
+  </url>
+  <!-- JSON Formatter -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/json</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/json"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/json"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/json</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/json"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/json"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Base64 -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/base64</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/base64"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/base64"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/base64</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/base64"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/base64"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Color Converter -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/color</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/color"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/color"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/color</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/color"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/color"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Character Counter -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/character-count</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/character-count"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/character-count"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/character-count</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/character-count"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/character-count"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Markdown Preview -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/markdown</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/markdown"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/markdown"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/markdown</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/markdown"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/markdown"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Timestamp Converter -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/timestamp</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/timestamp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/timestamp"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/timestamp</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/timestamp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/timestamp"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Favicon Generator -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/favicon</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/favicon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/favicon"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/favicon</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/favicon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/favicon"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- OG Image Generator -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/og-image</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/og-image"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/og-image"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/og-image</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/og-image"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/og-image"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Color Palette Extractor -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/palette</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/palette"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/palette"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/palette</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/palette"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/palette"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- PDF Encrypt -->
+  <url>
+    <loc>https://mochitools.com/zh/pdf/encrypt</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/encrypt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/encrypt"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/encrypt</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/encrypt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/encrypt"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- PDF Watermark -->
+  <url>
+    <loc>https://mochitools.com/zh/pdf/watermark</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/watermark"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/watermark"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/pdf/watermark</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/pdf/watermark"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/pdf/watermark"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- GIF Maker -->
+  <url>
+    <loc>https://mochitools.com/zh/image/gif</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/gif"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/gif"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/image/gif</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/gif"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/gif"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Image Annotate -->
+  <url>
+    <loc>https://mochitools.com/zh/image/annotate</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/annotate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/annotate"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/image/annotate</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/annotate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/annotate"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Image Resize -->
+  <url>
+    <loc>https://mochitools.com/zh/image/resize</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/resize"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/resize"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/image/resize</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/resize"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/resize"/>
+    <priority>0.7</priority>
+  </url>
 </urlset>

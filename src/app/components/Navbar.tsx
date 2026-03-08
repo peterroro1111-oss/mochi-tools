@@ -16,6 +16,7 @@ export default function Navbar() {
     { href: '/image' as const, label: t('image') },
     { href: '/remove-bg' as const, label: t('removeBg') },
     { href: '/photo' as const, label: t('photo') },
+    { href: '/tools' as const, label: t('tools') },
   ];
 
   const switchLocale = () => {

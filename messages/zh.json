@@ -10,6 +10,7 @@
     "image": "🖼️ 圖片工具",
     "removeBg": "🎨 AI 去背",
     "photo": "📸 證件照",
+    "tools": "🔧 實用工具",
     "menu": "選單"
   },
   "footer": {
@@ -42,7 +43,7 @@
       },
       "utility": {
         "name": "實用工具",
-        "desc": "QR Code 產生器等實用小工具"
+        "desc": "JSON 格式化、Base64、顏色轉換、Markdown 預覽等"
       }
     },
     "features": {
@@ -91,6 +92,14 @@
       "toImage": {
         "name": "🖼️ PDF 轉圖片",
         "desc": "轉成 JPG/PNG"
+      },
+      "encrypt": {
+        "name": "🔒 PDF 加密",
+        "desc": "為 PDF 設定密碼"
+      },
+      "watermark": {
+        "name": "💧 PDF 浮水印",
+        "desc": "加文字浮水印"
       }
     }
   },
@@ -221,6 +230,18 @@
       "watermark": {
         "name": "💧 圖片浮水印",
         "desc": "為圖片加上文字浮水印，保護作品版權"
+      },
+      "gif": {
+        "name": "🎞️ GIF 製作",
+        "desc": "多張圖片合成 GIF 動畫"
+      },
+      "annotate": {
+        "name": "✏️ 文字標註",
+        "desc": "在圖片上添加文字標註"
+      },
+      "resize": {
+        "name": "📐 圖片縮放",
+        "desc": "調整圖片尺寸，支援批次處理"
       }
     }
   },
@@ -444,5 +465,258 @@
   },
   "languageSwitcher": {
     "label": "🌐"
+  },
+  "toolsIndex": {
+    "meta": {
+      "title": "實用工具 — 免費線上開發者工具 | Mochi Tools 🍡",
+      "description": "免費線上實用工具：JSON 格式化、Base64 編碼、顏色轉換、字數統計、Markdown 預覽、時間戳轉換等。"
+    },
+    "title": "🔧 實用工具",
+    "subtitle": "各種方便的小工具，全部免費、不上傳伺服器 🔒",
+    "tools": {
+      "json": { "name": "{ } JSON 格式化", "desc": "格式化、壓縮、語法高亮 JSON" },
+      "base64": { "name": "🔐 Base64 編碼", "desc": "文字與 Base64 互轉、支援檔案" },
+      "color": { "name": "🎨 顏色轉換", "desc": "HEX、RGB、HSL 即時互轉" },
+      "charCount": { "name": "🔤 字數統計", "desc": "字元、字數、段落、閱讀時間" },
+      "markdown": { "name": "📝 Markdown 預覽", "desc": "即時預覽 Markdown，支援 GFM" },
+      "timestamp": { "name": "⏱️ 時間戳轉換", "desc": "Unix 時間戳與日期互轉" },
+      "favicon": { "name": "⭐ Favicon 產生器", "desc": "上傳圖片產生所有尺寸 Favicon" },
+      "ogImage": { "name": "🖼️ OG 圖片產生器", "desc": "產生社群分享用 OG 圖片" },
+      "palette": { "name": "🎨 色彩擷取", "desc": "從圖片擷取主要配色" },
+      "qrcode": { "name": "🔗 QR Code 產生器", "desc": "自訂大小顏色的 QR Code" }
+    }
+  },
+  "jsonFormatter": {
+    "meta": {
+      "title": "JSON 格式化 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上 JSON 格式化工具，支援格式化、壓縮、語法高亮、錯誤偵測。瀏覽器本地處理。"
+    },
+    "title": "JSON 格式化",
+    "subtitle": "格式化、壓縮 JSON，語法高亮顯示 🔒",
+    "tabSize": "縮排",
+    "formatBtn": "格式化",
+    "minifyBtn": "壓縮",
+    "copyBtn": "複製",
+    "copied": "已複製 ✓",
+    "placeholder": "貼上你的 JSON...",
+    "preview": "語法高亮預覽",
+    "invalidJson": "JSON 格式不正確",
+    "errorAtLine": "第 {line} 行附近有錯誤"
+  },
+  "base64": {
+    "meta": {
+      "title": "Base64 編碼/解碼 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上 Base64 編碼解碼工具，支援文字互轉及檔案拖放。瀏覽器本地處理。"
+    },
+    "title": "Base64 編碼/解碼",
+    "subtitle": "文字與 Base64 互轉，支援檔案拖放 🔒",
+    "plainLabel": "純文字",
+    "plainPlaceholder": "輸入純文字...",
+    "base64Label": "Base64",
+    "base64Placeholder": "輸入 Base64...",
+    "encodeBtn": "編碼",
+    "decodeBtn": "解碼",
+    "dropFile": "拖放檔案到這裡轉為 Base64",
+    "dropFileHint": "或點擊選擇檔案",
+    "fileLoaded": "已載入檔案",
+    "encodeError": "編碼失敗",
+    "decodeError": "解碼失敗，請確認 Base64 格式"
+  },
+  "colorConverter": {
+    "meta": {
+      "title": "顏色轉換器 — HEX/RGB/HSL 互轉 | Mochi Tools 🍡",
+      "description": "免費線上顏色轉換工具，HEX、RGB、HSL 即時互轉，附色彩預覽與複製功能。"
+    },
+    "title": "顏色轉換器",
+    "subtitle": "輸入任何格式，即時轉換 HEX、RGB、HSL 🔒",
+    "inputLabel": "輸入顏色",
+    "inputPlaceholder": "#f8a4b8 或 rgb(248,164,184) 或 hsl(346,88%,81%)",
+    "copyBtn": "複製",
+    "copied": "已複製 ✓"
+  },
+  "charCount": {
+    "meta": {
+      "title": "字數統計 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上字數統計工具，即時計算字元、字數、段落、行數、閱讀時間，支援中日韓字元偵測。"
+    },
+    "title": "字數統計",
+    "subtitle": "即時統計字元、字數、段落、閱讀時間 🔒",
+    "placeholder": "輸入或貼上文字...",
+    "characters": "字元",
+    "charsNoSpaces": "字元（無空格）",
+    "words": "字數",
+    "sentences": "句數",
+    "paragraphs": "段落",
+    "lines": "行數",
+    "cjk": "中日韓字元",
+    "readingTime": "閱讀時間",
+    "minutes": "{count} 分鐘"
+  },
+  "markdownPreview": {
+    "meta": {
+      "title": "Markdown 預覽 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上 Markdown 即時預覽工具，支援 GFM 表格、刪除線等語法，可複製 HTML。"
+    },
+    "title": "Markdown 預覽",
+    "subtitle": "左側編輯、右側即時預覽，支援 GFM 語法 🔒",
+    "editor": "編輯器",
+    "previewLabel": "預覽",
+    "copyHtml": "複製 HTML",
+    "copied": "已複製 ✓"
+  },
+  "timestamp": {
+    "meta": {
+      "title": "Unix 時間戳轉換 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上 Unix 時間戳轉換工具，即時顯示當前時間戳，支援秒/毫秒轉換。"
+    },
+    "title": "Unix 時間戳轉換",
+    "subtitle": "Unix 時間戳與日期時間互轉 🔒",
+    "currentTs": "目前 Unix 時間戳",
+    "clickToCopy": "點擊複製",
+    "seconds": "秒",
+    "milliseconds": "毫秒",
+    "tsToDate": "時間戳 → 日期",
+    "dateToTs": "日期 → 時間戳",
+    "tsPlaceholder": "輸入 Unix 時間戳...",
+    "convertBtn": "轉換",
+    "invalidTs": "無效的時間戳",
+    "invalidDate": "無效的日期"
+  },
+  "pdfEncrypt": {
+    "meta": {
+      "title": "PDF 加密 — 為 PDF 設定密碼 | Mochi Tools 🍡",
+      "description": "免費線上 PDF 加密工具，為 PDF 設定開啟密碼保護。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "title": "🔒 PDF 加密",
+    "subtitle": "為 PDF 設定密碼保護，瀏覽器本地處理 🔒",
+    "selectFile": "選擇 PDF 檔案",
+    "changeFile": "換檔案",
+    "passwordLabel": "設定密碼",
+    "passwordPlaceholder": "輸入密碼...",
+    "encryptBtn": "🔒 加密並下載",
+    "encrypting": "加密中...",
+    "encryptError": "加密失敗，請確認檔案是否正常"
+  },
+  "pdfWatermark": {
+    "meta": {
+      "title": "PDF 浮水印 — 為 PDF 加浮水印 | Mochi Tools 🍡",
+      "description": "免費線上 PDF 浮水印工具，可設定文字、大小、顏色、透明度、旋轉角度。瀏覽器本地處理。"
+    },
+    "title": "💧 PDF 浮水印",
+    "subtitle": "為 PDF 加上文字浮水印，保護你的文件 🔒",
+    "selectFile": "選擇 PDF 檔案",
+    "changeFile": "換檔案",
+    "textLabel": "浮水印文字",
+    "textPlaceholder": "輸入浮水印文字...",
+    "fontSizeLabel": "字型大小",
+    "colorLabel": "文字顏色",
+    "opacityLabel": "透明度",
+    "rotationLabel": "旋轉角度",
+    "positionLabel": "位置模式",
+    "posCenter": "正中",
+    "posDiagonal": "平鋪（對角線）",
+    "previewBtn": "預覽第一頁",
+    "previewTitle": "預覽",
+    "downloadBtn": "💧 加浮水印並下載",
+    "processing": "處理中...",
+    "watermarkError": "加浮水印失敗"
+  },
+  "gifMaker": {
+    "meta": {
+      "title": "GIF 製作器 — 多張圖片合成 GIF | Mochi Tools 🍡",
+      "description": "免費線上 GIF 製作工具，上傳多張圖片合成 GIF 動畫，可調速度和循環次數。"
+    },
+    "title": "🎞️ GIF 製作器",
+    "subtitle": "上傳多張圖片，合成 GIF 動畫 🔒",
+    "dropzone": "拖放圖片到這裡",
+    "dropzoneHint": "或點擊選擇多張圖片",
+    "delayLabel": "畫格延遲",
+    "loopLabel": "循環次數",
+    "loopInfinite": "無限循環",
+    "previewBtn": "▶ 預覽動畫",
+    "stopBtn": "⏹ 停止",
+    "createBtn": "🎞️ 產生 GIF",
+    "creating": "產生中...",
+    "createError": "GIF 產生失敗"
+  },
+  "imageAnnotate": {
+    "meta": {
+      "title": "圖片文字標註 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上圖片文字標註工具，點擊放置文字、可拖曳調整位置，下載 PNG。"
+    },
+    "title": "✏️ 圖片文字標註",
+    "subtitle": "在圖片上添加文字標註，可拖曳調整 🔒",
+    "uploadBtn": "點擊上傳圖片",
+    "textLabel": "文字內容",
+    "textPlaceholder": "輸入要添加的文字...",
+    "fontSizeLabel": "字型大小",
+    "colorLabel": "文字顏色",
+    "addBtn": "添加文字",
+    "clickHint": "💡 輸入文字後點擊圖片放置，或點按鈕添加",
+    "layersLabel": "文字圖層",
+    "downloadBtn": "📥 下載 PNG",
+    "resetBtn": "重新選擇"
+  },
+  "imageResize": {
+    "meta": {
+      "title": "圖片縮放 — 免費線上批次縮放 | Mochi Tools 🍡",
+      "description": "免費線上圖片縮放工具，支援批次處理、鎖定比例、品質調整。瀏覽器本地處理。"
+    },
+    "title": "📐 圖片縮放",
+    "subtitle": "調整圖片尺寸，支援批次處理 🔒",
+    "dropzone": "拖放圖片到這裡",
+    "dropzoneHint": "支援多選，可批次處理",
+    "fileCount": "共 {count} 張圖片",
+    "widthLabel": "寬度",
+    "heightLabel": "高度",
+    "lockAspect": "鎖定等比例",
+    "qualityLabel": "JPG 品質",
+    "downloadBtn": "📥 下載",
+    "downloadZip": "📥 全部下載 (ZIP)",
+    "processing": "處理中..."
+  },
+  "favicon": {
+    "meta": {
+      "title": "Favicon 產生器 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上 Favicon 產生器，上傳圖片自動產生所有尺寸，含 ICO 檔和 HTML 程式碼。"
+    },
+    "title": "⭐ Favicon 產生器",
+    "subtitle": "上傳圖片，自動產生所有尺寸的 Favicon 🔒",
+    "uploadBtn": "點擊上傳圖片",
+    "uploadHint": "建議使用正方形圖片",
+    "previewLabel": "各尺寸預覽",
+    "htmlSnippet": "HTML 程式碼",
+    "copyBtn": "複製",
+    "copied": "已複製 ✓",
+    "downloadAll": "📥 全部下載 (ZIP)",
+    "processing": "產生中...",
+    "resetBtn": "重新選擇"
+  },
+  "ogImage": {
+    "meta": {
+      "title": "OG 圖片產生器 — 免費線上工具 | Mochi Tools 🍡",
+      "description": "免費線上 OG 圖片產生器，輸入標題和副標題，選擇模板，產生 1200×630 社群分享圖片。"
+    },
+    "title": "🖼️ OG 圖片產生器",
+    "subtitle": "產生社群分享用 Open Graph 圖片 🔒",
+    "titleLabel": "標題",
+    "subtitleLabel": "副標題",
+    "templateLabel": "背景模板",
+    "customBgLabel": "自訂背景色",
+    "previewLabel": "預覽",
+    "downloadBtn": "📥 下載 PNG"
+  },
+  "palette": {
+    "meta": {
+      "title": "色彩擷取 — 從圖片擷取配色 | Mochi Tools 🍡",
+      "description": "免費線上色彩擷取工具，上傳圖片自動擷取主要配色，顯示 HEX 和 RGB 值。"
+    },
+    "title": "🎨 色彩擷取",
+    "subtitle": "上傳圖片，自動擷取主要配色 🔒",
+    "uploadBtn": "點擊上傳圖片",
+    "resetBtn": "重新選擇",
+    "extractedColors": "擷取的顏色",
+    "copyAll": "複製全部",
+    "copied": "已複製 ✓"
   }
 }

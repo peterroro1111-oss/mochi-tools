@@ -8,6 +8,8 @@ const toolKeys = [
   { key: 'pageNumbers', href: '/pdf/page-numbers', color: 'from-violet-50 to-purple-50' },
   { key: 'compress', href: '/pdf/compress', color: 'from-rose-50 to-pink-50' },
   { key: 'toImage', href: '/pdf/to-image', color: 'from-cyan-50 to-teal-50' },
+  { key: 'encrypt', href: '/pdf/encrypt', color: 'from-red-50 to-orange-50' },
+  { key: 'watermark', href: '/pdf/watermark', color: 'from-sky-50 to-blue-50' },
 ];
 
 export default async function PdfToolsPage() {

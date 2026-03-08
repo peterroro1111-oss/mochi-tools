@@ -10,6 +10,7 @@
     "image": "🖼️ Image Tools",
     "removeBg": "🎨 AI Remove BG",
     "photo": "📸 ID Photo",
+    "tools": "🔧 Utilities",
     "menu": "Menu"
   },
   "footer": {
@@ -42,7 +43,7 @@
       },
       "utility": {
         "name": "Utility Tools",
-        "desc": "QR Code generator and other handy tools"
+        "desc": "JSON formatter, Base64, color converter, Markdown preview & more"
       }
     },
     "features": {
@@ -91,6 +92,14 @@
       "toImage": {
         "name": "🖼️ PDF to Image",
         "desc": "Convert to JPG/PNG"
+      },
+      "encrypt": {
+        "name": "🔒 PDF Encrypt",
+        "desc": "Set password protection"
+      },
+      "watermark": {
+        "name": "💧 PDF Watermark",
+        "desc": "Add text watermark"
       }
     }
   },
@@ -221,6 +230,18 @@
       "watermark": {
         "name": "💧 Image Watermark",
         "desc": "Add text watermark to protect your images"
+      },
+      "gif": {
+        "name": "🎞️ GIF Maker",
+        "desc": "Create animated GIF from multiple images"
+      },
+      "annotate": {
+        "name": "✏️ Text Annotation",
+        "desc": "Add text annotations to images"
+      },
+      "resize": {
+        "name": "📐 Image Resize",
+        "desc": "Resize images with batch support"
       }
     }
   },
@@ -444,5 +465,258 @@
   },
   "languageSwitcher": {
     "label": "🌐"
+  },
+  "toolsIndex": {
+    "meta": {
+      "title": "Utility Tools — Free Online Developer Tools | Mochi Tools 🍡",
+      "description": "Free online utility tools: JSON formatter, Base64 encoder, color converter, character counter, Markdown preview, timestamp converter and more."
+    },
+    "title": "🔧 Utility Tools",
+    "subtitle": "Handy tools for everyone — all free, no server uploads 🔒",
+    "tools": {
+      "json": { "name": "{ } JSON Formatter", "desc": "Format, minify, and syntax-highlight JSON" },
+      "base64": { "name": "🔐 Base64 Encoder", "desc": "Encode/decode text and files to Base64" },
+      "color": { "name": "🎨 Color Converter", "desc": "Real-time HEX, RGB, HSL conversion" },
+      "charCount": { "name": "🔤 Character Counter", "desc": "Characters, words, paragraphs, reading time" },
+      "markdown": { "name": "📝 Markdown Preview", "desc": "Live Markdown preview with GFM support" },
+      "timestamp": { "name": "⏱️ Timestamp Converter", "desc": "Convert Unix timestamps and dates" },
+      "favicon": { "name": "⭐ Favicon Generator", "desc": "Generate all favicon sizes from one image" },
+      "ogImage": { "name": "🖼️ OG Image Generator", "desc": "Create social sharing OG images" },
+      "palette": { "name": "🎨 Color Palette Extractor", "desc": "Extract dominant colors from images" },
+      "qrcode": { "name": "🔗 QR Code Generator", "desc": "Custom size and color QR codes" }
+    }
+  },
+  "jsonFormatter": {
+    "meta": {
+      "title": "JSON Formatter — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online JSON formatter with beautify, minify, syntax highlighting, and error detection. Processed locally in your browser."
+    },
+    "title": "JSON Formatter",
+    "subtitle": "Format, minify JSON with syntax highlighting 🔒",
+    "tabSize": "Tab size",
+    "formatBtn": "Format",
+    "minifyBtn": "Minify",
+    "copyBtn": "Copy",
+    "copied": "Copied ✓",
+    "placeholder": "Paste your JSON here...",
+    "preview": "Syntax Highlighted Preview",
+    "invalidJson": "Invalid JSON format",
+    "errorAtLine": "Error near line {line}"
+  },
+  "base64": {
+    "meta": {
+      "title": "Base64 Encoder/Decoder — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online Base64 encoder and decoder. Supports text conversion and file drag & drop. Processed locally in your browser."
+    },
+    "title": "Base64 Encoder/Decoder",
+    "subtitle": "Convert text to/from Base64, supports file drag & drop 🔒",
+    "plainLabel": "Plain Text",
+    "plainPlaceholder": "Enter plain text...",
+    "base64Label": "Base64",
+    "base64Placeholder": "Enter Base64...",
+    "encodeBtn": "Encode",
+    "decodeBtn": "Decode",
+    "dropFile": "Drop a file here to convert to Base64",
+    "dropFileHint": "Or click to select a file",
+    "fileLoaded": "File loaded",
+    "encodeError": "Encoding failed",
+    "decodeError": "Decoding failed. Please check the Base64 format."
+  },
+  "colorConverter": {
+    "meta": {
+      "title": "Color Converter — HEX/RGB/HSL | Mochi Tools 🍡",
+      "description": "Free online color converter. Real-time conversion between HEX, RGB, and HSL with color preview and copy."
+    },
+    "title": "Color Converter",
+    "subtitle": "Enter any format, instantly convert between HEX, RGB, HSL 🔒",
+    "inputLabel": "Enter color",
+    "inputPlaceholder": "#f8a4b8 or rgb(248,164,184) or hsl(346,88%,81%)",
+    "copyBtn": "Copy",
+    "copied": "Copied ✓"
+  },
+  "charCount": {
+    "meta": {
+      "title": "Character Counter — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online character counter. Real-time count of characters, words, paragraphs, lines, reading time with CJK detection."
+    },
+    "title": "Character Counter",
+    "subtitle": "Real-time character, word, paragraph, and reading time stats 🔒",
+    "placeholder": "Type or paste text here...",
+    "characters": "Characters",
+    "charsNoSpaces": "Chars (no spaces)",
+    "words": "Words",
+    "sentences": "Sentences",
+    "paragraphs": "Paragraphs",
+    "lines": "Lines",
+    "cjk": "CJK Characters",
+    "readingTime": "Reading Time",
+    "minutes": "{count} min"
+  },
+  "markdownPreview": {
+    "meta": {
+      "title": "Markdown Preview — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online Markdown live preview with GFM support for tables, strikethrough, and more. Copy rendered HTML."
+    },
+    "title": "Markdown Preview",
+    "subtitle": "Edit on the left, live preview on the right — GFM supported 🔒",
+    "editor": "Editor",
+    "previewLabel": "Preview",
+    "copyHtml": "Copy HTML",
+    "copied": "Copied ✓"
+  },
+  "timestamp": {
+    "meta": {
+      "title": "Unix Timestamp Converter — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online Unix timestamp converter. Live current timestamp, convert between seconds/milliseconds and dates."
+    },
+    "title": "Unix Timestamp Converter",
+    "subtitle": "Convert between Unix timestamps and dates 🔒",
+    "currentTs": "Current Unix Timestamp",
+    "clickToCopy": "Click to copy",
+    "seconds": "Seconds",
+    "milliseconds": "Milliseconds",
+    "tsToDate": "Timestamp → Date",
+    "dateToTs": "Date → Timestamp",
+    "tsPlaceholder": "Enter Unix timestamp...",
+    "convertBtn": "Convert",
+    "invalidTs": "Invalid timestamp",
+    "invalidDate": "Invalid date"
+  },
+  "pdfEncrypt": {
+    "meta": {
+      "title": "PDF Encrypt — Set Password Protection | Mochi Tools 🍡",
+      "description": "Free online PDF encryption tool. Set password protection for your PDF files. Processed locally in your browser."
+    },
+    "title": "🔒 PDF Encrypt",
+    "subtitle": "Set password protection for your PDF, processed locally 🔒",
+    "selectFile": "Select PDF file",
+    "changeFile": "Change file",
+    "passwordLabel": "Set password",
+    "passwordPlaceholder": "Enter password...",
+    "encryptBtn": "🔒 Encrypt & Download",
+    "encrypting": "Encrypting...",
+    "encryptError": "Encryption failed. Please check if the file is valid."
+  },
+  "pdfWatermark": {
+    "meta": {
+      "title": "PDF Watermark — Add Text Watermark | Mochi Tools 🍡",
+      "description": "Free online PDF watermark tool. Add text watermark with custom size, color, opacity, and rotation. Processed locally."
+    },
+    "title": "💧 PDF Watermark",
+    "subtitle": "Add text watermark to protect your PDF documents 🔒",
+    "selectFile": "Select PDF file",
+    "changeFile": "Change file",
+    "textLabel": "Watermark text",
+    "textPlaceholder": "Enter watermark text...",
+    "fontSizeLabel": "Font size",
+    "colorLabel": "Text color",
+    "opacityLabel": "Opacity",
+    "rotationLabel": "Rotation angle",
+    "positionLabel": "Position mode",
+    "posCenter": "Center",
+    "posDiagonal": "Tiled (diagonal)",
+    "previewBtn": "Preview first page",
+    "previewTitle": "Preview",
+    "downloadBtn": "💧 Add Watermark & Download",
+    "processing": "Processing...",
+    "watermarkError": "Failed to add watermark"
+  },
+  "gifMaker": {
+    "meta": {
+      "title": "GIF Maker — Create GIF from Images | Mochi Tools 🍡",
+      "description": "Free online GIF maker. Upload multiple images to create animated GIFs with adjustable speed and loop count."
+    },
+    "title": "🎞️ GIF Maker",
+    "subtitle": "Upload multiple images to create animated GIF 🔒",
+    "dropzone": "Drop images here",
+    "dropzoneHint": "Or click to select multiple images",
+    "delayLabel": "Frame delay",
+    "loopLabel": "Loop count",
+    "loopInfinite": "Infinite loop",
+    "previewBtn": "▶ Preview Animation",
+    "stopBtn": "⏹ Stop",
+    "createBtn": "🎞️ Create GIF",
+    "creating": "Creating...",
+    "createError": "Failed to create GIF"
+  },
+  "imageAnnotate": {
+    "meta": {
+      "title": "Image Text Annotation — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online image annotation tool. Click to place text, drag to reposition. Download as PNG."
+    },
+    "title": "✏️ Image Text Annotation",
+    "subtitle": "Add text annotations to images, drag to reposition 🔒",
+    "uploadBtn": "Click to upload image",
+    "textLabel": "Text content",
+    "textPlaceholder": "Enter text to add...",
+    "fontSizeLabel": "Font size",
+    "colorLabel": "Text color",
+    "addBtn": "Add Text",
+    "clickHint": "💡 Enter text then click on image to place, or click button to add",
+    "layersLabel": "Text Layers",
+    "downloadBtn": "📥 Download PNG",
+    "resetBtn": "Choose another"
+  },
+  "imageResize": {
+    "meta": {
+      "title": "Image Resize — Free Online Batch Resize | Mochi Tools 🍡",
+      "description": "Free online image resize tool. Batch processing, lock aspect ratio, quality adjustment. Processed locally."
+    },
+    "title": "📐 Image Resize",
+    "subtitle": "Resize images with batch processing support 🔒",
+    "dropzone": "Drop images here",
+    "dropzoneHint": "Multiple files supported for batch processing",
+    "fileCount": "{count} images",
+    "widthLabel": "Width",
+    "heightLabel": "Height",
+    "lockAspect": "Lock aspect ratio",
+    "qualityLabel": "JPG Quality",
+    "downloadBtn": "📥 Download",
+    "downloadZip": "📥 Download All (ZIP)",
+    "processing": "Processing..."
+  },
+  "favicon": {
+    "meta": {
+      "title": "Favicon Generator — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online favicon generator. Upload an image to generate all sizes with ICO file and HTML code snippet."
+    },
+    "title": "⭐ Favicon Generator",
+    "subtitle": "Upload an image to generate all favicon sizes 🔒",
+    "uploadBtn": "Click to upload image",
+    "uploadHint": "Square images recommended",
+    "previewLabel": "Size Previews",
+    "htmlSnippet": "HTML Code",
+    "copyBtn": "Copy",
+    "copied": "Copied ✓",
+    "downloadAll": "📥 Download All (ZIP)",
+    "processing": "Generating...",
+    "resetBtn": "Choose another"
+  },
+  "ogImage": {
+    "meta": {
+      "title": "OG Image Generator — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online OG image generator. Enter title and subtitle, choose a template, generate 1200×630 social sharing images."
+    },
+    "title": "🖼️ OG Image Generator",
+    "subtitle": "Generate Open Graph images for social sharing 🔒",
+    "titleLabel": "Title",
+    "subtitleLabel": "Subtitle",
+    "templateLabel": "Background Template",
+    "customBgLabel": "Custom Background",
+    "previewLabel": "Preview",
+    "downloadBtn": "📥 Download PNG"
+  },
+  "palette": {
+    "meta": {
+      "title": "Color Palette Extractor — Extract Colors from Image | Mochi Tools 🍡",
+      "description": "Free online color palette extractor. Upload an image to extract dominant colors with HEX and RGB values."
+    },
+    "title": "🎨 Color Palette Extractor",
+    "subtitle": "Upload an image to extract its dominant colors 🔒",
+    "uploadBtn": "Click to upload image",
+    "resetBtn": "Choose another",
+    "extractedColors": "Extracted Colors",
+    "copyAll": "Copy All",
+    "copied": "Copied ✓"
   }
 }
