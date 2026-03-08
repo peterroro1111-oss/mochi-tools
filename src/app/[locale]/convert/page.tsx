@@ -8,6 +8,7 @@ const conversions = [
   { href: '/convert/webp-to-png', from: 'WebP', to: 'PNG', icon: '🔁', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
   { href: '/convert/jpg-to-webp', from: 'JPG', to: 'WebP', icon: '🚀', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
   { href: '/convert/webp-to-jpg', from: 'WebP', to: 'JPG', icon: '📷', gradient: 'from-orange-50 to-red-50', border: 'border-orange-200 hover:border-orange-400' },
+  { href: '/convert/heic-to-jpg', from: 'HEIC', to: 'JPG', icon: '📱', gradient: 'from-cyan-50 to-sky-50', border: 'border-cyan-200 hover:border-cyan-400' },
 ];
 
 export default async function ConvertIndexPage() {

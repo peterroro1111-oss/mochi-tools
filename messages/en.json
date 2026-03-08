@@ -27,7 +27,8 @@
       "pdf": { "name": "PDF Tools", "desc": "Merge, split, rotate, compress, add page numbers, convert to images" },
       "image": { "name": "Image Tools", "desc": "Image compression, PNG/JPG/WebP format conversion" },
       "removeBg": { "name": "AI Remove BG", "desc": "One-click background removal, essential for e-commerce & design" },
-      "photo": { "name": "AI ID Photo", "desc": "Upload a selfie, automatically generate a standard ID photo" }
+      "photo": { "name": "AI ID Photo", "desc": "Upload a selfie, automatically generate a standard ID photo" },
+      "utility": { "name": "Utility Tools", "desc": "QR Code generator and other handy tools" }
     },
     "features": {
       "privacy": { "title": "Privacy First", "desc": "Files are processed locally in your browser, never uploaded to servers" },
@@ -165,7 +166,8 @@
     "subtitle": "Compress, convert — all free, no server uploads 🔒",
     "tools": {
       "compress": { "name": "🗜️ Image Compression", "desc": "Compress JPG, PNG, WebP to significantly reduce file size" },
-      "convert": { "name": "🔄 Format Conversion", "desc": "Convert between PNG, JPG, WebP — 6 combinations" }
+      "convert": { "name": "🔄 Format Conversion", "desc": "Convert between PNG, JPG, WebP — 6 combinations" },
+      "watermark": { "name": "💧 Image Watermark", "desc": "Add text watermark to protect your images" }
     }
   },
   "imageCompress": {
@@ -235,6 +237,10 @@
     "webpToJpg": {
       "title": "WebP to JPG - Free Online Converter | Mochi Tools 🍡",
       "description": "Free WebP to JPG conversion for better compatibility. Processed locally in your browser."
+    },
+    "heicToJpg": {
+      "title": "HEIC to JPG - Free Online Converter | Mochi Tools 🍡",
+      "description": "Free online HEIC/HEIF to JPG converter. Batch conversion with adjustable quality. Processed locally in your browser."
     }
   },
   "removeBg": {
@@ -299,6 +305,72 @@
     "downloadBtn": "📥 Download ID Photo",
     "reupload": "🔄 Upload Another",
     "error": "Background removal failed. Please try another photo or check your connection."
+  },
+  "qrcode": {
+    "meta": {
+      "title": "QR Code Generator — Free Online | Mochi Tools 🍡",
+      "description": "Free online QR Code generator. Custom size, colors, real-time preview and PNG download. Processed locally in your browser."
+    },
+    "title": "QR Code Generator",
+    "subtitle": "Enter text or URL to generate QR Code instantly 🔒",
+    "inputLabel": "Text or URL",
+    "inputPlaceholder": "Enter text or paste a URL...",
+    "sizeLabel": "Size",
+    "fgColorLabel": "Foreground color",
+    "bgColorLabel": "Background color",
+    "preview": "Preview",
+    "downloadBtn": "📥 Download PNG",
+    "emptyHint": "Enter content to generate a QR Code"
+  },
+  "heicToJpg": {
+    "meta": {
+      "title": "HEIC to JPG — Free Online Converter | Mochi Tools 🍡",
+      "description": "Free online HEIC/HEIF to JPG converter. Batch conversion with adjustable quality. Processed locally in your browser."
+    },
+    "title": "HEIC to JPG",
+    "subtitle": "Convert iPhone HEIC/HEIF photos to JPG format 🔒",
+    "dropzone": "Drop HEIC/HEIF files here",
+    "dropzoneHint": "Or click to select files (multiple allowed)",
+    "qualityLabel": "JPG Quality",
+    "converting": "Converting...",
+    "convertBtn": "🔄 Start Conversion",
+    "downloadBtn": "📥 Download JPG",
+    "downloadAll": "📥 Download All (ZIP)",
+    "clearAll": "Clear all",
+    "fileCount": "{count} files",
+    "convertError": "Conversion failed. Please check the file format."
+  },
+  "watermark": {
+    "meta": {
+      "title": "Image Watermark — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online image watermark tool. Add text watermark with adjustable font size, color, opacity, and position. Processed locally in your browser."
+    },
+    "title": "Image Watermark",
+    "subtitle": "Add text watermark to protect your images 🔒",
+    "uploadDropzone": "Drop image here",
+    "uploadHint": "Or click to select an image",
+    "textLabel": "Watermark text",
+    "textPlaceholder": "Enter watermark text...",
+    "fontSizeLabel": "Font size",
+    "colorLabel": "Text color",
+    "opacityLabel": "Opacity",
+    "positionLabel": "Position",
+    "positions": {
+      "topLeft": "Top Left",
+      "topCenter": "Top Center",
+      "topRight": "Top Right",
+      "centerLeft": "Center Left",
+      "center": "Center",
+      "centerRight": "Center Right",
+      "bottomLeft": "Bottom Left",
+      "bottomCenter": "Bottom Center",
+      "bottomRight": "Bottom Right",
+      "tiled": "Tiled"
+    },
+    "preview": "Preview",
+    "downloadPng": "📥 Download PNG",
+    "downloadJpg": "📥 Download JPG",
+    "reset": "Choose another"
   },
   "languageSwitcher": {
     "label": "🌐"

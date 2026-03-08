@@ -27,7 +27,8 @@
       "pdf": { "name": "PDF 工具", "desc": "合併、拆分、旋轉、壓縮、加頁碼、轉圖片" },
       "image": { "name": "圖片工具", "desc": "圖片壓縮、PNG/JPG/WebP 格式互轉" },
       "removeBg": { "name": "AI 去背", "desc": "一鍵移除圖片背景，電商、設計必備" },
-      "photo": { "name": "AI 證件照", "desc": "上傳自拍，自動生成標準證件照" }
+      "photo": { "name": "AI 證件照", "desc": "上傳自拍，自動生成標準證件照" },
+      "utility": { "name": "實用工具", "desc": "QR Code 產生器等實用小工具" }
     },
     "features": {
       "privacy": { "title": "隱私安全", "desc": "檔案在瀏覽器本地處理，絕不上傳伺服器" },
@@ -165,7 +166,8 @@
     "subtitle": "壓縮、轉檔，全部免費、不上傳伺服器 🔒",
     "tools": {
       "compress": { "name": "🗜️ 圖片壓縮", "desc": "壓縮 JPG、PNG、WebP，大幅縮小檔案大小" },
-      "convert": { "name": "🔄 格式轉換", "desc": "PNG、JPG、WebP 互相轉換，6 種組合任你選" }
+      "convert": { "name": "🔄 格式轉換", "desc": "PNG、JPG、WebP 互相轉換，6 種組合任你選" },
+      "watermark": { "name": "💧 圖片浮水印", "desc": "為圖片加上文字浮水印，保護作品版權" }
     }
   },
   "imageCompress": {
@@ -235,6 +237,10 @@
     "webpToJpg": {
       "title": "WebP 轉 JPG - 免費線上轉檔 | Mochi Tools 🍡",
       "description": "免費將 WebP 圖片轉換為 JPG 格式，相容性更高。瀏覽器本地處理，不上傳伺服器，快速安全。"
+    },
+    "heicToJpg": {
+      "title": "HEIC 轉 JPG - 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費線上 HEIC/HEIF 轉 JPG 工具，支援批次轉換、可調品質。瀏覽器本地處理，不上傳伺服器。"
     }
   },
   "removeBg": {
@@ -299,6 +305,72 @@
     "downloadBtn": "📥 下載證件照",
     "reupload": "🔄 重新上傳",
     "error": "去背失敗，請嘗試其他照片或檢查網路連線"
+  },
+  "qrcode": {
+    "meta": {
+      "title": "QR Code 產生器 — 免費線上生成 | Mochi Tools 🍡",
+      "description": "免費線上 QR Code 產生器，自訂大小、顏色，即時預覽並下載 PNG。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "title": "QR Code 產生器",
+    "subtitle": "輸入文字或網址，即時產生 QR Code 🔒",
+    "inputLabel": "文字或網址",
+    "inputPlaceholder": "輸入文字或貼上網址...",
+    "sizeLabel": "大小",
+    "fgColorLabel": "前景色",
+    "bgColorLabel": "背景色",
+    "preview": "預覽",
+    "downloadBtn": "📥 下載 PNG",
+    "emptyHint": "請輸入內容以產生 QR Code"
+  },
+  "heicToJpg": {
+    "meta": {
+      "title": "HEIC 轉 JPG — 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費線上 HEIC/HEIF 轉 JPG 工具，支援批次轉換、可調品質。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "title": "HEIC 轉 JPG",
+    "subtitle": "將 iPhone HEIC/HEIF 照片轉為 JPG 格式 🔒",
+    "dropzone": "拖放 HEIC/HEIF 檔案到這裡",
+    "dropzoneHint": "或點擊選擇檔案（可多選）",
+    "qualityLabel": "JPG 品質",
+    "converting": "轉換中...",
+    "convertBtn": "🔄 開始轉換",
+    "downloadBtn": "📥 下載 JPG",
+    "downloadAll": "📥 全部下載 (ZIP)",
+    "clearAll": "清除全部",
+    "fileCount": "共 {count} 個檔案",
+    "convertError": "轉換失敗，請確認檔案格式"
+  },
+  "watermark": {
+    "meta": {
+      "title": "圖片浮水印 — 免費線上加浮水印 | Mochi Tools 🍡",
+      "description": "免費線上圖片浮水印工具，支援文字浮水印、可調字型大小、顏色、透明度、位置。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "title": "圖片浮水印",
+    "subtitle": "為圖片加上文字浮水印，保護你的作品 🔒",
+    "uploadDropzone": "拖放圖片到這裡",
+    "uploadHint": "或點擊選擇圖片",
+    "textLabel": "浮水印文字",
+    "textPlaceholder": "輸入浮水印文字...",
+    "fontSizeLabel": "字型大小",
+    "colorLabel": "文字顏色",
+    "opacityLabel": "透明度",
+    "positionLabel": "位置",
+    "positions": {
+      "topLeft": "左上",
+      "topCenter": "上中",
+      "topRight": "右上",
+      "centerLeft": "左中",
+      "center": "正中",
+      "centerRight": "右中",
+      "bottomLeft": "左下",
+      "bottomCenter": "下中",
+      "bottomRight": "右下",
+      "tiled": "平鋪"
+    },
+    "preview": "預覽",
+    "downloadPng": "📥 下載 PNG",
+    "downloadJpg": "📥 下載 JPG",
+    "reset": "重新選擇"
   },
   "languageSwitcher": {
     "label": "🌐"

@@ -229,4 +229,40 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/photo"/>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://mochitools.com/zh/qrcode</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/qrcode"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/qrcode"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/qrcode</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/qrcode"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/qrcode"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/heic-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/heic-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/heic-to-jpg"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/heic-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/heic-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/heic-to-jpg"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/image/watermark</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/watermark"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/watermark"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/image/watermark</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/image/watermark"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/watermark"/>
+    <priority>0.7</priority>
+  </url>
 </urlset>

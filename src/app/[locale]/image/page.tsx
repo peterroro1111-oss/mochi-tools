@@ -14,6 +14,12 @@ const tools = [
     gradient: 'from-emerald-50 to-teal-50',
     border: 'border-emerald-200 hover:border-emerald-400',
   },
+  {
+    key: 'watermark',
+    href: '/image/watermark',
+    gradient: 'from-sky-50 to-blue-50',
+    border: 'border-sky-200 hover:border-sky-400',
+  },
 ];
 
 export default async function ImageIndexPage() {
@@ -27,7 +33,7 @@ export default async function ImageIndexPage() {
         <p className="text-[#b89b8a]">{t('subtitle')}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
         {tools.map((tool) => (
           <Link
             key={tool.href}
