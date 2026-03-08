@@ -64,7 +64,27 @@ export default function RemoveBgPage() {
           }
         },
       });
-      setResultUrl(URL.createObjectURL(blob));
+      // Post-process: fix semi-transparent pixels on subject
+      const img = new Image();
+      const processedBlob = await new Promise<Blob>((resolve) => {
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d')!;
+          ctx.drawImage(img, 0, 0);
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const data = imageData.data;
+          // Threshold alpha: < 30 → fully transparent, >= 30 → fully opaque
+          for (let i = 3; i < data.length; i += 4) {
+            data[i] = data[i] < 30 ? 0 : 255;
+          }
+          ctx.putImageData(imageData, 0, 0);
+          canvas.toBlob((b) => resolve(b!), 'image/png');
+        };
+        img.src = URL.createObjectURL(blob);
+      });
+      setResultUrl(URL.createObjectURL(processedBlob));
       setModelCached(true);
       setStep('done');
     } catch (err) {

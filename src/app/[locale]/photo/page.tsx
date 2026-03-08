@@ -88,12 +88,31 @@ export default function PhotoPage() {
           }
         },
       });
-      const blobUrl = URL.createObjectURL(blob);
+      // Post-process: fix semi-transparent pixels on subject
+      const rawImg = new Image();
+      const processedBlob = await new Promise<Blob>((resolve) => {
+        rawImg.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = rawImg.width;
+          canvas.height = rawImg.height;
+          const ctx = canvas.getContext('2d')!;
+          ctx.drawImage(rawImg, 0, 0);
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const data = imageData.data;
+          for (let i = 3; i < data.length; i += 4) {
+            data[i] = data[i] < 30 ? 0 : 255;
+          }
+          ctx.putImageData(imageData, 0, 0);
+          canvas.toBlob((b) => resolve(b!), 'image/png');
+        };
+        rawImg.src = URL.createObjectURL(blob);
+      });
+      const processedUrl = URL.createObjectURL(processedBlob);
       const img = new Image();
       await new Promise<void>((resolve, reject) => {
         img.onload = () => resolve();
         img.onerror = () => reject(new Error('Failed to load image'));
-        img.src = blobUrl;
+        img.src = processedUrl;
       });
       setRemovedBgImg(img);
       setModelCached(true);
