@@ -27,9 +27,11 @@ export default function HeicToJpgPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFiles = (fileList: FileList | File[]) => {
-    const heicFiles = Array.from(fileList).filter((f) =>
-      f.name.toLowerCase().endsWith('.heic') || f.name.toLowerCase().endsWith('.heif') || f.type === 'image/heic' || f.type === 'image/heif'
-    );
+    const heicFiles = Array.from(fileList).filter((f) => {
+      const name = f.name.toLowerCase();
+      const type = f.type.toLowerCase();
+      return name.endsWith('.heic') || name.endsWith('.heif') || type === 'image/heic' || type === 'image/heif' || type === '';
+    });
     if (heicFiles.length > 0) {
       setFiles((prev) => [...prev, ...heicFiles]);
       setResults([]);
@@ -148,7 +150,7 @@ export default function HeicToJpgPage() {
         <input
           ref={fileInputRef}
           type="file"
-          accept=".heic,.heif"
+          accept=".heic,.heif,image/heic,image/heif,image/*"
           multiple
           className="hidden"
           onChange={(e) => e.target.files && handleFiles(e.target.files)}
