@@ -279,31 +279,7 @@
     <priority>0.8</priority>
   </url>
   <!-- JSON Formatter -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/json</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/json"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/json"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/json</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/json"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/json"/>
-    <priority>0.7</priority>
-  </url>
   <!-- Base64 -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/base64</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/base64"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/base64"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/base64</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/base64"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/base64"/>
-    <priority>0.7</priority>
-  </url>
   <!-- Color Converter -->
   <url>
     <loc>https://mochitools.com/zh/tools/color</loc>
@@ -318,44 +294,8 @@
     <priority>0.7</priority>
   </url>
   <!-- Character Counter -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/character-count</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/character-count"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/character-count"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/character-count</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/character-count"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/character-count"/>
-    <priority>0.7</priority>
-  </url>
   <!-- Markdown Preview -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/markdown</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/markdown"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/markdown"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/markdown</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/markdown"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/markdown"/>
-    <priority>0.7</priority>
-  </url>
   <!-- Timestamp Converter -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/timestamp</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/timestamp"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/timestamp"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/timestamp</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/timestamp"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/timestamp"/>
-    <priority>0.7</priority>
-  </url>
   <!-- Favicon Generator -->
   <url>
     <loc>https://mochitools.com/zh/tools/favicon</loc>
@@ -370,18 +310,6 @@
     <priority>0.7</priority>
   </url>
   <!-- OG Image Generator -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/og-image</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/og-image"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/og-image"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/og-image</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/og-image"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/og-image"/>
-    <priority>0.7</priority>
-  </url>
   <!-- Color Palette Extractor -->
   <url>
     <loc>https://mochitools.com/zh/tools/palette</loc>

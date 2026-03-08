@@ -474,16 +474,46 @@
     "title": "🔧 Utility Tools",
     "subtitle": "Handy tools for everyone — all free, no server uploads 🔒",
     "tools": {
-      "json": { "name": "{ } JSON Formatter", "desc": "Format, minify, and syntax-highlight JSON" },
-      "base64": { "name": "🔐 Base64 Encoder", "desc": "Encode/decode text and files to Base64" },
-      "color": { "name": "🎨 Color Converter", "desc": "Real-time HEX, RGB, HSL conversion" },
-      "charCount": { "name": "🔤 Character Counter", "desc": "Characters, words, paragraphs, reading time" },
-      "markdown": { "name": "📝 Markdown Preview", "desc": "Live Markdown preview with GFM support" },
-      "timestamp": { "name": "⏱️ Timestamp Converter", "desc": "Convert Unix timestamps and dates" },
-      "favicon": { "name": "⭐ Favicon Generator", "desc": "Generate all favicon sizes from one image" },
-      "ogImage": { "name": "🖼️ OG Image Generator", "desc": "Create social sharing OG images" },
-      "palette": { "name": "🎨 Color Palette Extractor", "desc": "Extract dominant colors from images" },
-      "qrcode": { "name": "🔗 QR Code Generator", "desc": "Custom size and color QR codes" }
+      "json": {
+        "name": "{ } JSON Formatter",
+        "desc": "Format, minify, and syntax-highlight JSON"
+      },
+      "base64": {
+        "name": "🔐 Base64 Encoder",
+        "desc": "Encode/decode text and files to Base64"
+      },
+      "color": {
+        "name": "🎨 Color Converter",
+        "desc": "Real-time HEX, RGB, HSL conversion"
+      },
+      "charCount": {
+        "name": "🔤 Character Counter",
+        "desc": "Characters, words, paragraphs, reading time"
+      },
+      "markdown": {
+        "name": "📝 Markdown Preview",
+        "desc": "Live Markdown preview with GFM support"
+      },
+      "timestamp": {
+        "name": "⏱️ Timestamp Converter",
+        "desc": "Convert Unix timestamps and dates"
+      },
+      "favicon": {
+        "name": "⭐ Favicon Generator",
+        "desc": "Generate all favicon sizes from one image"
+      },
+      "ogImage": {
+        "name": "🖼️ OG Image Generator",
+        "desc": "Create social sharing OG images"
+      },
+      "palette": {
+        "name": "🎨 Color Palette Extractor",
+        "desc": "Extract dominant colors from images"
+      },
+      "qrcode": {
+        "name": "🔗 QR Code Generator",
+        "desc": "Custom size and color QR codes"
+      }
     }
   },
   "jsonFormatter": {
@@ -502,25 +532,6 @@
     "preview": "Syntax Highlighted Preview",
     "invalidJson": "Invalid JSON format",
     "errorAtLine": "Error near line {line}"
-  },
-  "base64": {
-    "meta": {
-      "title": "Base64 Encoder/Decoder — Free Online Tool | Mochi Tools 🍡",
-      "description": "Free online Base64 encoder and decoder. Supports text conversion and file drag & drop. Processed locally in your browser."
-    },
-    "title": "Base64 Encoder/Decoder",
-    "subtitle": "Convert text to/from Base64, supports file drag & drop 🔒",
-    "plainLabel": "Plain Text",
-    "plainPlaceholder": "Enter plain text...",
-    "base64Label": "Base64",
-    "base64Placeholder": "Enter Base64...",
-    "encodeBtn": "Encode",
-    "decodeBtn": "Decode",
-    "dropFile": "Drop a file here to convert to Base64",
-    "dropFileHint": "Or click to select a file",
-    "fileLoaded": "File loaded",
-    "encodeError": "Encoding failed",
-    "decodeError": "Decoding failed. Please check the Base64 format."
   },
   "colorConverter": {
     "meta": {
@@ -563,24 +574,6 @@
     "previewLabel": "Preview",
     "copyHtml": "Copy HTML",
     "copied": "Copied ✓"
-  },
-  "timestamp": {
-    "meta": {
-      "title": "Unix Timestamp Converter — Free Online Tool | Mochi Tools 🍡",
-      "description": "Free online Unix timestamp converter. Live current timestamp, convert between seconds/milliseconds and dates."
-    },
-    "title": "Unix Timestamp Converter",
-    "subtitle": "Convert between Unix timestamps and dates 🔒",
-    "currentTs": "Current Unix Timestamp",
-    "clickToCopy": "Click to copy",
-    "seconds": "Seconds",
-    "milliseconds": "Milliseconds",
-    "tsToDate": "Timestamp → Date",
-    "dateToTs": "Date → Timestamp",
-    "tsPlaceholder": "Enter Unix timestamp...",
-    "convertBtn": "Convert",
-    "invalidTs": "Invalid timestamp",
-    "invalidDate": "Invalid date"
   },
   "pdfEncrypt": {
     "meta": {
@@ -691,20 +684,6 @@
     "downloadAll": "📥 Download All (ZIP)",
     "processing": "Generating...",
     "resetBtn": "Choose another"
-  },
-  "ogImage": {
-    "meta": {
-      "title": "OG Image Generator — Free Online Tool | Mochi Tools 🍡",
-      "description": "Free online OG image generator. Enter title and subtitle, choose a template, generate 1200×630 social sharing images."
-    },
-    "title": "🖼️ OG Image Generator",
-    "subtitle": "Generate Open Graph images for social sharing 🔒",
-    "titleLabel": "Title",
-    "subtitleLabel": "Subtitle",
-    "templateLabel": "Background Template",
-    "customBgLabel": "Custom Background",
-    "previewLabel": "Preview",
-    "downloadBtn": "📥 Download PNG"
   },
   "palette": {
     "meta": {

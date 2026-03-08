@@ -474,16 +474,46 @@
     "title": "🔧 實用工具",
     "subtitle": "各種方便的小工具，全部免費、不上傳伺服器 🔒",
     "tools": {
-      "json": { "name": "{ } JSON 格式化", "desc": "格式化、壓縮、語法高亮 JSON" },
-      "base64": { "name": "🔐 Base64 編碼", "desc": "文字與 Base64 互轉、支援檔案" },
-      "color": { "name": "🎨 顏色轉換", "desc": "HEX、RGB、HSL 即時互轉" },
-      "charCount": { "name": "🔤 字數統計", "desc": "字元、字數、段落、閱讀時間" },
-      "markdown": { "name": "📝 Markdown 預覽", "desc": "即時預覽 Markdown，支援 GFM" },
-      "timestamp": { "name": "⏱️ 時間戳轉換", "desc": "Unix 時間戳與日期互轉" },
-      "favicon": { "name": "⭐ Favicon 產生器", "desc": "上傳圖片產生所有尺寸 Favicon" },
-      "ogImage": { "name": "🖼️ OG 圖片產生器", "desc": "產生社群分享用 OG 圖片" },
-      "palette": { "name": "🎨 色彩擷取", "desc": "從圖片擷取主要配色" },
-      "qrcode": { "name": "🔗 QR Code 產生器", "desc": "自訂大小顏色的 QR Code" }
+      "json": {
+        "name": "{ } JSON 格式化",
+        "desc": "格式化、壓縮、語法高亮 JSON"
+      },
+      "base64": {
+        "name": "🔐 Base64 編碼",
+        "desc": "文字與 Base64 互轉、支援檔案"
+      },
+      "color": {
+        "name": "🎨 顏色轉換",
+        "desc": "HEX、RGB、HSL 即時互轉"
+      },
+      "charCount": {
+        "name": "🔤 字數統計",
+        "desc": "字元、字數、段落、閱讀時間"
+      },
+      "markdown": {
+        "name": "📝 Markdown 預覽",
+        "desc": "即時預覽 Markdown，支援 GFM"
+      },
+      "timestamp": {
+        "name": "⏱️ 時間戳轉換",
+        "desc": "Unix 時間戳與日期互轉"
+      },
+      "favicon": {
+        "name": "⭐ Favicon 產生器",
+        "desc": "上傳圖片產生所有尺寸 Favicon"
+      },
+      "ogImage": {
+        "name": "🖼️ OG 圖片產生器",
+        "desc": "產生社群分享用 OG 圖片"
+      },
+      "palette": {
+        "name": "🎨 色彩擷取",
+        "desc": "從圖片擷取主要配色"
+      },
+      "qrcode": {
+        "name": "🔗 QR Code 產生器",
+        "desc": "自訂大小顏色的 QR Code"
+      }
     }
   },
   "jsonFormatter": {
@@ -502,25 +532,6 @@
     "preview": "語法高亮預覽",
     "invalidJson": "JSON 格式不正確",
     "errorAtLine": "第 {line} 行附近有錯誤"
-  },
-  "base64": {
-    "meta": {
-      "title": "Base64 編碼/解碼 — 免費線上工具 | Mochi Tools 🍡",
-      "description": "免費線上 Base64 編碼解碼工具，支援文字互轉及檔案拖放。瀏覽器本地處理。"
-    },
-    "title": "Base64 編碼/解碼",
-    "subtitle": "文字與 Base64 互轉，支援檔案拖放 🔒",
-    "plainLabel": "純文字",
-    "plainPlaceholder": "輸入純文字...",
-    "base64Label": "Base64",
-    "base64Placeholder": "輸入 Base64...",
-    "encodeBtn": "編碼",
-    "decodeBtn": "解碼",
-    "dropFile": "拖放檔案到這裡轉為 Base64",
-    "dropFileHint": "或點擊選擇檔案",
-    "fileLoaded": "已載入檔案",
-    "encodeError": "編碼失敗",
-    "decodeError": "解碼失敗，請確認 Base64 格式"
   },
   "colorConverter": {
     "meta": {
@@ -563,24 +574,6 @@
     "previewLabel": "預覽",
     "copyHtml": "複製 HTML",
     "copied": "已複製 ✓"
-  },
-  "timestamp": {
-    "meta": {
-      "title": "Unix 時間戳轉換 — 免費線上工具 | Mochi Tools 🍡",
-      "description": "免費線上 Unix 時間戳轉換工具，即時顯示當前時間戳，支援秒/毫秒轉換。"
-    },
-    "title": "Unix 時間戳轉換",
-    "subtitle": "Unix 時間戳與日期時間互轉 🔒",
-    "currentTs": "目前 Unix 時間戳",
-    "clickToCopy": "點擊複製",
-    "seconds": "秒",
-    "milliseconds": "毫秒",
-    "tsToDate": "時間戳 → 日期",
-    "dateToTs": "日期 → 時間戳",
-    "tsPlaceholder": "輸入 Unix 時間戳...",
-    "convertBtn": "轉換",
-    "invalidTs": "無效的時間戳",
-    "invalidDate": "無效的日期"
   },
   "pdfEncrypt": {
     "meta": {
@@ -691,20 +684,6 @@
     "downloadAll": "📥 全部下載 (ZIP)",
     "processing": "產生中...",
     "resetBtn": "重新選擇"
-  },
-  "ogImage": {
-    "meta": {
-      "title": "OG 圖片產生器 — 免費線上工具 | Mochi Tools 🍡",
-      "description": "免費線上 OG 圖片產生器，輸入標題和副標題，選擇模板，產生 1200×630 社群分享圖片。"
-    },
-    "title": "🖼️ OG 圖片產生器",
-    "subtitle": "產生社群分享用 Open Graph 圖片 🔒",
-    "titleLabel": "標題",
-    "subtitleLabel": "副標題",
-    "templateLabel": "背景模板",
-    "customBgLabel": "自訂背景色",
-    "previewLabel": "預覽",
-    "downloadBtn": "📥 下載 PNG"
   },
   "palette": {
     "meta": {
