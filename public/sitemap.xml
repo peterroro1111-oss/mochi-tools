@@ -449,32 +449,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mov-to-mp4"/>
     <priority>0.7</priority>
   </url>
-  <!-- Password Generator -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/password</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/password"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/password"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/password</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/password"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/password"/>
-    <priority>0.7</priority>
-  </url>
-  <!-- Screen Recorder -->
-  <url>
-    <loc>https://mochitools.com/zh/tools/screen-recorder</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/screen-recorder"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/screen-recorder"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mochitools.com/en/tools/screen-recorder</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/screen-recorder"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/screen-recorder"/>
-    <priority>0.7</priority>
-  </url>
   <!-- Blog -->
   <url>
     <loc>https://mochitools.com/zh/blog</loc>

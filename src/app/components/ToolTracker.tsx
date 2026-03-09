@@ -11,7 +11,6 @@ const TRACKABLE_PREFIXES = [
   '/image/compress', '/image/watermark', '/image/gif', '/image/annotate', '/image/resize',
   '/convert/', '/remove-bg', '/photo', '/video/compress', '/qrcode',
   '/tools/color', '/tools/favicon', '/tools/palette',
-  '/tools/password', '/tools/screen-recorder',
 ];
 
 export default function ToolTracker() {

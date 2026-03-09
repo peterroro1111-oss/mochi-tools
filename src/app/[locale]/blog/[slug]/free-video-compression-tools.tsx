@@ -78,7 +78,6 @@ export function VideoCompressionToolsZh() {
         <li><Link href="/convert/webm-to-mp4" className="text-pink-500 hover:text-pink-600 font-medium">WebM 轉 MP4</Link></li>
         <li><Link href="/convert/mp4-to-gif" className="text-pink-500 hover:text-pink-600 font-medium">MP4 轉 GIF</Link></li>
         <li><Link href="/convert/mov-to-mp4" className="text-pink-500 hover:text-pink-600 font-medium">MOV 轉 MP4</Link></li>
-        <li><Link href="/tools/screen-recorder" className="text-pink-500 hover:text-pink-600 font-medium">螢幕錄影</Link>（免費錄製螢幕畫面）</li>
       </ul>
 
       <div className="bg-pink-50 border-2 border-pink-200 rounded-2xl p-5 mt-8">
@@ -172,7 +171,6 @@ export function VideoCompressionToolsEn() {
         <li><Link href="/convert/webm-to-mp4" className="text-pink-500 hover:text-pink-600 font-medium">WebM to MP4</Link></li>
         <li><Link href="/convert/mp4-to-gif" className="text-pink-500 hover:text-pink-600 font-medium">MP4 to GIF</Link></li>
         <li><Link href="/convert/mov-to-mp4" className="text-pink-500 hover:text-pink-600 font-medium">MOV to MP4</Link></li>
-        <li><Link href="/tools/screen-recorder" className="text-pink-500 hover:text-pink-600 font-medium">Screen Recorder</Link> (free screen recording)</li>
       </ul>
 
       <div className="bg-pink-50 border-2 border-pink-200 rounded-2xl p-5 mt-8">

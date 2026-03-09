@@ -6,8 +6,6 @@ const tools = [
   { key: 'favicon', href: '/tools/favicon', gradient: 'from-yellow-50 to-amber-50', border: 'border-yellow-200 hover:border-yellow-400' },
   { key: 'palette', href: '/tools/palette', gradient: 'from-rose-50 to-red-50', border: 'border-rose-200 hover:border-rose-400' },
   { key: 'qrcode', href: '/qrcode', gradient: 'from-teal-50 to-emerald-50', border: 'border-teal-200 hover:border-teal-400' },
-  { key: 'password', href: '/tools/password', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
-  { key: 'screenRecorder', href: '/tools/screen-recorder', gradient: 'from-red-50 to-orange-50', border: 'border-red-200 hover:border-red-400' },
 ];
 
 export default async function ToolsIndexPage() {

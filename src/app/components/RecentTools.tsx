@@ -42,8 +42,6 @@ const TOOL_MAP: Record<string, { icon: string; nameKey: string }> = {
   '/tools/color': { icon: '🎨', nameKey: 'tools.colorConverter' },
   '/tools/favicon': { icon: '⭐', nameKey: 'tools.favicon' },
   '/tools/palette': { icon: '🎨', nameKey: 'tools.palette' },
-  '/tools/password': { icon: '🔑', nameKey: 'tools.password' },
-  '/tools/screen-recorder': { icon: '🎥', nameKey: 'tools.screenRecorder' },
 };
 
 export default function RecentTools() {

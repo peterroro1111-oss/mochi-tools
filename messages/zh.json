@@ -60,9 +60,7 @@
       "qrcode": "QR Code",
       "colorConverter": "顏色轉換",
       "favicon": "Favicon 產生器",
-      "palette": "色彩擷取",
-      "password": "密碼產生器",
-      "screenRecorder": "螢幕錄影"
+      "palette": "色彩擷取"
     },
     "whyTitle": "為什麼選擇 Mochi Tools？",
     "whySubtitle": "簡單好用的小工具，像麻糬一樣軟 Q 🍡",
@@ -619,14 +617,6 @@
       "qrcode": {
         "name": "🔗 QR Code 產生器",
         "desc": "自訂大小顏色的 QR Code"
-      },
-      "password": {
-        "name": "🔑 密碼產生器",
-        "desc": "產生高強度隨機密碼"
-      },
-      "screenRecorder": {
-        "name": "🎥 螢幕錄影",
-        "desc": "瀏覽器直接錄製螢幕"
       }
     }
   },
@@ -902,60 +892,6 @@
     "subtitle": "離線也能用，更快更方便",
     "install": "安裝",
     "dismiss": "稍後"
-  },
-  "passwordGenerator": {
-    "meta": {
-      "title": "密碼產生器 — 免費線上產生安全密碼 | Mochi Tools 🍡",
-      "description": "免費線上密碼產生器，使用加密安全的隨機數生成高強度密碼。支援自訂長度、字元類型、批次產生。瀏覽器本地處理。"
-    },
-    "title": "🔑 密碼產生器",
-    "subtitle": "產生高強度隨機密碼，瀏覽器本地處理 🔒",
-    "lengthLabel": "密碼長度",
-    "optionsLabel": "字元選項",
-    "options": {
-      "uppercase": "A-Z 大寫",
-      "lowercase": "a-z 小寫",
-      "numbers": "0-9 數字",
-      "symbols": "!@# 符號"
-    },
-    "countLabel": "批次數量",
-    "generateBtn": "產生密碼",
-    "copyBtn": "複製",
-    "copied": "已複製 ✓",
-    "copyAllBtn": "複製全部",
-    "strength": {
-      "weak": "弱",
-      "medium": "中",
-      "strong": "強",
-      "veryStrong": "超強"
-    }
-  },
-  "screenRecorder": {
-    "meta": {
-      "title": "螢幕錄影 — 免費線上錄製螢幕 | Mochi Tools 🍡",
-      "description": "免費線上螢幕錄影工具，支援系統音效和麥克風錄音，瀏覽器直接錄製，不上傳伺服器。"
-    },
-    "title": "🎥 螢幕錄影",
-    "subtitle": "直接在瀏覽器錄製螢幕畫面，不上傳伺服器 🔒",
-    "audioLabel": "音源設定",
-    "audio": {
-      "none": "靜音",
-      "system": "系統音效",
-      "mic": "麥克風",
-      "both": "兩者"
-    },
-    "startBtn": "開始錄影",
-    "recording": "錄影中",
-    "paused": "已暫停",
-    "pauseBtn": "暫停",
-    "resumeBtn": "繼續",
-    "stopBtn": "停止",
-    "previewLabel": "錄影預覽",
-    "downloadBtn": "下載 WebM",
-    "resetBtn": "重新錄製",
-    "fileSize": "檔案大小",
-    "notSupported": "你的瀏覽器不支援螢幕錄影功能。請使用 Chrome、Edge 或 Firefox 桌面版。",
-    "browserHint": "💡 需要瀏覽器支援 getDisplayMedia API，手機可能不支援"
   },
   "blog": {
     "title": "📝 部落格",
