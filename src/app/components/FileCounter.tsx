@@ -40,7 +40,6 @@ export default function FileCounter() {
 
   return (
     <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-pink-50 rounded-full border border-pink-200">
-      <span className="text-lg">📊</span>
       <span className="text-sm font-bold text-pink-500">
         {t('counterLabel', { count: displayCount.toLocaleString() })}
       </span>
