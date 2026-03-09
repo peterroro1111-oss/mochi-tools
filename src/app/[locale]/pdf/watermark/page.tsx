@@ -6,6 +6,7 @@ import { PDFDocument, rgb, degrees } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 export default function PdfWatermarkPage() {
   const t = useTranslations('pdfWatermark');
@@ -49,6 +50,11 @@ export default function PdfWatermarkPage() {
       setError('');
       setPreviewUrl('');
     }
+  }, []);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (f && f.type === 'application/pdf') setFile(f);
   }, []);
 
   const hexToRgb = (hex: string) => {
@@ -114,6 +120,7 @@ export default function PdfWatermarkPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept=".pdf" disabled={!!file} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center">💧</span>

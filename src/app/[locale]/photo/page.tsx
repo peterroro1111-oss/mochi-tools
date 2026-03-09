@@ -3,8 +3,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import { captureToolError } from '@/app/utils/sentry';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 const SIZES = [
   { id: '2inch', w: 413, h: 531, desc: '35×45mm' },
@@ -77,6 +79,12 @@ export default function PhotoPage() {
       navigator.serviceWorker.controller.postMessage({ type: 'CHECK_MODEL_CACHE' });
       return () => navigator.serviceWorker.removeEventListener('message', handler);
     }
+  }, []);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (f && f.type.startsWith('image/')) handleUpload(f);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleUpload = async (file: File) => {
@@ -168,7 +176,7 @@ export default function PhotoPage() {
       setStep('edit');
       setProgress('');
     } catch (err) {
-      console.error(err);
+      captureToolError('idPhoto', err);
       setError(t('error'));
       setStep('upload');
       setProgress('');
@@ -281,6 +289,7 @@ export default function PhotoPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 md:py-12">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="image/*" disabled={!!originalUrl} />
       <div className="mb-8">
         <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2">{t('title')}</h1>
         <p className="text-sm md:text-base text-[#b89b8a]">

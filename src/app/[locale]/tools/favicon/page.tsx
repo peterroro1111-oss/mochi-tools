@@ -6,6 +6,7 @@ import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
 import { downloadFile } from '@/app/utils/download';
 import JSZip from 'jszip';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 const SIZES = [16, 32, 48, 64, 128, 180, 192, 512];
 
@@ -37,6 +38,27 @@ export default function FaviconPage() {
   const [processing, setProcessing] = useState(false);
   const [copied, setCopied] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (!f || !f.type.startsWith('image/')) return;
+    const url = URL.createObjectURL(f);
+    const img = new Image();
+    img.onload = () => {
+      setImage(img);
+      const pvs: { size: number; url: string }[] = [];
+      for (const size of SIZES) {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d')!;
+        ctx.drawImage(img, 0, 0, size, size);
+        pvs.push({ size, url: canvas.toDataURL('image/png') });
+      }
+      setPreviews(pvs);
+    };
+    img.src = url;
+  }, []);
 
   const handleFile = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
@@ -104,6 +126,7 @@ export default function FaviconPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="image/*" disabled={!!image} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-yellow-100 w-16 h-16 rounded-2xl flex items-center justify-center">⭐</span>

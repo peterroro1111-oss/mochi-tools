@@ -105,7 +105,18 @@ async function Footer({ locale }: { locale: string }) {
         <img src="/mochi-logo-transparent.png" alt="" className="w-6 h-6 rounded-full" loading="lazy" />
         <span>{t('tagline')}</span>
       </div>
-      <p className="text-xs text-pink-300 mt-2">{t('madeWith')}</p>
+      <div className="flex items-center justify-center gap-3 mt-3">
+        <p className="text-xs text-pink-300">{t('madeWith')}</p>
+        <span className="text-pink-200">·</span>
+        <a
+          href="https://buymeacoffee.com/mochitools"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-[#b89b8a] hover:text-pink-400 transition-colors"
+        >
+          {t('sponsor')}
+        </a>
+      </div>
     </footer>
   );
 }

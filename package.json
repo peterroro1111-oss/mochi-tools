@@ -13,6 +13,7 @@
     "@ffmpeg/core": "^0.12.10",
     "@ffmpeg/ffmpeg": "^0.12.15",
     "@imgly/background-removal": "^1.5.5",
+    "@sentry/nextjs": "^10.42.0",
     "@types/file-saver": "^2.0.7",
     "@types/leaflet": "^1.9.21",
     "file-saver": "^2.0.5",

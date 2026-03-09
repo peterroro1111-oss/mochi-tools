@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
 import { downloadFile } from '@/app/utils/download';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 interface ConvertToolProps {
   fromFormat: string;
@@ -54,12 +55,17 @@ export default function ConvertTool({ fromFormat, toFormat, fromLabel, toLabel, 
 
   const acceptTypes = fromFormat === 'jpg' ? '.jpg,.jpeg' : `.${fromFormat}`;
 
-  const handleFile = (f: File) => {
+  const handleFile = useCallback((f: File) => {
     setFile(f);
     setPreviewUrl(URL.createObjectURL(f));
     setResultUrl(null);
     setResultSize(0);
-  };
+  }, []);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (f) handleFile(f);
+  }, [handleFile]);
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
@@ -116,6 +122,7 @@ export default function ConvertTool({ fromFormat, toFormat, fromLabel, toLabel, 
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept={acceptTypes} disabled={!!file} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-emerald-100 w-16 h-16 rounded-2xl flex items-center justify-center">🔄</span>

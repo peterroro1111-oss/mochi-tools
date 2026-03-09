@@ -1,11 +1,13 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useFFmpeg } from '@/app/hooks/useFFmpeg';
 import { downloadFile } from '@/app/utils/download';
+import { captureToolError } from '@/app/utils/sentry';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 function formatSize(bytes: number) {
   if (bytes < 1024) return bytes + ' B';
@@ -52,6 +54,12 @@ export default function VideoCompressPage() {
   const [resultSize, setResultSize] = useState(0);
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (f) handleFile(f);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFile = async (f: File) => {
     setFile(f);
@@ -100,7 +108,7 @@ export default function VideoCompressPage() {
       await ffmpeg.deleteFile(inputName);
       await ffmpeg.deleteFile(outputName);
     } catch (err) {
-      console.error(err);
+      captureToolError('videoCompress', err);
       alert(t('compressError'));
     }
     setCompressing(false);
@@ -123,6 +131,7 @@ export default function VideoCompressPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov" disabled={!!file} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-violet-100 w-16 h-16 rounded-2xl flex items-center justify-center">🗜️</span>

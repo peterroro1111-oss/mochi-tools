@@ -6,6 +6,7 @@ import { downloadFile } from '@/app/utils/download';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
 import JSZip from 'jszip';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 interface ImageItem {
   file: File;
@@ -46,6 +47,25 @@ export default function ImageResizePage() {
   const [processing, setProcessing] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const aspectRatio = useRef(4 / 3);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const arr = Array.from(files).filter(f => f.type.startsWith('image/'));
+    for (const file of arr) {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        setImages(prev => {
+          if (prev.length === 0) {
+            aspectRatio.current = img.width / img.height;
+            setTargetWidth(img.width);
+            setTargetHeight(img.height);
+          }
+          return [...prev, { file, url, width: img.width, height: img.height }];
+        });
+      };
+      img.src = url;
+    }
+  }, []);
 
   const handleFiles = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []).filter(f => f.type.startsWith('image/'));
@@ -125,6 +145,7 @@ export default function ImageResizePage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="image/*" />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center">📐</span>

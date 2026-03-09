@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 interface ConvertedFile {
   name: string;
@@ -26,6 +27,11 @@ export default function HeicToJpgPage() {
   const [dragOver, setDragOver] = useState(false);
   const [error, setError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    handleFiles(files);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFiles = (fileList: FileList | File[]) => {
     const heicFiles = Array.from(fileList).filter((f) => {
@@ -99,6 +105,7 @@ export default function HeicToJpgPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept=".heic,.heif,image/heic,image/heif" />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-orange-100 w-16 h-16 rounded-2xl flex items-center justify-center">📱</span>

@@ -16,7 +16,12 @@
   },
   "footer": {
     "tagline": "Mochi Tools · Free, secure, no server uploads",
-    "madeWith": "Made with love 🍡"
+    "madeWith": "Made with love 🍡",
+    "sponsor": "☕ Buy me a coffee"
+  },
+  "dropZone": {
+    "overlay": "Drop to upload files",
+    "overlayHint": "Release to add files"
   },
   "home": {
     "heroTitle": "Free Online Tools",

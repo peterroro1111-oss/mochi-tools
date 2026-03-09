@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 declare global {
   interface Window {
@@ -43,6 +44,10 @@ export default function PdfToImagePage() {
   const [scale, setScale] = useState(2);
   const [loaded, setLoaded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    if (files[0]) setFile(files[0]);
+  }, []);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -102,6 +107,7 @@ export default function PdfToImagePage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept=".pdf" disabled={!!file} />
       <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
       <p className="text-gray-500 mb-8">{t('subtitle')}</p>
 

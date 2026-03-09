@@ -4,8 +4,10 @@ import { useState, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import { captureToolError } from '@/app/utils/sentry';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 interface PdfFile {
   name: string;
@@ -89,7 +91,8 @@ export default function MergePdfPage() {
       const bytes = await merged.save();
       const blob = new Blob([bytes as BlobPart], { type: 'application/pdf' });
       downloadFile(blob, 'merged.pdf');
-    } catch {
+    } catch (err) {
+      captureToolError('pdfMerge', err);
       alert(t('mergeError'));
     } finally {
       setMerging(false);
@@ -98,6 +101,7 @@ export default function MergePdfPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
+      <FullPageDropZone onFiles={addFiles} accept=".pdf" />
       <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
       <p className="text-gray-500 mb-8">{t('subtitle')}</p>
 

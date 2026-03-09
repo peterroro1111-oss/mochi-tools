@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 export default function GifMakerPage() {
   const t = useTranslations('gifMaker');
@@ -37,6 +38,15 @@ export default function GifMakerPage() {
   const [error, setError] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
   const animRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const arr = Array.from(files);
+    const imgs = arr.filter(f => f.type.startsWith('image/')).map(f => ({
+      file: f,
+      url: URL.createObjectURL(f),
+    }));
+    setImages(prev => [...prev, ...imgs]);
+  }, []);
 
   const handleFiles = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
@@ -109,6 +119,7 @@ export default function GifMakerPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="image/*" />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center">🎞️</span>

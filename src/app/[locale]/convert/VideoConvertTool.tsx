@@ -1,11 +1,13 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useFFmpeg } from '@/app/hooks/useFFmpeg';
 import { downloadFile } from '@/app/utils/download';
+import { captureToolError } from '@/app/utils/sentry';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 interface VideoConvertToolProps {
   fromLabel: string;
@@ -55,12 +57,18 @@ export default function VideoConvertTool({
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFile = async (f: File) => {
+  const handleFile = useCallback(async (f: File) => {
     setFile(f);
     setResultUrl(null);
     setResultSize(0);
     if (!loaded) await loadFFmpeg();
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (f) handleFile(f);
+  }, [handleFile]);
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
@@ -93,7 +101,7 @@ export default function VideoConvertTool({
       await ffmpeg.deleteFile(inputName);
       await ffmpeg.deleteFile(outputName);
     } catch (err) {
-      console.error(err);
+      captureToolError('videoConvert', err);
       alert(t('convertError'));
     }
     setConverting(false);
@@ -116,6 +124,7 @@ export default function VideoConvertTool({
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept={fromAccept} disabled={!!file} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-emerald-100 w-16 h-16 rounded-2xl flex items-center justify-center">🔄</span>

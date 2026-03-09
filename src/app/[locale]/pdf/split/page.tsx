@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import { captureToolError } from '@/app/utils/sentry';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 export default function SplitPdfPage() {
   const t = useTranslations('pdfSplit');
@@ -40,10 +42,16 @@ export default function SplitPdfPage() {
       const pdf = await PDFDocument.load(data);
       setFile({ name: f.name, data, pages: pdf.getPageCount() });
       setRange(`1-${pdf.getPageCount()}`);
-    } catch {
+    } catch (err) {
+      captureToolError('pdfSplit', err);
       alert(t('readError'));
     }
   };
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    if (files[0]) loadFile(files[0]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const splitPdf = async () => {
     if (!file) return;
@@ -80,7 +88,8 @@ export default function SplitPdfPage() {
       const bytes = await newPdf.save();
       const blob = new Blob([bytes as BlobPart], { type: 'application/pdf' });
       downloadFile(blob, `split_${file.name}`);
-    } catch {
+    } catch (err) {
+      captureToolError('pdfSplit', err);
       alert(t('splitError'));
     } finally {
       setSplitting(false);
@@ -89,6 +98,7 @@ export default function SplitPdfPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept=".pdf" disabled={!!file} />
       <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
       <p className="text-gray-500 mb-8">{t('subtitle')}</p>
 

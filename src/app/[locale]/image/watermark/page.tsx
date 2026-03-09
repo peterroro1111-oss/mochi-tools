@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 type Position = 'topLeft' | 'topCenter' | 'topRight' | 'centerLeft' | 'center' | 'centerRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'tiled';
 
@@ -43,6 +44,12 @@ export default function WatermarkPage() {
   const [dragOver, setDragOver] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (f && f.type.startsWith('image/')) handleFile(f);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFile = (f: File) => {
     if (!f.type.startsWith('image/')) return;
@@ -142,6 +149,7 @@ export default function WatermarkPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="image/*" disabled={!!imageFile} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-sky-100 w-16 h-16 rounded-2xl flex items-center justify-center">💧</span>

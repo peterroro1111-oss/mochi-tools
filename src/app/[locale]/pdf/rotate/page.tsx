@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument, degrees } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 export default function RotatePdfPage() {
   const t = useTranslations('pdfRotate');
@@ -44,6 +45,11 @@ export default function RotatePdfPage() {
     }
   };
 
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    if (files[0]) loadFile(files[0]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const rotatePdf = async () => {
     if (!file) return;
     setProcessing(true);
@@ -64,6 +70,7 @@ export default function RotatePdfPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept=".pdf" disabled={!!file} />
       <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
       <p className="text-gray-500 mb-8">{t('subtitle')}</p>
 

@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 interface TextLayer {
   id: number;
@@ -49,6 +50,16 @@ export default function ImageAnnotatePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const nextId = useRef(1);
+
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (!f || !f.type.startsWith('image/')) return;
+    const url = URL.createObjectURL(f);
+    const img = new Image();
+    img.onload = () => setImage(img);
+    img.src = url;
+    setLayers([]);
+  }, []);
 
   const handleFile = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
@@ -166,6 +177,7 @@ export default function ImageAnnotatePage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="image/*" disabled={!!image} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-orange-100 w-16 h-16 rounded-2xl flex items-center justify-center">✏️</span>

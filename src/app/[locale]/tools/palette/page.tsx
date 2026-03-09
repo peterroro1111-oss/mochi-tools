@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 interface ColorInfo {
   hex: string;
@@ -68,6 +69,16 @@ export default function PalettePage() {
     })));
   }, []);
 
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (!f || !f.type.startsWith('image/')) return;
+    const url = URL.createObjectURL(f);
+    setImageUrl(url);
+    const img = new Image();
+    img.onload = () => extractColors(img);
+    img.src = url;
+  }, [extractColors]);
+
   const handleFile = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f || !f.type.startsWith('image/')) return;
@@ -93,6 +104,7 @@ export default function PalettePage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept="image/*" disabled={!!imageUrl} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-rose-100 w-16 h-16 rounded-2xl flex items-center justify-center">🎨</span>

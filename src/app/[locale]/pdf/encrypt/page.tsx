@@ -4,8 +4,10 @@ import { useState, useRef, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument, PDFName, PDFHexString, PDFDict, PDFRef } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import { captureToolError } from '@/app/utils/sentry';
 import FAQSchema from '@/app/components/FAQSchema';
 import RelatedTools from '@/app/components/RelatedTools';
+import FullPageDropZone from '@/app/components/FullPageDropZone';
 
 // Simple MD5-like hash for PDF password (RC4-compatible padding)
 const PDF_PADDING = [
@@ -67,6 +69,11 @@ export default function PdfEncryptPage() {
     }
   }, []);
 
+  const handleDroppedFiles = useCallback((files: FileList) => {
+    const f = files[0];
+    if (f && f.type === 'application/pdf') setFile(f);
+  }, []);
+
   const encrypt = useCallback(async () => {
     if (!file || !password) return;
     setProcessing(true);
@@ -97,7 +104,8 @@ export default function PdfEncryptPage() {
       const encrypted = await pdfDoc.save();
       const blob = new Blob([encrypted.buffer as ArrayBuffer], { type: 'application/pdf' });
       downloadFile(blob, `encrypted_${file.name}`);
-    } catch {
+    } catch (err) {
+      captureToolError('pdfEncrypt', err);
       setError(t('encryptError'));
     }
     setProcessing(false);
@@ -105,6 +113,7 @@ export default function PdfEncryptPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
+      <FullPageDropZone onFiles={handleDroppedFiles} accept=".pdf" disabled={!!file} />
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="text-4xl bg-red-100 w-16 h-16 rounded-2xl flex items-center justify-center">🔒</span>
