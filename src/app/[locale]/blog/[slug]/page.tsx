@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: { params: { locale: strin
         {/* Back link */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-1.5 text-sm text-pink-400 hover:text-pink-300 mb-8 transition-colors group"
+          className="inline-flex items-center gap-1.5 text-sm text-pink-400 hover:text-pink-600 mb-8 transition-colors group"
         >
           <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -89,35 +89,35 @@ export default async function BlogPostPage({ params }: { params: { locale: strin
             {/* Article Header */}
             <header className="mb-10">
               <div className="flex items-center gap-3 mb-4 flex-wrap">
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-pink-500/20 text-pink-400 border border-pink-500/30">
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-pink-100 text-pink-700 border border-pink-200">
                   {isZh ? categoryLabels[post.category].zh : categoryLabels[post.category].en}
                 </span>
-                <time className="text-sm text-gray-500">{post.date}</time>
-                <span className="text-sm text-gray-500">
+                <time className="text-sm text-gray-400">{post.date}</time>
+                <span className="text-sm text-gray-400">
                   {isZh ? `${readingTime} 分鐘閱讀` : `${readingTime} min read`}
                 </span>
               </div>
-              <h1 className="text-2xl md:text-4xl font-bold text-gray-100 mb-4 leading-tight">
+              <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4 leading-tight">
                 {isZh ? post.titleZh : post.titleEn}
               </h1>
-              <p className="text-gray-400 text-lg">
+              <p className="text-gray-500 text-lg">
                 {isZh ? post.summaryZh : post.summaryEn}
               </p>
-              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-[#30363d]">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white text-sm font-bold">
+              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-pink-100">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-300 to-pink-500 flex items-center justify-center text-white text-sm font-bold">
                   M
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-200">
+                  <p className="text-sm font-medium text-gray-700">
                     {isZh ? 'Mochi Tools 團隊' : 'Mochi Tools Team'}
                   </p>
-                  <p className="text-xs text-gray-500">mochitools.com</p>
+                  <p className="text-xs text-gray-400">mochitools.com</p>
                 </div>
               </div>
             </header>
 
             {/* Mobile TOC */}
-            <div className="lg:hidden mb-8 bg-[#161b22] border border-[#30363d] rounded-xl p-4">
+            <div className="lg:hidden mb-8 bg-white border-2 border-pink-100 rounded-xl p-4">
               <TableOfContents isZh={isZh} />
             </div>
 
@@ -127,16 +127,16 @@ export default async function BlogPostPage({ params }: { params: { locale: strin
             </div>
 
             {/* Share Buttons */}
-            <div className="mt-10 pt-6 border-t border-[#30363d]">
+            <div className="mt-10 pt-6 border-t border-pink-100">
               <ShareButtons title={isZh ? post.titleZh : post.titleEn} isZh={isZh} />
             </div>
 
             {/* CTA */}
-            <div className="mt-8 bg-gradient-to-r from-pink-500/10 to-purple-500/10 border border-pink-500/20 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-gray-100 mb-2">
+            <div className="mt-8 bg-gradient-to-r from-pink-50 to-pink-100/50 border-2 border-pink-200 rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">
                 {isZh ? '試試 Mochi Tools 的免費工具' : 'Try Mochi Tools for Free'}
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-500 mb-4">
                 {isZh
                   ? '所有工具都在瀏覽器本地處理，檔案不會上傳到伺服器。完全免費、不需要註冊。'
                   : 'All tools process locally in your browser. Files never upload to servers. Completely free, no registration needed.'}
@@ -155,8 +155,8 @@ export default async function BlogPostPage({ params }: { params: { locale: strin
 
             {/* Related Articles */}
             {relatedPosts.length > 0 && (
-              <div className="mt-10 pt-8 border-t border-[#30363d]">
-                <h3 className="text-lg font-bold text-gray-100 mb-4">
+              <div className="mt-10 pt-8 border-t border-pink-100">
+                <h3 className="text-lg font-bold text-gray-800 mb-4">
                   {isZh ? '推薦閱讀' : 'Related Articles'}
                 </h3>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -171,10 +171,10 @@ export default async function BlogPostPage({ params }: { params: { locale: strin
                           {related.icon}
                         </span>
                         <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-bold text-gray-200 mb-1 group-hover:text-pink-400 transition-colors line-clamp-2">
+                          <h4 className="text-sm font-bold text-gray-700 mb-1 group-hover:text-pink-500 transition-colors line-clamp-2">
                             {isZh ? related.titleZh : related.titleEn}
                           </h4>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-400">
                             {related.date} · {isZh ? `${related.readingTimeZh} 分鐘` : `${related.readingTimeEn} min`}
                           </p>
                         </div>
@@ -189,7 +189,7 @@ export default async function BlogPostPage({ params }: { params: { locale: strin
             <div className="mt-8 text-center">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium bg-[#161b22] border border-[#30363d] text-gray-300 hover:border-pink-500/50 hover:text-pink-400 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium bg-white border-2 border-pink-100 text-gray-600 hover:border-pink-300 hover:text-pink-500 transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

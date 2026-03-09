@@ -44,10 +44,10 @@ export default function TableOfContents({ isZh }: { isZh: boolean }) {
 
   return (
     <nav className="blog-toc">
-      <h3 className="text-sm font-bold text-gray-300 mb-3 uppercase tracking-wider">
+      <h3 className="text-sm font-bold text-gray-600 mb-3 uppercase tracking-wider">
         {isZh ? '目錄' : 'Table of Contents'}
       </h3>
-      <div className="space-y-0.5 border-l-2 border-[#30363d] pl-3">
+      <div className="space-y-0.5 border-l-2 border-pink-100 pl-3">
         {items.map((item) => (
           <a
             key={item.id}

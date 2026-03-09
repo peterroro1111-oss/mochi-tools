@@ -27,10 +27,10 @@ export default function BlogListClient({ locale }: { locale: string }) {
     <>
       {/* Hero */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-100 mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
           {isZh ? '部落格' : 'Blog'}
         </h1>
-        <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+        <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
           {isZh
             ? '實用教學、工具推薦、技巧分享 — 幫你更高效地處理檔案'
             : 'Tutorials, tool recommendations, and tips to help you work more efficiently'}
@@ -38,7 +38,7 @@ export default function BlogListClient({ locale }: { locale: string }) {
         {/* Search */}
         <div className="relative max-w-xl mx-auto">
           <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -55,7 +55,7 @@ export default function BlogListClient({ locale }: { locale: string }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={isZh ? '搜尋文章...' : 'Search articles...'}
-            className="w-full pl-12 pr-4 py-3 rounded-xl bg-[#161b22] border border-[#30363d] text-gray-200 placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500/30 transition-colors"
+            className="w-full pl-12 pr-4 py-3 rounded-xl bg-white border-2 border-pink-100 text-gray-800 placeholder-gray-400 focus:outline-none focus:border-pink-300 focus:ring-1 focus:ring-pink-200 transition-colors"
           />
         </div>
       </div>
@@ -68,8 +68,8 @@ export default function BlogListClient({ locale }: { locale: string }) {
             onClick={() => setCategory(cat)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               category === cat
-                ? 'bg-pink-500/20 text-pink-400 border border-pink-500/40'
-                : 'bg-[#161b22] text-gray-400 border border-[#30363d] hover:border-gray-500 hover:text-gray-300'
+                ? 'bg-pink-100 text-pink-700 border border-pink-300'
+                : 'bg-white text-gray-500 border border-pink-100 hover:border-pink-300 hover:text-gray-700'
             }`}
           >
             {isZh ? categoryLabels[cat].zh : categoryLabels[cat].en}
@@ -85,10 +85,10 @@ export default function BlogListClient({ locale }: { locale: string }) {
         >
           <div className="p-6 md:p-8">
             <div className="flex items-center gap-3 mb-3">
-              <span className="px-3 py-1 rounded-full text-xs font-medium bg-pink-500/20 text-pink-400 border border-pink-500/30">
+              <span className="px-3 py-1 rounded-full text-xs font-medium bg-pink-100 text-pink-700 border border-pink-200">
                 {isZh ? '精選文章' : 'Featured'}
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#0d1117] text-gray-400 border border-[#30363d]">
+              <span className="px-3 py-1 rounded-full text-xs font-medium bg-pink-50 text-gray-500 border border-pink-100">
                 {isZh
                   ? categoryLabels[featured.category].zh
                   : categoryLabels[featured.category].en}
@@ -99,13 +99,13 @@ export default function BlogListClient({ locale }: { locale: string }) {
                 {featured.icon}
               </span>
               <div className="flex-1 min-w-0">
-                <h2 className="text-xl md:text-2xl font-bold text-gray-100 mb-3 group-hover:text-pink-400 transition-colors">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 group-hover:text-pink-500 transition-colors">
                   {isZh ? featured.titleZh : featured.titleEn}
                 </h2>
-                <p className="text-gray-400 mb-4 line-clamp-3">
+                <p className="text-gray-500 mb-4 line-clamp-3">
                   {isZh ? featured.summaryZh : featured.summaryEn}
                 </p>
-                <div className="flex items-center gap-4 text-sm text-gray-500">
+                <div className="flex items-center gap-4 text-sm text-gray-400">
                   <time>{featured.date}</time>
                   <span>
                     {isZh
@@ -130,7 +130,7 @@ export default function BlogListClient({ locale }: { locale: string }) {
               className="blog-card p-5 md:p-6 group"
             >
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#0d1117] text-gray-400 border border-[#30363d]">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-50 text-gray-500 border border-pink-100">
                   {isZh ? categoryLabels[post.category].zh : categoryLabels[post.category].en}
                 </span>
               </div>
@@ -139,13 +139,13 @@ export default function BlogListClient({ locale }: { locale: string }) {
                   {post.icon}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <h2 className="text-base md:text-lg font-bold text-gray-100 mb-2 group-hover:text-pink-400 transition-colors">
+                  <h2 className="text-base md:text-lg font-bold text-gray-800 mb-2 group-hover:text-pink-500 transition-colors">
                     {isZh ? post.titleZh : post.titleEn}
                   </h2>
-                  <p className="text-sm text-gray-400 mb-3 line-clamp-2">
+                  <p className="text-sm text-gray-500 mb-3 line-clamp-2">
                     {isZh ? post.summaryZh : post.summaryEn}
                   </p>
-                  <div className="flex items-center gap-4 text-xs text-gray-500">
+                  <div className="flex items-center gap-4 text-xs text-gray-400">
                     <time>{post.date}</time>
                     <span>
                       {isZh
@@ -161,7 +161,7 @@ export default function BlogListClient({ locale }: { locale: string }) {
 
       {/* No Results */}
       {filtered.length === 0 && (
-        <div className="text-center py-16 text-gray-500">
+        <div className="text-center py-16 text-gray-400">
           <p className="text-4xl mb-4">🔍</p>
           <p>{isZh ? '找不到符合的文章' : 'No matching articles found'}</p>
         </div>
