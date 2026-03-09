@@ -19,6 +19,7 @@ export default function Navbar() {
     { href: '/remove-bg' as const, label: t('removeBg') },
     { href: '/photo' as const, label: t('photo') },
     { href: '/tools' as const, label: t('tools') },
+    { href: '/blog' as const, label: t('blog') },
   ];
 
   const switchLocale = () => {

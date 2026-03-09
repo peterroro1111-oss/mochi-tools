@@ -449,6 +449,81 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mov-to-mp4"/>
     <priority>0.7</priority>
   </url>
+  <!-- Password Generator -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/password</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/password"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/password"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/password</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/password"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/password"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Screen Recorder -->
+  <url>
+    <loc>https://mochitools.com/zh/tools/screen-recorder</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/screen-recorder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/screen-recorder"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/tools/screen-recorder</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/tools/screen-recorder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/tools/screen-recorder"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog -->
+  <url>
+    <loc>https://mochitools.com/zh/blog</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/blog/best-free-pdf-tools-2026</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/best-free-pdf-tools-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/best-free-pdf-tools-2026"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/best-free-pdf-tools-2026</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/best-free-pdf-tools-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/best-free-pdf-tools-2026"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/blog/image-compression-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/image-compression-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/image-compression-guide"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/image-compression-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/image-compression-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/image-compression-guide"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/blog/free-video-compression-tools</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/free-video-compression-tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/free-video-compression-tools"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/free-video-compression-tools</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/free-video-compression-tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/free-video-compression-tools"/>
+    <priority>0.6</priority>
+  </url>
   <!-- Image Resize -->
   <url>
     <loc>https://mochitools.com/zh/image/resize</loc>

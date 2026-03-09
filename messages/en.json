@@ -12,6 +12,7 @@
     "photo": "📸 ID Photo",
     "video": "🎬 Video Tools",
     "tools": "🔧 Utilities",
+    "blog": "📝 Blog",
     "menu": "Menu"
   },
   "footer": {
@@ -59,7 +60,9 @@
       "qrcode": "QR Code",
       "colorConverter": "Color Converter",
       "favicon": "Favicon Generator",
-      "palette": "Palette Extractor"
+      "palette": "Palette Extractor",
+      "password": "Password Generator",
+      "screenRecorder": "Screen Recorder"
     },
     "whyTitle": "Why Mochi Tools?",
     "whySubtitle": "Simple and handy tools, soft like mochi 🍡",
@@ -616,6 +619,14 @@
       "qrcode": {
         "name": "🔗 QR Code Generator",
         "desc": "Custom size and color QR codes"
+      },
+      "password": {
+        "name": "🔑 Password Generator",
+        "desc": "Generate strong random passwords"
+      },
+      "screenRecorder": {
+        "name": "🎥 Screen Recorder",
+        "desc": "Record your screen in browser"
       }
     }
   },
@@ -891,5 +902,64 @@
     "subtitle": "Works offline, faster access",
     "install": "Install",
     "dismiss": "Later"
+  },
+  "passwordGenerator": {
+    "meta": {
+      "title": "Password Generator — Free Online Secure Passwords | Mochi Tools 🍡",
+      "description": "Free online password generator using cryptographically secure randomness. Custom length, character types, batch generation. Processed locally in browser."
+    },
+    "title": "🔑 Password Generator",
+    "subtitle": "Generate strong random passwords, processed locally in your browser 🔒",
+    "lengthLabel": "Password length",
+    "optionsLabel": "Character options",
+    "options": {
+      "uppercase": "A-Z Uppercase",
+      "lowercase": "a-z Lowercase",
+      "numbers": "0-9 Numbers",
+      "symbols": "!@# Symbols"
+    },
+    "countLabel": "Batch count",
+    "generateBtn": "Generate Password",
+    "copyBtn": "Copy",
+    "copied": "Copied ✓",
+    "copyAllBtn": "Copy All",
+    "strength": {
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong",
+      "veryStrong": "Very Strong"
+    }
+  },
+  "screenRecorder": {
+    "meta": {
+      "title": "Screen Recorder — Free Online Screen Recording | Mochi Tools 🍡",
+      "description": "Free online screen recorder with system audio and microphone support. Record directly in browser, no server uploads."
+    },
+    "title": "🎥 Screen Recorder",
+    "subtitle": "Record your screen directly in the browser, no server uploads 🔒",
+    "audioLabel": "Audio source",
+    "audio": {
+      "none": "Silent",
+      "system": "System Audio",
+      "mic": "Microphone",
+      "both": "Both"
+    },
+    "startBtn": "Start Recording",
+    "recording": "Recording",
+    "paused": "Paused",
+    "pauseBtn": "Pause",
+    "resumeBtn": "Resume",
+    "stopBtn": "Stop",
+    "previewLabel": "Recording Preview",
+    "downloadBtn": "Download WebM",
+    "resetBtn": "Record Again",
+    "fileSize": "File size",
+    "notSupported": "Your browser does not support screen recording. Please use Chrome, Edge, or Firefox on desktop.",
+    "browserHint": "💡 Requires browser support for getDisplayMedia API. Mobile browsers may not be supported."
+  },
+  "blog": {
+    "title": "📝 Blog",
+    "subtitle": "Tutorials, tool recommendations, tips & tricks",
+    "backToList": "Back to articles"
   }
 }
