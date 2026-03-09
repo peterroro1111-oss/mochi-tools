@@ -108,9 +108,8 @@ async function Footer({ locale }: { locale: string }) {
       </div>
       <div className="flex items-center justify-center gap-3 mt-3">
         <p className="text-xs text-pink-300">{t('madeWith')}</p>
-        <span className="text-pink-200">·</span>
-        <KofiButton label={t('sponsor')} />
       </div>
+      <KofiButton />
     </footer>
   );
 }
