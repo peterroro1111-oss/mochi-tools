@@ -375,6 +375,80 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/image/annotate"/>
     <priority>0.7</priority>
   </url>
+  <!-- Video Tools -->
+  <url>
+    <loc>https://mochitools.com/zh/video</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/video"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/video"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/video</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/video"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/video"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/video/compress</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/video/compress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/video/compress"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/video/compress</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/video/compress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/video/compress"/>
+    <priority>0.7</priority>
+  </url>
+  <!-- Video Convert -->
+  <url>
+    <loc>https://mochitools.com/zh/convert/mp4-to-webm</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/mp4-to-webm"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mp4-to-webm"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/mp4-to-webm</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/mp4-to-webm"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mp4-to-webm"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/webm-to-mp4</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/webm-to-mp4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/webm-to-mp4"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/webm-to-mp4</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/webm-to-mp4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/webm-to-mp4"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/mp4-to-gif</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/mp4-to-gif"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mp4-to-gif"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/mp4-to-gif</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/mp4-to-gif"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mp4-to-gif"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/zh/convert/mov-to-mp4</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/mov-to-mp4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mov-to-mp4"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/convert/mov-to-mp4</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/convert/mov-to-mp4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/convert/mov-to-mp4"/>
+    <priority>0.7</priority>
+  </url>
   <!-- Image Resize -->
   <url>
     <loc>https://mochitools.com/zh/image/resize</loc>

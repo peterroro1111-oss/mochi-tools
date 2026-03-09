@@ -1,11 +1,34 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 export default function RemoveBgPage() {
   const t = useTranslations('removeBg');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: 'AI 去背準確嗎？', answer: '使用 AI 深度學習模型，對人物、商品等主體的去背效果很好，邊緣處理精確。' },
+    { question: '首次使用為什麼需要等待？', answer: '首次使用需要下載約 40MB 的 AI 模型到瀏覽器，之後會自動快取，再次使用秒速處理。' },
+    { question: '去背後的圖片是什麼格式？', answer: '輸出為透明背景的 PNG 格式，可直接用於設計或電商商品圖。' },
+  ] : [
+    { question: 'Is AI background removal accurate?', answer: 'Uses a deep learning AI model with excellent results for people, products, and other subjects with precise edge processing.' },
+    { question: 'Why is there a wait on first use?', answer: 'First use requires downloading the ~40MB AI model to your browser. After that, it is cached and subsequent uses are instant.' },
+    { question: 'What format is the output?', answer: 'Output is transparent PNG format, ready for use in design or e-commerce product images.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/photo', icon: '📷', name: '證件照', desc: '製作標準證件照', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: '格式轉換', desc: '圖片格式轉換', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/video/compress', icon: '🎬', name: '影片壓縮', desc: '壓縮 MP4/WebM/MOV', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/photo', icon: '📷', name: 'ID Photo', desc: 'Create standard ID photos', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: 'Format Convert', desc: 'Image format conversion', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/video/compress', icon: '🎬', name: 'Video Compress', desc: 'Compress MP4/WebM/MOV', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [step, setStep] = useState<'upload' | 'processing' | 'done'>('upload');
   const [progress, setProgress] = useState('');
   const [progressPct, setProgressPct] = useState(0);
@@ -264,6 +287,9 @@ export default function RemoveBgPage() {
           </div>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

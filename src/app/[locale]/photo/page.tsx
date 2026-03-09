@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 const SIZES = [
   { id: '2inch', w: 413, h: 531, desc: '35×45mm' },
@@ -22,6 +24,27 @@ type BgOption = (typeof BG_COLORS)[number];
 
 export default function PhotoPage() {
   const t = useTranslations('photo');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '證件照支援哪些尺寸？', answer: '支援 2 吋、1 吋、護照、美簽等常用證件照尺寸。' },
+    { question: '可以更換背景顏色嗎？', answer: '可以，支援白色、藍色、紅色三種常用證件照背景色。' },
+    { question: '照片位置可以調整嗎？', answer: '可以，支援拖曳調整照片位置和縮放大小，確保臉部位置正確。' },
+  ] : [
+    { question: 'What ID photo sizes are supported?', answer: 'Supports 2-inch, 1-inch, passport, and US visa standard sizes.' },
+    { question: 'Can the background color be changed?', answer: 'Yes, supports white, blue, and red - the most common ID photo background colors.' },
+    { question: 'Can photo position be adjusted?', answer: 'Yes, supports drag to adjust position and zoom level to ensure correct face placement.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/remove-bg', icon: '✂️', name: 'AI 去背', desc: '智慧去除背景', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/image/resize', icon: '📐', name: '圖片縮放', desc: '調整圖片尺寸', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: '格式轉換', desc: '圖片格式轉換', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/remove-bg', icon: '✂️', name: 'AI Remove BG', desc: 'Smart background removal', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/image/resize', icon: '📐', name: 'Image Resize', desc: 'Adjust image dimensions', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: 'Format Convert', desc: 'Image format conversion', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [step, setStep] = useState<'upload' | 'processing' | 'edit'>('upload');
   const [progress, setProgress] = useState('');
   const [progressPct, setProgressPct] = useState(0);
@@ -430,6 +453,9 @@ export default function PhotoPage() {
       )}
 
       <canvas ref={canvasRef} className="hidden" />
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

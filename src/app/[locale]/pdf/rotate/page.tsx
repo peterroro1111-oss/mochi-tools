@@ -1,12 +1,35 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument, degrees } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 export default function RotatePdfPage() {
   const t = useTranslations('pdfRotate');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '可以旋轉多少度？', answer: '支援 90 度、180 度和 270 度三種旋轉角度，可以根據需要選擇合適的方向。' },
+    { question: '可以一次旋轉所有頁面嗎？', answer: '可以，工具會將 PDF 中的所有頁面統一旋轉指定的角度，方便批次處理。' },
+    { question: '旋轉後 PDF 品質會改變嗎？', answer: '不會，旋轉只是修改頁面的顯示方向，不會對內容進行重新壓縮或修改，品質完全不受影響。' },
+  ] : [
+    { question: 'What rotation angles are supported?', answer: 'Supports 90, 180, and 270 degree rotations. Choose the angle that suits your needs.' },
+    { question: 'Can I rotate all pages at once?', answer: 'Yes, the tool rotates all pages in the PDF by the specified angle, making batch processing easy.' },
+    { question: 'Will rotation affect PDF quality?', answer: 'No, rotation only changes the display orientation of pages without re-compressing or modifying content. Quality remains unchanged.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/pdf/merge', icon: '📑', name: '合併 PDF', desc: '多個 PDF 合成一個', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: '壓縮 PDF', desc: '縮小檔案大小', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF 轉圖片', desc: '轉成 JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF 加密', desc: '設定密碼保護', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/pdf/merge', icon: '📑', name: 'Merge PDF', desc: 'Combine multiple PDFs', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce file size', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF to Image', desc: 'Convert to JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF Encrypt', desc: 'Set password protection', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [file, setFile] = useState<{ name: string; data: ArrayBuffer; pages: number } | null>(null);
   const [rotation, setRotation] = useState(90);
   const [processing, setProcessing] = useState(false);
@@ -86,6 +109,9 @@ export default function RotatePdfPage() {
           </button>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

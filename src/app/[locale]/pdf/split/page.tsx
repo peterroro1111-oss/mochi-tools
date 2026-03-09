@@ -1,12 +1,35 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 export default function SplitPdfPage() {
   const t = useTranslations('pdfSplit');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: 'PDF 分割有哪些選項？', answer: '您可以指定頁面範圍來擷取特定頁面，例如只擷取第 1-3 頁，或選擇多個不連續的頁面。' },
+    { question: '頁面範圍格式怎麼填寫？', answer: '使用逗號分隔不同的頁面或範圍，例如「1-3,5,7-9」表示擷取第 1 到 3 頁、第 5 頁和第 7 到 9 頁。' },
+    { question: '分割後的 PDF 格式會改變嗎？', answer: '不會，分割後輸出的仍然是標準 PDF 格式，內容品質與原檔完全一致。' },
+  ] : [
+    { question: 'What splitting options are available?', answer: 'You can specify page ranges to extract specific pages, such as only pages 1-3, or select multiple non-consecutive pages.' },
+    { question: 'How do I format the page range?', answer: 'Use commas to separate different pages or ranges, e.g., "1-3,5,7-9" extracts pages 1 to 3, page 5, and pages 7 to 9.' },
+    { question: 'Will the output format change after splitting?', answer: 'No, the output is still a standard PDF file with content quality identical to the original.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/pdf/merge', icon: '📑', name: '合併 PDF', desc: '多個 PDF 合成一個', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: '壓縮 PDF', desc: '縮小檔案大小', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF 轉圖片', desc: '轉成 JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF 加密', desc: '設定密碼保護', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/pdf/merge', icon: '📑', name: 'Merge PDF', desc: 'Combine multiple PDFs', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce file size', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF to Image', desc: 'Convert to JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF Encrypt', desc: 'Set password protection', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [file, setFile] = useState<{ name: string; data: ArrayBuffer; pages: number } | null>(null);
   const [range, setRange] = useState('');
   const [splitting, setSplitting] = useState(false);
@@ -108,6 +131,9 @@ export default function SplitPdfPage() {
           </button>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 interface ColorInfo {
   hex: string;
@@ -11,6 +13,27 @@ interface ColorInfo {
 
 export default function PalettePage() {
   const t = useTranslations('palette');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '可以提取多少種顏色？', answer: '自動提取圖片中最具代表性的主要顏色，通常 5-8 種。' },
+    { question: '提取的顏色可以複製嗎？', answer: '可以，支援複製單個顏色的 HEX 值，也可以一鍵複製全部顏色。' },
+    { question: '適合什麼場景使用？', answer: '適合設計師從參考圖片中提取配色方案，或分析品牌圖片的色彩組成。' },
+  ] : [
+    { question: 'How many colors can be extracted?', answer: 'Automatically extracts the most representative dominant colors, typically 5-8 colors.' },
+    { question: 'Can extracted colors be copied?', answer: 'Yes, supports copying individual HEX values or all colors at once.' },
+    { question: 'What scenarios is this useful for?', answer: 'Great for designers extracting color schemes from reference images or analyzing brand image color compositions.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/tools/color', icon: '🎨', name: '顏色轉換器', desc: 'HEX/RGB/HSL 互轉', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
+    { href: '/tools/favicon', icon: '⭐', name: 'Favicon 產生器', desc: '製作網站圖示', gradient: 'from-yellow-50 to-amber-50', border: 'border-yellow-200 hover:border-yellow-400' },
+    { href: '/remove-bg', icon: '✂️', name: '去背工具', desc: '移除圖片背景', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+  ] : [
+    { href: '/tools/color', icon: '🎨', name: 'Color Converter', desc: 'HEX/RGB/HSL conversion', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
+    { href: '/tools/favicon', icon: '⭐', name: 'Favicon Generator', desc: 'Create website icons', gradient: 'from-yellow-50 to-amber-50', border: 'border-yellow-200 hover:border-yellow-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'Remove Background', desc: 'Remove image background', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+  ];
   const [colors, setColors] = useState<ColorInfo[]>([]);
   const [imageUrl, setImageUrl] = useState('');
   const [copied, setCopied] = useState('');
@@ -117,6 +140,9 @@ export default function PalettePage() {
           </div>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

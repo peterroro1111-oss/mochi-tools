@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument, PDFName, PDFHexString, PDFDict, PDFRef } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 // Simple MD5-like hash for PDF password (RC4-compatible padding)
 const PDF_PADDING = [
@@ -30,6 +32,27 @@ function toHex(bytes: number[]): string {
 
 export default function PdfEncryptPage() {
   const t = useTranslations('pdfEncrypt');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '密碼有什麼強度建議？', answer: '建議使用至少 8 個字元的密碼，包含英文字母、數字和特殊符號的組合，以提高安全性。' },
+    { question: '使用什麼加密方式？', answer: '使用 PDF 標準加密（RC4），設定後開啟 PDF 時需要輸入密碼才能查看內容。' },
+    { question: '加密後還能解除密碼嗎？', answer: '加密後的 PDF 需要使用正確的密碼才能開啟。請務必記住密碼，遺失後將無法恢復。' },
+  ] : [
+    { question: 'What password strength is recommended?', answer: 'We recommend using at least 8 characters with a mix of letters, numbers, and special symbols for better security.' },
+    { question: 'What encryption method is used?', answer: 'Uses PDF standard encryption (RC4). Once set, the PDF requires a password to view its content.' },
+    { question: 'Can the password be removed after encryption?', answer: 'The encrypted PDF requires the correct password to open. Please remember your password, as it cannot be recovered if lost.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/pdf/merge', icon: '📑', name: '合併 PDF', desc: '多個 PDF 合成一個', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: '壓縮 PDF', desc: '縮小檔案大小', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF 轉圖片', desc: '轉成 JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/watermark', icon: '💧', name: 'PDF 浮水印', desc: '加入文字浮水印', gradient: 'from-cyan-50 to-sky-50', border: 'border-cyan-200 hover:border-cyan-400' },
+  ] : [
+    { href: '/pdf/merge', icon: '📑', name: 'Merge PDF', desc: 'Combine multiple PDFs', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce file size', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF to Image', desc: 'Convert to JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/watermark', icon: '💧', name: 'PDF Watermark', desc: 'Add text watermark', gradient: 'from-cyan-50 to-sky-50', border: 'border-cyan-200 hover:border-cyan-400' },
+  ];
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState('');
   const [processing, setProcessing] = useState(false);
@@ -133,6 +156,9 @@ export default function PdfEncryptPage() {
           <p className="mt-3 text-sm text-red-500 bg-red-50 px-4 py-2 rounded-xl">{error}</p>
         )}
       </div>
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

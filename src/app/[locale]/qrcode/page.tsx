@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useRef, useCallback, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { QRCodeCanvas } from 'qrcode.react';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 import { downloadFile } from '@/app/utils/download';
 import dynamic from 'next/dynamic';
 
@@ -19,6 +21,27 @@ function formatDateForVCal(dateStr: string): string {
 
 export default function QRCodePage() {
   const t = useTranslations('qrcode');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: 'QR Code 支援哪些內容類型？', answer: '支援網址、文字、Email、定位、電話、Wi-Fi、PayPal、比特幣、活動等 9 種類型。' },
+    { question: '可以自訂 QR Code 顏色嗎？', answer: '可以，支援自訂前景色和背景色，但建議保持足夠對比度以確保可掃描。' },
+    { question: '產生的 QR Code 可以下載嗎？', answer: '可以，點擊下載按鈕即可儲存 PNG 格式的 QR Code 圖片。' },
+  ] : [
+    { question: 'What content types does QR Code support?', answer: 'Supports URL, text, email, location, phone, Wi-Fi, PayPal, Bitcoin, and events - 9 types in total.' },
+    { question: 'Can QR Code colors be customized?', answer: 'Yes, supports custom foreground and background colors. Ensure sufficient contrast for scannability.' },
+    { question: 'Can generated QR Codes be downloaded?', answer: 'Yes, click the download button to save the QR Code as a PNG image.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/tools/color', icon: '🎨', name: '顏色工具', desc: '色碼轉換工具', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/tools/favicon', icon: '🌐', name: 'Favicon 產生', desc: '產生網站圖示', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/tools/palette', icon: '🎯', name: '調色盤', desc: '配色方案產生器', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/tools/color', icon: '🎨', name: 'Color Tool', desc: 'Color code converter', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/tools/favicon', icon: '🌐', name: 'Favicon Generator', desc: 'Generate website icons', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/tools/palette', icon: '🎯', name: 'Palette', desc: 'Color scheme generator', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [activeTab, setActiveTab] = useState<QRType>('url');
   const [size, setSize] = useState(256);
   const [fgColor, setFgColor] = useState('#000000');
@@ -375,6 +398,9 @@ export default function QRCodePage() {
           </button>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

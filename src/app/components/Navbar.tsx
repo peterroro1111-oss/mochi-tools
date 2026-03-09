@@ -14,6 +14,7 @@ export default function Navbar() {
   const links = [
     { href: '/pdf' as const, label: t('pdf') },
     { href: '/image' as const, label: t('image') },
+    { href: '/video' as const, label: t('video') },
     { href: '/remove-bg' as const, label: t('removeBg') },
     { href: '/photo' as const, label: t('photo') },
     { href: '/tools' as const, label: t('tools') },

@@ -1,12 +1,35 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 export default function PageNumbersPage() {
   const t = useTranslations('pdfPageNumbers');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '頁碼可以放在哪些位置？', answer: '支援底部置中、底部靠右和頂部置中三種位置，可依據您的文件排版需求選擇。' },
+    { question: '可以自訂起始頁碼嗎？', answer: '目前頁碼從第 1 頁開始自動編號，格式為「頁碼 / 總頁數」，簡潔直觀。' },
+    { question: '頁碼使用什麼字體？', answer: '使用 Helvetica 標準字體，大小為 10pt，顏色為灰色，確保與各種文件風格搭配協調。' },
+  ] : [
+    { question: 'Where can page numbers be positioned?', answer: 'Supports bottom-center, bottom-right, and top-center positions. Choose based on your document layout needs.' },
+    { question: 'Can I customize the starting page number?', answer: 'Currently, page numbers start from page 1 automatically in the format "page / total pages", keeping it clean and intuitive.' },
+    { question: 'What font is used for page numbers?', answer: 'Uses Helvetica standard font at 10pt size in gray color, ensuring it blends well with various document styles.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/pdf/merge', icon: '📑', name: '合併 PDF', desc: '多個 PDF 合成一個', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: '壓縮 PDF', desc: '縮小檔案大小', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF 轉圖片', desc: '轉成 JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF 加密', desc: '設定密碼保護', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/pdf/merge', icon: '📑', name: 'Merge PDF', desc: 'Combine multiple PDFs', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce file size', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF to Image', desc: 'Convert to JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF Encrypt', desc: 'Set password protection', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [file, setFile] = useState<{ name: string; data: ArrayBuffer; pages: number } | null>(null);
   const [position, setPosition] = useState<'bottom-center' | 'bottom-right' | 'top-center'>('bottom-center');
   const [processing, setProcessing] = useState(false);
@@ -103,6 +126,9 @@ export default function PageNumbersPage() {
           </button>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

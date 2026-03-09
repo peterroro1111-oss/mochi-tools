@@ -1,13 +1,15 @@
 const CACHE_NAME = 'mochi-ai-models-v1';
 
-// Patterns that indicate AI model files worth caching
+// Patterns that indicate AI model / heavy WASM files worth caching
 const MODEL_PATTERNS = [
   /\.onnx$/i,
   /onnx/i,
   /\.bin$/i,
+  /\.wasm$/i,
+  /ffmpeg-core/i,
 ];
 
-// CDN domains used by @imgly/background-removal
+// CDN domains used by @imgly/background-removal and @ffmpeg/core
 const MODEL_DOMAINS = [
   'unpkg.com',
   'cdn.jsdelivr.net',

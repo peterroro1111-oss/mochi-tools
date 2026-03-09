@@ -10,6 +10,7 @@
     "image": "🖼️ Image Tools",
     "removeBg": "🎨 AI Remove BG",
     "photo": "📸 ID Photo",
+    "video": "🎬 Video Tools",
     "tools": "🔧 Utilities",
     "menu": "Menu"
   },
@@ -40,6 +41,10 @@
       "photo": {
         "name": "AI ID Photo",
         "desc": "Upload a selfie, automatically generate a standard ID photo"
+      },
+      "video": {
+        "name": "Video Tools",
+        "desc": "Video compression, MP4/WebM/GIF/MOV format conversion"
       },
       "utility": {
         "name": "Utility Tools",
@@ -325,6 +330,22 @@
     "heicToJpg": {
       "title": "HEIC to JPG - Free Online Converter | Mochi Tools 🍡",
       "description": "Free online HEIC/HEIF to JPG converter. Batch conversion with adjustable quality. Processed locally in your browser."
+    },
+    "mp4ToWebm": {
+      "title": "MP4 to WebM — Free Online Converter | Mochi Tools 🍡",
+      "description": "Free online MP4 to WebM video converter. Processed locally in your browser, fast and secure."
+    },
+    "webmToMp4": {
+      "title": "WebM to MP4 — Free Online Converter | Mochi Tools 🍡",
+      "description": "Free online WebM to MP4 video converter for better compatibility. Processed locally in your browser."
+    },
+    "mp4ToGif": {
+      "title": "MP4 to GIF — Free Online Converter | Mochi Tools 🍡",
+      "description": "Free online MP4 to GIF converter. Create animated GIFs from video clips. Processed locally in your browser."
+    },
+    "movToMp4": {
+      "title": "MOV to MP4 — Free Online Converter | Mochi Tools 🍡",
+      "description": "Free online MOV to MP4 video converter. Convert iPhone/Mac videos to universal MP4 format. Processed locally."
     }
   },
   "removeBg": {
@@ -741,5 +762,90 @@
     "extractedColors": "Extracted Colors",
     "copyAll": "Copy All",
     "copied": "Copied ✓"
+  },
+  "videoIndex": {
+    "meta": {
+      "title": "Video Tools — Compress & Convert | Mochi Tools 🍡",
+      "description": "Free online video tools: video compression, MP4/WebM/GIF/MOV format conversion. Processed locally in your browser."
+    },
+    "title": "🎬 Video Tools",
+    "subtitle": "Video compression & format conversion — all free, no server uploads 🔒",
+    "tools": {
+      "compress": {
+        "name": "🗜️ Video Compression",
+        "desc": "Compress MP4/WebM/MOV to reduce file size"
+      },
+      "mp4ToWebm": {
+        "name": "🔄 MP4 → WebM",
+        "desc": "Convert MP4 to web-friendly WebM format"
+      },
+      "webmToMp4": {
+        "name": "🔄 WebM → MP4",
+        "desc": "Convert WebM to universal MP4 format"
+      },
+      "mp4ToGif": {
+        "name": "🎞️ MP4 → GIF",
+        "desc": "Convert video to animated GIF"
+      },
+      "movToMp4": {
+        "name": "📱 MOV → MP4",
+        "desc": "Convert iPhone/Mac videos to MP4"
+      }
+    }
+  },
+  "videoCompress": {
+    "meta": {
+      "title": "Video Compression — Free Online Tool | Mochi Tools 🍡",
+      "description": "Free online video compression tool. Supports MP4, WebM, MOV. Three compression levels. Processed locally in your browser."
+    },
+    "title": "🗜️ Video Compression",
+    "subtitle": "Supports MP4, WebM, MOV — three compression levels 🔒",
+    "dropzone": "Drop video here",
+    "dropzoneHint": "Or click to select a video (MP4, WebM, MOV)",
+    "levelLabel": "Compression level",
+    "presets": {
+      "light": {
+        "label": "🌟 Light",
+        "desc": "Nearly lossless quality"
+      },
+      "recommended": {
+        "label": "👍 Recommended",
+        "desc": "Balance of quality & size"
+      },
+      "maximum": {
+        "label": "🗜️ Smallest File",
+        "desc": "Maximum compression"
+      }
+    },
+    "originalSize": "Original size",
+    "compressedSize": "Compressed size",
+    "reduced": "Reduced by {percent}%",
+    "compressBtn": "🗜️ Start Compression",
+    "compressing": "Compressing...",
+    "downloadBtn": "📥 Download Compressed Video",
+    "reset": "Choose another",
+    "compressError": "Compression failed. Please check the video format.",
+    "loadingFFmpeg": "Loading video processing engine...",
+    "loadingHint": "First load takes about 10-20 seconds, cached after that 🍡",
+    "mobileHint": "📱 Mobile note: Video processing requires more memory. Desktop processing is faster and more stable."
+  },
+  "videoConvertTool": {
+    "title": "{from} to {to}",
+    "subtitle": "Free online video conversion — processed locally in your browser, no server uploads 🔒",
+    "dropzone": "Drop {format} video here",
+    "dropzoneHint": "Or click to select a video",
+    "originalSize": "Original size",
+    "convertedSize": "Converted size",
+    "convertBtn": "🔄 Convert to {format}",
+    "converting": "Converting...",
+    "downloadBtn": "📥 Download {format}",
+    "reset": "Choose another",
+    "convertError": "Conversion failed. Please check the video format.",
+    "loadingFFmpeg": "Loading video processing engine...",
+    "loadingHint": "First load takes about 10-20 seconds, cached after that 🍡",
+    "mobileHint": "📱 Mobile note: Video processing requires more memory. Desktop processing is faster and more stable."
+  },
+  "relatedTools": {
+    "title": "You might also need"
   }
 }

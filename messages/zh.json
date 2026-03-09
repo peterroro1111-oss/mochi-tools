@@ -10,6 +10,7 @@
     "image": "🖼️ 圖片工具",
     "removeBg": "🎨 AI 去背",
     "photo": "📸 證件照",
+    "video": "🎬 影片工具",
     "tools": "🔧 實用工具",
     "menu": "選單"
   },
@@ -40,6 +41,10 @@
       "photo": {
         "name": "AI 證件照",
         "desc": "上傳自拍，自動生成標準證件照"
+      },
+      "video": {
+        "name": "影片工具",
+        "desc": "影片壓縮、MP4/WebM/GIF/MOV 格式轉換"
       },
       "utility": {
         "name": "實用工具",
@@ -325,6 +330,22 @@
     "heicToJpg": {
       "title": "HEIC 轉 JPG - 免費線上轉檔 | Mochi Tools 🍡",
       "description": "免費線上 HEIC/HEIF 轉 JPG 工具，支援批次轉換、可調品質。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "mp4ToWebm": {
+      "title": "MP4 轉 WebM — 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費線上 MP4 轉 WebM 影片轉換工具。瀏覽器本地處理，不上傳伺服器，快速安全。"
+    },
+    "webmToMp4": {
+      "title": "WebM 轉 MP4 — 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費線上 WebM 轉 MP4 影片轉換工具，相容性更高。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "mp4ToGif": {
+      "title": "MP4 轉 GIF — 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費線上 MP4 轉 GIF 動圖工具，可設定時間範圍和大小。瀏覽器本地處理，不上傳伺服器。"
+    },
+    "movToMp4": {
+      "title": "MOV 轉 MP4 — 免費線上轉檔 | Mochi Tools 🍡",
+      "description": "免費線上 MOV 轉 MP4 影片轉換工具，將 iPhone/Mac 影片轉為通用 MP4 格式。瀏覽器本地處理。"
     }
   },
   "removeBg": {
@@ -741,5 +762,90 @@
     "extractedColors": "擷取的顏色",
     "copyAll": "複製全部",
     "copied": "已複製 ✓"
+  },
+  "videoIndex": {
+    "meta": {
+      "title": "影片工具 — 壓縮、轉檔 | Mochi Tools 🍡",
+      "description": "免費線上影片工具：影片壓縮、MP4/WebM/GIF/MOV 格式轉換。瀏覽器本地處理，檔案不上傳伺服器。"
+    },
+    "title": "🎬 影片工具",
+    "subtitle": "影片壓縮、格式轉換，全部免費、不上傳伺服器 🔒",
+    "tools": {
+      "compress": {
+        "name": "🗜️ 影片壓縮",
+        "desc": "壓縮 MP4/WebM/MOV，大幅縮小影片大小"
+      },
+      "mp4ToWebm": {
+        "name": "🔄 MP4 → WebM",
+        "desc": "MP4 轉換為網頁友善的 WebM 格式"
+      },
+      "webmToMp4": {
+        "name": "🔄 WebM → MP4",
+        "desc": "WebM 轉換為通用 MP4 格式"
+      },
+      "mp4ToGif": {
+        "name": "🎞️ MP4 → GIF",
+        "desc": "影片轉 GIF 動圖"
+      },
+      "movToMp4": {
+        "name": "📱 MOV → MP4",
+        "desc": "iPhone/Mac 影片轉 MP4"
+      }
+    }
+  },
+  "videoCompress": {
+    "meta": {
+      "title": "影片壓縮 — 免費線上壓縮影片 | Mochi Tools 🍡",
+      "description": "免費線上影片壓縮工具，支援 MP4、WebM、MOV。三段壓縮程度可選，瀏覽器本地處理，檔案不上傳伺服器。"
+    },
+    "title": "🗜️ 影片壓縮",
+    "subtitle": "支援 MP4、WebM、MOV，三段壓縮程度可選 🔒",
+    "dropzone": "拖放影片到這裡",
+    "dropzoneHint": "或點擊選擇影片（支援 MP4、WebM、MOV）",
+    "levelLabel": "壓縮程度",
+    "presets": {
+      "light": {
+        "label": "🌟 輕度壓縮",
+        "desc": "畫質幾乎不變"
+      },
+      "recommended": {
+        "label": "👍 推薦",
+        "desc": "畫質與大小平衡"
+      },
+      "maximum": {
+        "label": "🗜️ 最小檔案",
+        "desc": "大幅縮小"
+      }
+    },
+    "originalSize": "原始大小",
+    "compressedSize": "壓縮後大小",
+    "reduced": "縮小了 {percent}%",
+    "compressBtn": "🗜️ 開始壓縮",
+    "compressing": "壓縮中...",
+    "downloadBtn": "📥 下載壓縮影片",
+    "reset": "重新選擇",
+    "compressError": "壓縮失敗，請確認影片格式",
+    "loadingFFmpeg": "載入影片處理引擎中...",
+    "loadingHint": "首次載入約需 10-20 秒，之後會快取 🍡",
+    "mobileHint": "📱 手機提示：影片處理需要較多記憶體，建議使用電腦處理更快更穩定。"
+  },
+  "videoConvertTool": {
+    "title": "{from} 轉 {to}",
+    "subtitle": "免費線上影片轉檔，瀏覽器本地處理，檔案不上傳伺服器 🔒",
+    "dropzone": "拖放 {format} 影片到這裡",
+    "dropzoneHint": "或點擊選擇影片",
+    "originalSize": "原始大小",
+    "convertedSize": "轉換後大小",
+    "convertBtn": "🔄 轉換為 {format}",
+    "converting": "轉換中...",
+    "downloadBtn": "📥 下載 {format}",
+    "reset": "重新選擇",
+    "convertError": "轉換失敗，請確認影片格式",
+    "loadingFFmpeg": "載入影片處理引擎中...",
+    "loadingHint": "首次載入約需 10-20 秒，之後會快取 🍡",
+    "mobileHint": "📱 手機提示：影片處理需要較多記憶體，建議使用電腦處理更快更穩定。"
+  },
+  "relatedTools": {
+    "title": "你可能也需要"
   }
 }

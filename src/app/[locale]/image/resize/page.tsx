@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 import JSZip from 'jszip';
 
 interface ImageItem {
@@ -14,6 +16,27 @@ interface ImageItem {
 
 export default function ImageResizePage() {
   const t = useTranslations('imageResize');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '可以批次調整多張圖片嗎？', answer: '可以，支援一次上傳多張圖片並統一調整尺寸，完成後可打包下載。' },
+    { question: '可以鎖定等比例嗎？', answer: '可以，開啟鎖定比例後，調整寬度會自動計算對應高度，反之亦然。' },
+    { question: '調整尺寸會影響畫質嗎？', answer: '放大圖片時可能會略微降低清晰度，縮小圖片通常不影響畫質。' },
+  ] : [
+    { question: 'Can multiple images be resized at once?', answer: 'Yes, supports uploading multiple images for batch resizing, with ZIP download available.' },
+    { question: 'Can aspect ratio be locked?', answer: 'Yes, when lock ratio is enabled, adjusting width automatically calculates the corresponding height and vice versa.' },
+    { question: 'Does resizing affect quality?', answer: 'Enlarging may slightly reduce sharpness. Shrinking generally does not affect quality.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: '格式轉換', desc: '圖片格式轉換', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: '影片壓縮', desc: '壓縮 MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI 去背', desc: '智慧去除背景', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: 'Format Convert', desc: 'Image format conversion', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: 'Video Compress', desc: 'Compress MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI Remove BG', desc: 'Smart background removal', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [images, setImages] = useState<ImageItem[]>([]);
   const [targetWidth, setTargetWidth] = useState(800);
   const [targetHeight, setTargetHeight] = useState(600);
@@ -176,6 +199,9 @@ export default function ImageResizePage() {
           </button>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

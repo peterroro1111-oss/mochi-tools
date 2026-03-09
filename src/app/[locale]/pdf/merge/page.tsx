@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 interface PdfFile {
   name: string;
@@ -13,6 +15,27 @@ interface PdfFile {
 
 export default function MergePdfPage() {
   const t = useTranslations('pdfMerge');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '合併 PDF 有檔案大小限制嗎？', answer: '沒有限制，但由於在瀏覽器中處理，建議單個檔案不超過 100MB，以確保順暢運作。' },
+    { question: '合併後的 PDF 品質會改變嗎？', answer: '不會，合併只是將多個 PDF 頁面組合在一起，不會對內容進行重新壓縮或修改。' },
+    { question: '可以調整合併順序嗎？', answer: '可以，上傳檔案後可以使用上移/下移按鈕調整順序，最終按照排列順序合併。' },
+  ] : [
+    { question: 'Is there a file size limit for merging PDFs?', answer: 'No limit, but since processing is done in the browser, we recommend individual files under 100MB for smooth operation.' },
+    { question: 'Will the merged PDF quality change?', answer: 'No, merging simply combines pages from multiple PDFs without re-compressing or modifying the content.' },
+    { question: 'Can I adjust the merge order?', answer: 'Yes, after uploading files you can use the move up/down buttons to adjust the order.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/pdf/split', icon: '✂️', name: '分割 PDF', desc: '擷取特定頁面', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: '壓縮 PDF', desc: '縮小檔案大小', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF 轉圖片', desc: '轉成 JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF 加密', desc: '設定密碼保護', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/pdf/split', icon: '✂️', name: 'Split PDF', desc: 'Extract specific pages', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce file size', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF to Image', desc: 'Convert to JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF Encrypt', desc: 'Set password protection', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [files, setFiles] = useState<PdfFile[]>([]);
   const [merging, setMerging] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -130,6 +153,9 @@ export default function MergePdfPage() {
           </div>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

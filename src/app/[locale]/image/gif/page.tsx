@@ -1,11 +1,34 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 export default function GifMakerPage() {
   const t = useTranslations('gifMaker');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: 'GIF 動畫可以設定速度嗎？', answer: '可以，可調整每幀延遲時間來控制動畫速度，從快速到慢速都能設定。' },
+    { question: '支援多少張圖片合成？', answer: '沒有嚴格限制，但建議控制在 50 張以內，過多圖片會增加處理時間和檔案大小。' },
+    { question: 'GIF 可以設定循環嗎？', answer: '可以，支援設定循環次數或無限循環。' },
+  ] : [
+    { question: 'Can GIF animation speed be adjusted?', answer: 'Yes, you can adjust the delay between frames to control animation speed, from fast to slow.' },
+    { question: 'How many images can be combined?', answer: 'No strict limit, but we recommend keeping it under 50 images to manage processing time and file size.' },
+    { question: 'Can GIF looping be configured?', answer: 'Yes, supports setting a specific loop count or infinite looping.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: '格式轉換', desc: '圖片格式轉換', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: '影片壓縮', desc: '壓縮 MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI 去背', desc: '智慧去除背景', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: 'Format Convert', desc: 'Image format conversion', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: 'Video Compress', desc: 'Compress MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI Remove BG', desc: 'Smart background removal', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [images, setImages] = useState<{ file: File; url: string }[]>([]);
   const [delay, setDelay] = useState(500);
   const [loop, setLoop] = useState(0);
@@ -166,6 +189,9 @@ export default function GifMakerPage() {
 
         {error && <p className="mt-3 text-sm text-red-500 bg-red-50 px-4 py-2 rounded-xl">{error}</p>}
       </div>
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

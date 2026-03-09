@@ -9,6 +9,10 @@ const conversions = [
   { href: '/convert/jpg-to-webp', from: 'JPG', to: 'WebP', icon: '🚀', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
   { href: '/convert/webp-to-jpg', from: 'WebP', to: 'JPG', icon: '📷', gradient: 'from-orange-50 to-red-50', border: 'border-orange-200 hover:border-orange-400' },
   { href: '/convert/heic-to-jpg', from: 'HEIC', to: 'JPG', icon: '📱', gradient: 'from-cyan-50 to-sky-50', border: 'border-cyan-200 hover:border-cyan-400' },
+  { href: '/convert/mp4-to-webm', from: 'MP4', to: 'WebM', icon: '🎬', gradient: 'from-violet-50 to-purple-50', border: 'border-violet-200 hover:border-violet-400' },
+  { href: '/convert/webm-to-mp4', from: 'WebM', to: 'MP4', icon: '🔄', gradient: 'from-fuchsia-50 to-pink-50', border: 'border-fuchsia-200 hover:border-fuchsia-400' },
+  { href: '/convert/mp4-to-gif', from: 'MP4', to: 'GIF', icon: '🎞️', gradient: 'from-lime-50 to-green-50', border: 'border-lime-200 hover:border-lime-400' },
+  { href: '/convert/mov-to-mp4', from: 'MOV', to: 'MP4', icon: '📱', gradient: 'from-sky-50 to-blue-50', border: 'border-sky-200 hover:border-sky-400' },
 ];
 
 export default async function ConvertIndexPage() {

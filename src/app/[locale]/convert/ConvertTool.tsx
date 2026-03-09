@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 import { downloadFile } from '@/app/utils/download';
 
 interface ConvertToolProps {
@@ -21,6 +23,27 @@ function formatSize(bytes: number) {
 
 export default function ConvertTool({ fromFormat, toFormat, fromLabel, toLabel, mimeType, extension }: ConvertToolProps) {
   const t = useTranslations('convertTool');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '圖片轉檔會損失畫質嗎？', answer: '轉為 JPG 時會有輕微壓縮，但品質設定為 92%，肉眼幾乎無法察覺差異。PNG 和 WebP 轉換保持原始畫質。' },
+    { question: '支援批次轉換嗎？', answer: '目前支援單張轉換，轉換完成後可以重新選擇檔案繼續轉換。' },
+    { question: '轉換後的檔案大小會改變嗎？', answer: '會，不同格式的壓縮方式不同。WebP 通常最小，PNG 保留最多細節但檔案較大。' },
+  ] : [
+    { question: 'Does image conversion reduce quality?', answer: 'Converting to JPG involves slight compression at 92% quality, nearly imperceptible. PNG and WebP conversions maintain original quality.' },
+    { question: 'Is batch conversion supported?', answer: 'Currently supports single file conversion. After completion, you can select another file to convert.' },
+    { question: 'Will the file size change after conversion?', answer: 'Yes, different formats use different compression. WebP is typically smallest, PNG preserves most detail but creates larger files.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/video/compress', icon: '🗜️', name: '影片壓縮', desc: '縮小影片檔案大小', gradient: 'from-violet-50 to-purple-50', border: 'border-violet-200 hover:border-violet-400' },
+    { href: '/remove-bg', icon: '✂️', name: '去背工具', desc: '移除圖片背景', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/resize', icon: '📐', name: '圖片調整大小', desc: '調整圖片尺寸', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/video/compress', icon: '🗜️', name: 'Video Compress', desc: 'Reduce video file size', gradient: 'from-violet-50 to-purple-50', border: 'border-violet-200 hover:border-violet-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'Remove Background', desc: 'Remove image background', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/resize', icon: '📐', name: 'Image Resize', desc: 'Resize image dimensions', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [resultUrl, setResultUrl] = useState<string | null>(null);
@@ -176,6 +199,9 @@ export default function ConvertTool({ fromFormat, toFormat, fromLabel, toLabel, 
           </div>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

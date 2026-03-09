@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 declare global {
   interface Window {
@@ -13,6 +15,27 @@ declare global {
 
 export default function PdfToImagePage() {
   const t = useTranslations('pdfToImage');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '有哪些解析度選項？', answer: '提供 1x、2x 和 3x 三種解析度。1x 適合快速預覽，2x 是推薦的高品質設定，3x 適合需要超高解析度的場景。' },
+    { question: '支援哪些輸出格式？', answer: '支援 PNG 和 JPEG 兩種格式。PNG 保留透明背景且無損，JPEG 檔案較小適合分享。' },
+    { question: '可以批次轉換多頁 PDF 嗎？', answer: '可以，工具會自動將 PDF 的每一頁都轉換為獨立的圖片，並支援一鍵全部下載。' },
+  ] : [
+    { question: 'What resolution options are available?', answer: 'Offers 1x, 2x, and 3x resolution. 1x is for quick preview, 2x is recommended for high quality, and 3x is for ultra-high resolution needs.' },
+    { question: 'What output formats are supported?', answer: 'Supports PNG and JPEG formats. PNG preserves transparency and is lossless, while JPEG produces smaller files ideal for sharing.' },
+    { question: 'Can I batch convert multi-page PDFs?', answer: 'Yes, the tool automatically converts each page of the PDF into individual images and supports downloading all at once.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/pdf/merge', icon: '📑', name: '合併 PDF', desc: '多個 PDF 合成一個', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: '壓縮 PDF', desc: '縮小檔案大小', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/watermark', icon: '💧', name: 'PDF 浮水印', desc: '加入文字浮水印', gradient: 'from-cyan-50 to-sky-50', border: 'border-cyan-200 hover:border-cyan-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF 加密', desc: '設定密碼保護', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/pdf/merge', icon: '📑', name: 'Merge PDF', desc: 'Combine multiple PDFs', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce file size', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/watermark', icon: '💧', name: 'PDF Watermark', desc: 'Add text watermark', gradient: 'from-cyan-50 to-sky-50', border: 'border-cyan-200 hover:border-cyan-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF Encrypt', desc: 'Set password protection', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [file, setFile] = useState<File | null>(null);
   const [images, setImages] = useState<string[]>([]);
   const [processing, setProcessing] = useState(false);
@@ -152,6 +175,9 @@ export default function PdfToImagePage() {
           )}
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 interface TextLayer {
   id: number;
@@ -15,6 +17,27 @@ interface TextLayer {
 
 export default function ImageAnnotatePage() {
   const t = useTranslations('imageAnnotate');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '可以添加多個文字標註嗎？', answer: '可以，支援添加多個文字圖層，每個可以獨立設定位置、字型大小和顏色。' },
+    { question: '文字位置可以調整嗎？', answer: '可以，點擊圖片放置文字後，可以拖曳調整位置。' },
+    { question: '標註後可以下載什麼格式？', answer: '可以下載 PNG 格式，保留完整畫質。' },
+  ] : [
+    { question: 'Can multiple text annotations be added?', answer: 'Yes, supports multiple text layers, each with independent position, font size, and color settings.' },
+    { question: 'Can text position be adjusted?', answer: 'Yes, after placing text by clicking on the image, you can drag to adjust position.' },
+    { question: 'What format can annotated images be downloaded in?', answer: 'Downloaded as PNG format to preserve full quality.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: '格式轉換', desc: '圖片格式轉換', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: '影片壓縮', desc: '壓縮 MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI 去背', desc: '智慧去除背景', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: 'Format Convert', desc: 'Image format conversion', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: 'Video Compress', desc: 'Compress MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI Remove BG', desc: 'Smart background removal', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [layers, setLayers] = useState<TextLayer[]>([]);
   const [currentText, setCurrentText] = useState('');
@@ -230,6 +253,9 @@ export default function ImageAnnotatePage() {
           </div>
         </>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

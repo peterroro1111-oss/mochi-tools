@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 type Position = 'topLeft' | 'topCenter' | 'topRight' | 'centerLeft' | 'center' | 'centerRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'tiled';
 
@@ -10,6 +12,27 @@ const GRID_POSITIONS: Position[] = ['topLeft', 'topCenter', 'topRight', 'centerL
 
 export default function WatermarkPage() {
   const t = useTranslations('watermark');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '浮水印可以調整透明度嗎？', answer: '可以，支援 0-100% 透明度調整，建議設定 30-50% 以達到最佳效果。' },
+    { question: '支援哪些浮水印位置？', answer: '支援 9 個固定位置（四角、四邊中點、正中）及平鋪模式，共 10 種選擇。' },
+    { question: '可以同時下載 PNG 和 JPG 嗎？', answer: '可以分別下載 PNG 和 JPG 格式，PNG 保留透明度，JPG 檔案更小。' },
+  ] : [
+    { question: 'Can watermark transparency be adjusted?', answer: 'Yes, supports 0-100% transparency. We recommend 30-50% for best results.' },
+    { question: 'What watermark positions are available?', answer: 'Supports 9 fixed positions (corners, edge midpoints, center) plus a tiled mode, 10 options total.' },
+    { question: 'Can I download both PNG and JPG?', answer: 'Yes, you can download in both PNG and JPG formats. PNG preserves transparency, JPG has smaller file size.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: '格式轉換', desc: '圖片格式轉換', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: '影片壓縮', desc: '壓縮 MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI 去背', desc: '智慧去除背景', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/convert/jpg-to-png', icon: '🔄', name: 'Format Convert', desc: 'Image format conversion', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/video/compress', icon: '🎬', name: 'Video Compress', desc: 'Compress MP4/WebM/MOV', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/remove-bg', icon: '✂️', name: 'AI Remove BG', desc: 'Smart background removal', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [text, setText] = useState('Mochi Tools');
@@ -276,6 +299,9 @@ export default function WatermarkPage() {
           </div>
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

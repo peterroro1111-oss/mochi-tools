@@ -6,6 +6,7 @@ const categoryKeys = [
   { key: 'image', href: '/image', icon: '🖼️', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400', shadow: 'hover:shadow-amber-100/50', iconBg: 'bg-amber-100' },
   { key: 'removeBg', href: '/remove-bg', icon: '🎨', gradient: 'from-violet-50 to-purple-50', border: 'border-violet-200 hover:border-violet-400', shadow: 'hover:shadow-violet-100/50', iconBg: 'bg-violet-100' },
   { key: 'photo', href: '/photo', icon: '📸', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400', shadow: 'hover:shadow-rose-100/50', iconBg: 'bg-rose-100' },
+  { key: 'video', href: '/video', icon: '🎬', gradient: 'from-fuchsia-50 to-pink-50', border: 'border-fuchsia-200 hover:border-fuchsia-400', shadow: 'hover:shadow-fuchsia-100/50', iconBg: 'bg-fuchsia-100' },
   { key: 'utility', href: '/tools', icon: '🔧', gradient: 'from-teal-50 to-cyan-50', border: 'border-teal-200 hover:border-teal-400', shadow: 'hover:shadow-teal-100/50', iconBg: 'bg-teal-100' },
 ];
 

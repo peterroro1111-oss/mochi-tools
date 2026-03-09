@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 import { downloadFile } from '@/app/utils/download';
 import JSZip from 'jszip';
 
@@ -9,6 +11,27 @@ const SIZES = [16, 32, 48, 64, 128, 180, 192, 512];
 
 export default function FaviconPage() {
   const t = useTranslations('favicon');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '需要上傳什麼尺寸的圖片？', answer: '建議上傳正方形圖片，工具會自動產生所有需要的尺寸。' },
+    { question: '會產生哪些尺寸？', answer: '產生包含 16x16、32x32、48x48、180x180、192x192 等所有常用的 favicon 尺寸。' },
+    { question: '可以直接複製 HTML 程式碼嗎？', answer: '可以，工具會產生對應的 HTML link 標籤，可直接複製貼到網站。' },
+  ] : [
+    { question: 'What image size should be uploaded?', answer: 'Square images are recommended. The tool automatically generates all needed sizes.' },
+    { question: 'What sizes are generated?', answer: 'Generates all common favicon sizes including 16x16, 32x32, 48x48, 180x180, 192x192, and more.' },
+    { question: 'Can I copy the HTML code directly?', answer: 'Yes, the tool generates corresponding HTML link tags that can be copied directly to your website.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/tools/palette', icon: '🎨', name: '色票提取', desc: '從圖片提取配色', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+    { href: '/tools/color', icon: '🎨', name: '顏色轉換器', desc: 'HEX/RGB/HSL 互轉', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
+    { href: '/tools/qrcode', icon: '📱', name: 'QR Code 產生器', desc: '產生 QR Code', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/resize', icon: '📐', name: '圖片調整大小', desc: '調整圖片尺寸', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+  ] : [
+    { href: '/tools/palette', icon: '🎨', name: 'Palette Extractor', desc: 'Extract colors from images', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+    { href: '/tools/color', icon: '🎨', name: 'Color Converter', desc: 'HEX/RGB/HSL conversion', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
+    { href: '/tools/qrcode', icon: '📱', name: 'QR Code Generator', desc: 'Generate QR codes', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/resize', icon: '📐', name: 'Image Resize', desc: 'Resize image dimensions', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+  ];
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [previews, setPreviews] = useState<{ size: number; url: string }[]>([]);
   const [processing, setProcessing] = useState(false);
@@ -135,6 +158,9 @@ export default function FaviconPage() {
           </>
         )}
       </div>
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

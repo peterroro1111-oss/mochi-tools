@@ -1,12 +1,35 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { PDFDocument, rgb, degrees } from 'pdf-lib';
 import { downloadFile } from '@/app/utils/download';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 export default function PdfWatermarkPage() {
   const t = useTranslations('pdfWatermark');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '支援哪些浮水印類型？', answer: '支援文字浮水印，您可以自訂文字內容、字體大小、顏色和透明度，滿足各種需求。' },
+    { question: '可以調整浮水印的透明度嗎？', answer: '可以，透明度範圍從 5% 到 100%，建議設定在 20%-40% 之間，既能標示又不影響閱讀。' },
+    { question: '浮水印可以放在什麼位置？', answer: '提供置中和對角線平鋪兩種模式。置中模式在頁面中央顯示一個浮水印，對角線模式會在整個頁面平鋪重複。' },
+  ] : [
+    { question: 'What watermark types are supported?', answer: 'Supports text watermarks with customizable text content, font size, color, and transparency to meet various needs.' },
+    { question: 'Can I adjust the watermark transparency?', answer: 'Yes, transparency ranges from 5% to 100%. We recommend 20%-40% for a good balance between visibility and readability.' },
+    { question: 'Where can the watermark be positioned?', answer: 'Offers center and diagonal tiling modes. Center mode shows one watermark at the center, while diagonal mode tiles the watermark across the entire page.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/pdf/merge', icon: '📑', name: '合併 PDF', desc: '多個 PDF 合成一個', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: '壓縮 PDF', desc: '縮小檔案大小', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF 轉圖片', desc: '轉成 JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF 加密', desc: '設定密碼保護', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ] : [
+    { href: '/pdf/merge', icon: '📑', name: 'Merge PDF', desc: 'Combine multiple PDFs', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/pdf/compress', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce file size', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
+    { href: '/pdf/to-image', icon: '🖼️', name: 'PDF to Image', desc: 'Convert to JPG/PNG', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+    { href: '/pdf/encrypt', icon: '🔒', name: 'PDF Encrypt', desc: 'Set password protection', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+  ];
   const [file, setFile] = useState<File | null>(null);
   const [text, setText] = useState('');
   const [fontSize, setFontSize] = useState(48);
@@ -195,6 +218,9 @@ export default function PdfWatermarkPage() {
           <iframe src={previewUrl} className="w-full h-96 rounded-xl border border-gray-100" />
         </div>
       )}
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }

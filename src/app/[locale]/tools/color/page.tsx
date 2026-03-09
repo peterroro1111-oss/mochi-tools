@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import FAQSchema from '@/app/components/FAQSchema';
+import RelatedTools from '@/app/components/RelatedTools';
 
 interface ColorState {
   hex: string;
@@ -45,6 +47,27 @@ function hslToRgb(h: number, s: number, l: number): [number, number, number] {
 
 export default function ColorConverterPage() {
   const t = useTranslations('colorConverter');
+  const locale = useLocale();
+  const faqs = locale === 'zh' ? [
+    { question: '支援哪些顏色格式？', answer: '支援 HEX、RGB、HSL 三種常用顏色格式的即時互轉。' },
+    { question: '可以直接複製顏色值嗎？', answer: '可以，每種格式旁邊都有複製按鈕，一鍵複製到剪貼簿。' },
+    { question: '輸入格式有什麼要求？', answer: 'HEX 格式輸入 #rrggbb，RGB 輸入 rgb(r,g,b)，HSL 輸入 hsl(h,s%,l%)，會自動識別並轉換。' },
+  ] : [
+    { question: 'What color formats are supported?', answer: 'Supports real-time conversion between HEX, RGB, and HSL color formats.' },
+    { question: 'Can color values be copied directly?', answer: 'Yes, each format has a copy button for one-click clipboard copying.' },
+    { question: 'What input format is required?', answer: 'HEX: #rrggbb, RGB: rgb(r,g,b), HSL: hsl(h,s%,l%). Auto-detected and converted.' },
+  ];
+  const relatedToolsList = locale === 'zh' ? [
+    { href: '/tools/palette', icon: '🎨', name: '色票提取', desc: '從圖片提取配色', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+    { href: '/tools/favicon', icon: '⭐', name: 'Favicon 產生器', desc: '製作網站圖示', gradient: 'from-yellow-50 to-amber-50', border: 'border-yellow-200 hover:border-yellow-400' },
+    { href: '/tools/qrcode', icon: '📱', name: 'QR Code 產生器', desc: '產生 QR Code', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+  ] : [
+    { href: '/tools/palette', icon: '🎨', name: 'Palette Extractor', desc: 'Extract colors from images', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
+    { href: '/tools/favicon', icon: '⭐', name: 'Favicon Generator', desc: 'Create website icons', gradient: 'from-yellow-50 to-amber-50', border: 'border-yellow-200 hover:border-yellow-400' },
+    { href: '/tools/qrcode', icon: '📱', name: 'QR Code Generator', desc: 'Generate QR codes', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
+    { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
+  ];
   const [color, setColor] = useState<ColorState>({ hex: '#f8a4b8', r: 248, g: 164, b: 184, h: 346, s: 88, l: 81 });
   const [copied, setCopied] = useState('');
 
@@ -149,6 +172,9 @@ export default function ColorConverterPage() {
           </div>
         ))}
       </div>
+
+      <FAQSchema faqs={faqs} />
+      <RelatedTools tools={relatedToolsList} />
     </div>
   );
 }
