@@ -47,6 +47,7 @@ export default function QRCodePage() {
   const [eventLocation, setEventLocation] = useState('');
   const [eventStart, setEventStart] = useState('');
   const [eventEnd, setEventEnd] = useState('');
+  const [eventNote, setEventNote] = useState('');
 
   const qrValue = useMemo(() => {
     switch (activeTab) {
@@ -89,13 +90,14 @@ export default function QRCodePage() {
         if (eventLocation) vcal += `\nLOCATION:${eventLocation}`;
         if (eventStart) vcal += `\nDTSTART:${formatDateForVCal(eventStart)}`;
         if (eventEnd) vcal += `\nDTEND:${formatDateForVCal(eventEnd)}`;
+        if (eventNote) vcal += `\nDESCRIPTION:${eventNote}`;
         vcal += '\nEND:VEVENT\nEND:VCALENDAR';
         return vcal;
       }
       default:
         return '';
     }
-  }, [activeTab, urlValue, textValue, emailTo, emailSubject, emailBody, lat, lng, locationTouched, phoneNumber, ssid, wifiPass, encryption, paypalUsername, paypalAmount, btcAddress, btcAmount, btcLabel, eventTitle, eventLocation, eventStart, eventEnd]);
+  }, [activeTab, urlValue, textValue, emailTo, emailSubject, emailBody, lat, lng, locationTouched, phoneNumber, ssid, wifiPass, encryption, paypalUsername, paypalAmount, btcAddress, btcAmount, btcLabel, eventTitle, eventLocation, eventStart, eventEnd, eventNote]);
 
   const download = useCallback(() => {
     const canvas = qrRef.current?.querySelector('canvas');
@@ -245,6 +247,10 @@ export default function QRCodePage() {
                 <label className={labelClass}>{t('event.end')}</label>
                 <input type="datetime-local" value={eventEnd} onChange={(e) => setEventEnd(e.target.value)} className={inputClass} />
               </div>
+            </div>
+            <div>
+              <label className={labelClass}>{t('event.note')}</label>
+              <textarea value={eventNote} onChange={(e) => setEventNote(e.target.value)} placeholder={t('event.notePlaceholder')} className={inputClass} rows={3} />
             </div>
           </div>
         );

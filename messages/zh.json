@@ -469,7 +469,9 @@
       "locationLabel": "地點",
       "locationPlaceholder": "台北市信義區...",
       "start": "開始時間",
-      "end": "結束時間"
+      "end": "結束時間",
+      "note": "備註",
+      "notePlaceholder": "活動詳情或備註..."
     },
     "sizeLabel": "大小",
     "fgColorLabel": "前景色",

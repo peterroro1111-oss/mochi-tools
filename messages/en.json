@@ -469,7 +469,9 @@
       "locationLabel": "Location",
       "locationPlaceholder": "123 Main St...",
       "start": "Start time",
-      "end": "End time"
+      "end": "End time",
+      "note": "Note",
+      "notePlaceholder": "Event details or notes..."
     },
     "sizeLabel": "Size",
     "fgColorLabel": "Foreground color",
