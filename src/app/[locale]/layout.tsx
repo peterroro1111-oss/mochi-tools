@@ -8,6 +8,7 @@ import '../globals.css';
 import Navbar from '../components/Navbar';
 import ServiceWorkerRegistrar from '../components/ServiceWorkerRegistrar';
 import InstallBanner from '../components/InstallBanner';
+import KofiButton from '../components/KofiButton';
 import ToolTracker from '../components/ToolTracker';
 
 const geist = localFont({
@@ -108,14 +109,7 @@ async function Footer({ locale }: { locale: string }) {
       <div className="flex items-center justify-center gap-3 mt-3">
         <p className="text-xs text-pink-300">{t('madeWith')}</p>
         <span className="text-pink-200">·</span>
-        <a
-          href="https://ko-fi.com/mochitools?hidefeed=true&widget=true&embed=true&new=1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-[#b89b8a] hover:text-pink-400 transition-colors"
-        >
-          {t('sponsor')}
-        </a>
+        <KofiButton label={t('sponsor')} />
       </div>
     </footer>
   );
