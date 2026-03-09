@@ -894,8 +894,29 @@
     "dismiss": "Later"
   },
   "blog": {
-    "title": "📝 Blog",
-    "subtitle": "Tutorials, tool recommendations, tips & tricks",
-    "backToList": "Back to articles"
+    "title": "Blog",
+    "subtitle": "Tutorials, tool recommendations, and tips to help you work more efficiently",
+    "backToList": "Back to articles",
+    "search": "Search articles...",
+    "featured": "Featured",
+    "readingTime": "{count} min read",
+    "noResults": "No matching articles found",
+    "share": "Share",
+    "copyLink": "Copy Link",
+    "copied": "Copied",
+    "relatedArticles": "Related Articles",
+    "tryTools": "Try Mochi Tools for Free",
+    "tryToolsDesc": "All tools process locally in your browser. Files never upload to servers. Completely free, no registration needed.",
+    "goToTools": "🍡 Go to Mochi Tools",
+    "backToBlog": "Back to Blog",
+    "toc": "Table of Contents",
+    "author": "Mochi Tools Team",
+    "categories": {
+      "all": "All",
+      "pdf": "PDF",
+      "image": "Image",
+      "video": "Video",
+      "tutorial": "Tutorial"
+    }
   }
 }

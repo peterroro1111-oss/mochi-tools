@@ -894,8 +894,29 @@
     "dismiss": "稍後"
   },
   "blog": {
-    "title": "📝 部落格",
-    "subtitle": "實用教學、工具推薦、技巧分享",
-    "backToList": "返回文章列表"
+    "title": "部落格",
+    "subtitle": "實用教學、工具推薦、技巧分享 — 幫你更高效地處理檔案",
+    "backToList": "返回文章列表",
+    "search": "搜尋文章...",
+    "featured": "精選文章",
+    "readingTime": "{count} 分鐘閱讀",
+    "noResults": "找不到符合的文章",
+    "share": "分享文章",
+    "copyLink": "複製連結",
+    "copied": "已複製",
+    "relatedArticles": "推薦閱讀",
+    "tryTools": "試試 Mochi Tools 的免費工具",
+    "tryToolsDesc": "所有工具都在瀏覽器本地處理，檔案不會上傳到伺服器。完全免費、不需要註冊。",
+    "goToTools": "🍡 前往 Mochi Tools",
+    "backToBlog": "返回部落格",
+    "toc": "目錄",
+    "author": "Mochi Tools 團隊",
+    "categories": {
+      "all": "全部",
+      "pdf": "PDF",
+      "image": "圖片",
+      "video": "影片",
+      "tutorial": "教學"
+    }
   }
 }
