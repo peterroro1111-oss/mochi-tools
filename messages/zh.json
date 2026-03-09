@@ -23,6 +23,39 @@
     "heroSubtitle": "PDF 處理、AI 去背、證件照",
     "heroPrivacy": "全部在瀏覽器完成，",
     "heroHighlight": "檔案不離開你的電腦",
+    "counterLabel": "已處理 {count} 個檔案",
+    "recentTitle": "最近使用",
+    "tools": {
+      "pdfMerge": "合併 PDF",
+      "pdfSplit": "拆分 PDF",
+      "pdfRotate": "旋轉 PDF",
+      "pdfPageNumbers": "加頁碼",
+      "pdfCompress": "壓縮 PDF",
+      "pdfToImage": "PDF 轉圖片",
+      "pdfEncrypt": "PDF 加密",
+      "pdfWatermark": "PDF 浮水印",
+      "imageCompress": "圖片壓縮",
+      "imageWatermark": "圖片浮水印",
+      "gifMaker": "GIF 製作",
+      "imageAnnotate": "文字標註",
+      "imageResize": "圖片縮放",
+      "pngToJpg": "PNG 轉 JPG",
+      "jpgToPng": "JPG 轉 PNG",
+      "pngToWebp": "PNG 轉 WebP",
+      "webpToPng": "WebP 轉 PNG",
+      "jpgToWebp": "JPG 轉 WebP",
+      "webpToJpg": "WebP 轉 JPG",
+      "heicToJpg": "HEIC 轉 JPG",
+      "mp4ToWebm": "MP4 轉 WebM",
+      "webmToMp4": "WebM 轉 MP4",
+      "mp4ToGif": "MP4 轉 GIF",
+      "movToMp4": "MOV 轉 MP4",
+      "videoCompress": "影片壓縮",
+      "qrcode": "QR Code",
+      "colorConverter": "顏色轉換",
+      "favicon": "Favicon 產生器",
+      "palette": "色彩擷取"
+    },
     "whyTitle": "為什麼選擇 Mochi Tools？",
     "whySubtitle": "簡單好用的小工具，像麻糬一樣軟 Q 🍡",
     "categories": {
@@ -847,5 +880,11 @@
   },
   "relatedTools": {
     "title": "你可能也需要"
+  },
+  "pwa": {
+    "title": "加到主畫面",
+    "subtitle": "離線也能用，更快更方便",
+    "install": "安裝",
+    "dismiss": "稍後"
   }
 }

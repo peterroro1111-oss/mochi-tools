@@ -1,5 +1,8 @@
 import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
+import RecentTools from '../components/RecentTools';
+import FileCounter from '../components/FileCounter';
 
 const categoryKeys = [
   { key: 'pdf', href: '/pdf', icon: '📄', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400', shadow: 'hover:shadow-blue-100/50', iconBg: 'bg-blue-100' },
@@ -24,9 +27,12 @@ export default async function HomePage() {
     <div className="max-w-5xl mx-auto px-4 py-10 md:py-16">
       {/* Hero */}
       <div className="text-center mb-14 md:mb-20">
-        <img
+        <Image
           src="/mochi-logo-transparent.png"
           alt="Mochi Tools"
+          width={144}
+          height={144}
+          priority
           className="w-28 h-28 md:w-36 md:h-36 mx-auto mb-6 animate-float drop-shadow-lg"
         />
         <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-800">
@@ -37,7 +43,11 @@ export default async function HomePage() {
           <br />
           {t('heroPrivacy')}<strong className="text-pink-400">{t('heroHighlight')}</strong> 🔒
         </p>
+        <FileCounter />
       </div>
+
+      {/* Recent Tools */}
+      <RecentTools />
 
       {/* Tool Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-16 md:mb-20">

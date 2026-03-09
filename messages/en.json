@@ -23,6 +23,39 @@
     "heroSubtitle": "PDF processing, AI background removal, ID photos",
     "heroPrivacy": "All processed in your browser, ",
     "heroHighlight": "files never leave your computer",
+    "counterLabel": "{count} files processed",
+    "recentTitle": "Recently Used",
+    "tools": {
+      "pdfMerge": "Merge PDF",
+      "pdfSplit": "Split PDF",
+      "pdfRotate": "Rotate PDF",
+      "pdfPageNumbers": "Page Numbers",
+      "pdfCompress": "Compress PDF",
+      "pdfToImage": "PDF to Image",
+      "pdfEncrypt": "PDF Encrypt",
+      "pdfWatermark": "PDF Watermark",
+      "imageCompress": "Image Compress",
+      "imageWatermark": "Image Watermark",
+      "gifMaker": "GIF Maker",
+      "imageAnnotate": "Text Annotation",
+      "imageResize": "Image Resize",
+      "pngToJpg": "PNG to JPG",
+      "jpgToPng": "JPG to PNG",
+      "pngToWebp": "PNG to WebP",
+      "webpToPng": "WebP to PNG",
+      "jpgToWebp": "JPG to WebP",
+      "webpToJpg": "WebP to JPG",
+      "heicToJpg": "HEIC to JPG",
+      "mp4ToWebm": "MP4 to WebM",
+      "webmToMp4": "WebM to MP4",
+      "mp4ToGif": "MP4 to GIF",
+      "movToMp4": "MOV to MP4",
+      "videoCompress": "Video Compress",
+      "qrcode": "QR Code",
+      "colorConverter": "Color Converter",
+      "favicon": "Favicon Generator",
+      "palette": "Palette Extractor"
+    },
     "whyTitle": "Why Mochi Tools?",
     "whySubtitle": "Simple and handy tools, soft like mochi 🍡",
     "categories": {
@@ -847,5 +880,11 @@
   },
   "relatedTools": {
     "title": "You might also need"
+  },
+  "pwa": {
+    "title": "Add to Home Screen",
+    "subtitle": "Works offline, faster access",
+    "install": "Install",
+    "dismiss": "Later"
   }
 }

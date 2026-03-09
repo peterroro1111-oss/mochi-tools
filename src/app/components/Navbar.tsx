@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/i18n/routing';
 
@@ -30,7 +31,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
-          <img src="/mochi-logo-transparent.png" alt="Mochi" className="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
+          <Image src="/mochi-logo-transparent.png" alt="Mochi" width={40} height={40} className="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
           <span className="text-xl font-extrabold bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
             Mochi Tools
           </span>
