@@ -109,7 +109,7 @@ async function Footer({ locale }: { locale: string }) {
         <p className="text-xs text-pink-300">{t('madeWith')}</p>
         <span className="text-pink-200">·</span>
         <a
-          href="https://ko-fi.com/mochitools"
+          href="https://ko-fi.com/mochitools#paypalModal"
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs text-[#b89b8a] hover:text-pink-400 transition-colors"
