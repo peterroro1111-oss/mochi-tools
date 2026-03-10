@@ -32,12 +32,6 @@ const tools = [
     gradient: 'from-orange-50 to-red-50',
     border: 'border-orange-200 hover:border-orange-400',
   },
-  {
-    key: 'resize',
-    href: '/image/resize',
-    gradient: 'from-purple-50 to-violet-50',
-    border: 'border-purple-200 hover:border-purple-400',
-  },
 ];
 
 export default async function ImageIndexPage() {

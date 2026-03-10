@@ -21,7 +21,6 @@ const TOOL_MAP: Record<string, { icon: string; nameKey: string }> = {
   '/image/watermark': { icon: '💧', nameKey: 'tools.imageWatermark' },
   '/image/gif': { icon: '🎞️', nameKey: 'tools.gifMaker' },
   '/image/annotate': { icon: '✏️', nameKey: 'tools.imageAnnotate' },
-  '/image/resize': { icon: '📐', nameKey: 'tools.imageResize' },
   '/convert/png-to-jpg': { icon: '🔄', nameKey: 'tools.pngToJpg' },
   '/convert/jpg-to-png': { icon: '🔄', nameKey: 'tools.jpgToPng' },
   '/convert/png-to-webp': { icon: '🔄', nameKey: 'tools.pngToWebp' },

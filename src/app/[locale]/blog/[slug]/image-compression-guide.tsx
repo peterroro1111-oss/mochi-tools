@@ -403,9 +403,7 @@ export function ImageCompressionGuideZh() {
       <div className="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4 my-6">
         <p className="font-bold text-emerald-600 mb-2">💡 提示</p>
         <p className="text-gray-600">
-          如果你的圖片尺寸過大（例如相機拍攝的 6000x4000 像素），建議先使用{' '}
-          <Link href="/image/resize" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">圖片縮放工具</Link>
-          {' '}縮小尺寸，再進行壓縮，效果會更好。
+          如果你的圖片尺寸過大（例如相機拍攝的 6000x4000 像素），建議先縮小尺寸再進行壓縮，效果會更好。
         </p>
       </div>
 
@@ -439,11 +437,6 @@ export function ImageCompressionGuideZh() {
         這是最有效的壓縮策略之一。一張 4000x3000 像素的照片包含 1200 萬個像素，
         如果你的用途只需要 800x600 像素（例如網頁縮圖），那麼先縮小尺寸就能將像素數從 1200 萬
         降低到 48 萬，減少了 96% 的資料量。在此基礎上再進行品質壓縮，效果會非常顯著。
-      </p>
-      <p className="text-gray-600 leading-relaxed mb-4">
-        使用{' '}
-        <Link href="/image/resize" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">Mochi Tools 圖片縮放工具</Link>
-        {' '}可以輕鬆調整圖片尺寸。建議先確認最終用途所需的尺寸，再進行縮放。
       </p>
 
       <h3 id="batch-processing" className="text-lg font-bold text-gray-700 mt-6 mb-3">善用批次處理</h3>
@@ -544,8 +537,6 @@ export function ImageCompressionGuideZh() {
         </p>
         <p className="text-gray-600">
           <Link href="/image/compress" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">前往圖片壓縮工具 →</Link>
-          {' '}|{' '}
-          <Link href="/image/resize" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">圖片縮放工具 →</Link>
           {' '}|{' '}
           <Link href="/convert/jpg-to-webp" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">JPG 轉 WebP →</Link>
         </p>
@@ -974,9 +965,7 @@ export function ImageCompressionGuideEn() {
       <div className="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4 my-6">
         <p className="font-bold text-emerald-600 mb-2">💡 Tip</p>
         <p className="text-gray-600">
-          If your images are oversized (e.g., camera photos at 6000x4000 pixels), we recommend first using the{' '}
-          <Link href="/image/resize" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">Image Resize tool</Link>
-          {' '}to reduce dimensions, then compressing for even better results.
+          If your images are oversized (e.g., camera photos at 6000x4000 pixels), we recommend first reducing dimensions, then compressing for even better results.
         </p>
       </div>
 
@@ -1012,12 +1001,6 @@ export function ImageCompressionGuideEn() {
         pixels. If your use case only requires 800x600 pixels (e.g., a web thumbnail), resizing first reduces the
         pixel count from 12 million to 480,000 — a 96% reduction in data. Applying quality compression on top
         of this yields remarkably small file sizes.
-      </p>
-      <p className="text-gray-600 leading-relaxed mb-4">
-        Use the{' '}
-        <Link href="/image/resize" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">Mochi Tools Image Resize tool</Link>
-        {' '}to easily adjust image dimensions. We recommend determining the required dimensions for your target
-        use case before resizing.
       </p>
 
       <h3 id="batch-processing" className="text-lg font-bold text-gray-700 mt-6 mb-3">Leverage Batch Processing</h3>
@@ -1123,8 +1106,6 @@ export function ImageCompressionGuideEn() {
         </p>
         <p className="text-gray-600">
           <Link href="/image/compress" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">Go to Image Compression Tool →</Link>
-          {' '}|{' '}
-          <Link href="/image/resize" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">Image Resize Tool →</Link>
           {' '}|{' '}
           <Link href="/convert/jpg-to-webp" className="text-pink-500 hover:text-pink-600 font-medium underline decoration-pink-300/40 hover:decoration-pink-600">JPG to WebP →</Link>
         </p>

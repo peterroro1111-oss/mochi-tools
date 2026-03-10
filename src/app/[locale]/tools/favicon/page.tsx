@@ -26,12 +26,10 @@ export default function FaviconPage() {
     { href: '/tools/palette', icon: '🎨', name: '色票提取', desc: '從圖片提取配色', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
     { href: '/tools/color', icon: '🎨', name: '顏色轉換器', desc: 'HEX/RGB/HSL 互轉', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
     { href: '/tools/qrcode', icon: '📱', name: 'QR Code 產生器', desc: '產生 QR Code', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
-    { href: '/image/resize', icon: '📐', name: '圖片調整大小', desc: '調整圖片尺寸', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
   ] : [
     { href: '/tools/palette', icon: '🎨', name: 'Palette Extractor', desc: 'Extract colors from images', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
     { href: '/tools/color', icon: '🎨', name: 'Color Converter', desc: 'HEX/RGB/HSL conversion', gradient: 'from-purple-50 to-violet-50', border: 'border-purple-200 hover:border-purple-400' },
     { href: '/tools/qrcode', icon: '📱', name: 'QR Code Generator', desc: 'Generate QR codes', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
-    { href: '/image/resize', icon: '📐', name: 'Image Resize', desc: 'Resize image dimensions', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
   ];
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [previews, setPreviews] = useState<{ size: number; url: string }[]>([]);

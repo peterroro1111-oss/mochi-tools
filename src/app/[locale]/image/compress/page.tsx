@@ -100,12 +100,10 @@ export default function CompressPage() {
     { href: '/convert/jpg-to-png', icon: '🔄', name: '格式轉換', desc: '圖片格式轉換', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
     { href: '/video/compress', icon: '🎬', name: '影片壓縮', desc: '壓縮 MP4/WebM/MOV', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
     { href: '/remove-bg', icon: '✂️', name: 'AI 去背', desc: '智慧去除背景', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
-    { href: '/image/resize', icon: '📐', name: '圖片縮放', desc: '調整圖片尺寸', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
   ] : [
     { href: '/convert/jpg-to-png', icon: '🔄', name: 'Format Convert', desc: 'Image format conversion', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
     { href: '/video/compress', icon: '🎬', name: 'Video Compress', desc: 'Compress MP4/WebM/MOV', gradient: 'from-amber-50 to-yellow-50', border: 'border-amber-200 hover:border-amber-400' },
     { href: '/remove-bg', icon: '✂️', name: 'AI Remove BG', desc: 'Smart background removal', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
-    { href: '/image/resize', icon: '📐', name: 'Image Resize', desc: 'Adjust image dimensions', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
   ];
   const [originals, setOriginals] = useState<OriginalFile[]>([]);
   const [results, setResults] = useState<CompressedResult[]>([]);

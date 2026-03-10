@@ -38,12 +38,10 @@ export default function ConvertTool({ fromFormat, toFormat, fromLabel, toLabel, 
     { href: '/image/compress', icon: '🗜️', name: '圖片壓縮', desc: '壓縮 JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
     { href: '/video/compress', icon: '🗜️', name: '影片壓縮', desc: '縮小影片檔案大小', gradient: 'from-violet-50 to-purple-50', border: 'border-violet-200 hover:border-violet-400' },
     { href: '/remove-bg', icon: '✂️', name: '去背工具', desc: '移除圖片背景', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
-    { href: '/image/resize', icon: '📐', name: '圖片調整大小', desc: '調整圖片尺寸', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
   ] : [
     { href: '/image/compress', icon: '🗜️', name: 'Image Compress', desc: 'Compress JPG/PNG/WebP', gradient: 'from-emerald-50 to-teal-50', border: 'border-emerald-200 hover:border-emerald-400' },
     { href: '/video/compress', icon: '🗜️', name: 'Video Compress', desc: 'Reduce video file size', gradient: 'from-violet-50 to-purple-50', border: 'border-violet-200 hover:border-violet-400' },
     { href: '/remove-bg', icon: '✂️', name: 'Remove Background', desc: 'Remove image background', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400' },
-    { href: '/image/resize', icon: '📐', name: 'Image Resize', desc: 'Resize image dimensions', gradient: 'from-rose-50 to-pink-50', border: 'border-rose-200 hover:border-rose-400' },
   ];
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);

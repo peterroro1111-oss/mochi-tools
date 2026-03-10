@@ -43,7 +43,7 @@
       "imageWatermark": "Image Watermark",
       "gifMaker": "GIF Maker",
       "imageAnnotate": "Text Annotation",
-      "imageResize": "Image Resize",
+
       "pngToJpg": "PNG to JPG",
       "jpgToPng": "JPG to PNG",
       "pngToWebp": "PNG to WebP",
@@ -281,10 +281,6 @@
       "annotate": {
         "name": "✏️ Text Annotation",
         "desc": "Add text annotations to images"
-      },
-      "resize": {
-        "name": "📐 Image Resize",
-        "desc": "Resize images with batch support"
       }
     }
   },
@@ -752,24 +748,6 @@
     "layersLabel": "Text Layers",
     "downloadBtn": "📥 Download PNG",
     "resetBtn": "Choose another"
-  },
-  "imageResize": {
-    "meta": {
-      "title": "Image Resize — Free Online Batch Resize | Mochi Tools 🍡",
-      "description": "Free online image resize tool. Batch processing, lock aspect ratio, quality adjustment. Processed locally."
-    },
-    "title": "📐 Image Resize",
-    "subtitle": "Resize images with batch processing support 🔒",
-    "dropzone": "Drop images here",
-    "dropzoneHint": "Multiple files supported for batch processing",
-    "fileCount": "{count} images",
-    "widthLabel": "Width",
-    "heightLabel": "Height",
-    "lockAspect": "Lock aspect ratio",
-    "qualityLabel": "JPG Quality",
-    "downloadBtn": "📥 Download",
-    "downloadZip": "📥 Download All (ZIP)",
-    "processing": "Processing..."
   },
   "favicon": {
     "meta": {

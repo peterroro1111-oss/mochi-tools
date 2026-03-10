@@ -8,7 +8,7 @@ import { recordToolUsage } from '../utils/usage';
 const TRACKABLE_PREFIXES = [
   '/pdf/merge', '/pdf/split', '/pdf/rotate', '/pdf/page-numbers',
   '/pdf/compress', '/pdf/to-image', '/pdf/encrypt', '/pdf/watermark',
-  '/image/compress', '/image/watermark', '/image/gif', '/image/annotate', '/image/resize',
+  '/image/compress', '/image/watermark', '/image/gif', '/image/annotate',
   '/convert/', '/remove-bg', '/photo', '/video/compress', '/qrcode',
   '/tools/color', '/tools/favicon', '/tools/palette',
 ];
