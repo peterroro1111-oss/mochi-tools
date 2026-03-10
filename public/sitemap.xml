@@ -506,4 +506,79 @@
     <lastmod>2026-03-10</lastmod>
     <priority>0.7</priority>
   </url>
+  <!-- Blog: HEIC to JPG Guide -->
+  <url>
+    <loc>https://mochitools.com/zh/blog/heic-to-jpg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/heic-to-jpg-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/heic-to-jpg-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/heic-to-jpg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/heic-to-jpg-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/heic-to-jpg-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog: PDF Password Protection Guide -->
+  <url>
+    <loc>https://mochitools.com/zh/blog/pdf-password-protection-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/pdf-password-protection-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/pdf-password-protection-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/pdf-password-protection-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/pdf-password-protection-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/pdf-password-protection-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog: AI Background Removal Guide -->
+  <url>
+    <loc>https://mochitools.com/zh/blog/ai-background-removal-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/ai-background-removal-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/ai-background-removal-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/ai-background-removal-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/ai-background-removal-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/ai-background-removal-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog: Free ID Photo Maker Guide -->
+  <url>
+    <loc>https://mochitools.com/zh/blog/free-id-photo-maker-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/free-id-photo-maker-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/free-id-photo-maker-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/free-id-photo-maker-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/free-id-photo-maker-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/free-id-photo-maker-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog: QR Code Generator Guide -->
+  <url>
+    <loc>https://mochitools.com/zh/blog/qr-code-generator-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/qr-code-generator-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/qr-code-generator-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mochitools.com/en/blog/qr-code-generator-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mochitools.com/zh/blog/qr-code-generator-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mochitools.com/en/blog/qr-code-generator-guide"/>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
