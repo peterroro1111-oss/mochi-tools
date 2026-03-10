@@ -2,7 +2,6 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import RecentTools from '../components/RecentTools';
-import FileCounter from '../components/FileCounter';
 
 const categoryKeys = [
   { key: 'pdf', href: '/pdf', icon: '📄', gradient: 'from-blue-50 to-indigo-50', border: 'border-blue-200 hover:border-blue-400', shadow: 'hover:shadow-blue-100/50', iconBg: 'bg-blue-100' },
@@ -43,7 +42,6 @@ export default async function HomePage() {
           <br />
           {t('heroPrivacy')}<strong className="text-pink-400">{t('heroHighlight')}</strong> 🔒
         </p>
-        <FileCounter />
       </div>
 
       {/* Recent Tools */}
