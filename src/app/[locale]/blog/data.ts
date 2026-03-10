@@ -67,6 +67,76 @@ export const blogPosts: BlogPost[] = [
     summaryEn:
       'Video codec basics, platform-specific specs, browser vs server comparison, and complete free compression tool tutorial.',
   },
+  {
+    slug: 'heic-to-jpg-guide',
+    date: '2026-03-05',
+    icon: '📱',
+    category: 'image',
+    readingTimeZh: 8,
+    readingTimeEn: 7,
+    titleZh: 'iPhone HEIC 照片轉 JPG 完整教學：4 種方法一次學會',
+    titleEn: 'Complete Guide to Converting HEIC to JPG: 4 Methods Explained',
+    summaryZh:
+      'HEIC 是什麼？為什麼 iPhone 照片打不開？完整教學教你用線上工具、iPhone 設定、Mac 和 Windows 輕鬆轉檔。',
+    summaryEn:
+      'What is HEIC? Why can\'t you open iPhone photos? Learn 4 easy methods to convert HEIC to JPG using online tools, iPhone settings, Mac, and Windows.',
+  },
+  {
+    slug: 'pdf-password-protection-guide',
+    date: '2026-03-06',
+    icon: '🔒',
+    category: 'pdf',
+    readingTimeZh: 9,
+    readingTimeEn: 8,
+    titleZh: 'PDF 加密教學：如何為 PDF 設定密碼保護',
+    titleEn: 'PDF Encryption Guide: How to Password Protect Your PDF Files',
+    summaryZh:
+      '完整 PDF 加密教學，了解使用者密碼與擁有者密碼的差異、加密強度比較，以及免費線上加密工具推薦。',
+    summaryEn:
+      'Complete PDF encryption tutorial covering user vs owner passwords, encryption strength comparison, and free online encryption tools.',
+  },
+  {
+    slug: 'ai-background-removal-guide',
+    date: '2026-03-07',
+    icon: '✂️',
+    category: 'image',
+    readingTimeZh: 8,
+    readingTimeEn: 7,
+    titleZh: 'AI 去背教學：免費一鍵去除圖片背景',
+    titleEn: 'AI Background Removal Guide: Remove Image Backgrounds for Free',
+    summaryZh:
+      'AI 去背原理解析、去背工具比較、詳細操作教學，讓你輕鬆做出專業級透明背景圖片。',
+    summaryEn:
+      'Learn how AI background removal works, compare popular tools, and follow step-by-step tutorials to create professional transparent images.',
+  },
+  {
+    slug: 'free-id-photo-maker-guide',
+    date: '2026-03-08',
+    icon: '📸',
+    category: 'tutorial',
+    readingTimeZh: 10,
+    readingTimeEn: 8,
+    titleZh: '免費線上證件照製作教學：在家就能搞定',
+    titleEn: 'Free Online ID Photo Maker: Create Passport & ID Photos at Home',
+    summaryZh:
+      '各種證件照尺寸規格整理、自拍技巧、線上製作教學，不用出門也能做出合格的證件照。',
+    summaryEn:
+      'ID photo size specs, selfie tips, and online tool tutorial. Create compliant passport and ID photos from home.',
+  },
+  {
+    slug: 'qr-code-generator-guide',
+    date: '2026-03-09',
+    icon: '📲',
+    category: 'tutorial',
+    readingTimeZh: 8,
+    readingTimeEn: 7,
+    titleZh: 'QR Code 怎麼做？免費 QR Code 產生器完整教學',
+    titleEn: 'How to Create QR Codes: Complete Free QR Code Generator Guide',
+    summaryZh:
+      'QR Code 類型介紹、製作教學、外觀自訂、最佳實踐，從網址到 WiFi 分享一次搞定。',
+    summaryEn:
+      'QR code types, creation tutorial, customization tips, and best practices. From URLs to WiFi sharing, all covered.',
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

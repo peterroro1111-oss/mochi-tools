@@ -4,6 +4,11 @@ import { blogPosts, getPostBySlug, getRelatedPosts, categoryLabels } from '../da
 import { BestPdfToolsZh, BestPdfToolsEn } from './best-free-pdf-tools-2026';
 import { ImageCompressionGuideZh, ImageCompressionGuideEn } from './image-compression-guide';
 import { VideoCompressionToolsZh, VideoCompressionToolsEn } from './free-video-compression-tools';
+import { HeicToJpgGuideZh, HeicToJpgGuideEn } from './heic-to-jpg-guide';
+import { PdfPasswordProtectionGuideZh, PdfPasswordProtectionGuideEn } from './pdf-password-protection-guide';
+import { AiBackgroundRemovalGuideZh, AiBackgroundRemovalGuideEn } from './ai-background-removal-guide';
+import { FreeIdPhotoMakerGuideZh, FreeIdPhotoMakerGuideEn } from './free-id-photo-maker-guide';
+import { QrCodeGeneratorGuideZh, QrCodeGeneratorGuideEn } from './qr-code-generator-guide';
 import TableOfContents from './TableOfContents';
 import ShareButtons from './ShareButtons';
 import type { Metadata } from 'next';
@@ -12,6 +17,11 @@ const ARTICLE_COMPONENTS: Record<string, { zh: () => JSX.Element; en: () => JSX.
   'best-free-pdf-tools-2026': { zh: BestPdfToolsZh, en: BestPdfToolsEn },
   'image-compression-guide': { zh: ImageCompressionGuideZh, en: ImageCompressionGuideEn },
   'free-video-compression-tools': { zh: VideoCompressionToolsZh, en: VideoCompressionToolsEn },
+  'heic-to-jpg-guide': { zh: HeicToJpgGuideZh, en: HeicToJpgGuideEn },
+  'pdf-password-protection-guide': { zh: PdfPasswordProtectionGuideZh, en: PdfPasswordProtectionGuideEn },
+  'ai-background-removal-guide': { zh: AiBackgroundRemovalGuideZh, en: AiBackgroundRemovalGuideEn },
+  'free-id-photo-maker-guide': { zh: FreeIdPhotoMakerGuideZh, en: FreeIdPhotoMakerGuideEn },
+  'qr-code-generator-guide': { zh: QrCodeGeneratorGuideZh, en: QrCodeGeneratorGuideEn },
 };
 
 export async function generateStaticParams() {
