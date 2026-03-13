@@ -1,5 +1,7 @@
 export function downloadFile(blob: Blob, filename: string) {
-  if (navigator.share && navigator.canShare) {
+  // Only use Web Share API on mobile devices
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile && navigator.share && navigator.canShare) {
     const file = new File([blob], filename, { type: blob.type });
     if (navigator.canShare({ files: [file] })) {
       navigator.share({ files: [file] }).catch(() => {
