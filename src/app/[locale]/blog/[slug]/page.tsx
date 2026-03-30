@@ -9,6 +9,7 @@ import { PdfPasswordProtectionGuideZh, PdfPasswordProtectionGuideEn } from './pd
 import { AiBackgroundRemovalGuideZh, AiBackgroundRemovalGuideEn } from './ai-background-removal-guide';
 import { FreeIdPhotoMakerGuideZh, FreeIdPhotoMakerGuideEn } from './free-id-photo-maker-guide';
 import { QrCodeGeneratorGuideZh, QrCodeGeneratorGuideEn } from './qr-code-generator-guide';
+import { WebpConversionGuideZh, WebpConversionGuideEn } from './webp-conversion-guide';
 import TableOfContents from './TableOfContents';
 import ShareButtons from './ShareButtons';
 import type { Metadata } from 'next';
@@ -22,6 +23,7 @@ const ARTICLE_COMPONENTS: Record<string, { zh: () => JSX.Element; en: () => JSX.
   'ai-background-removal-guide': { zh: AiBackgroundRemovalGuideZh, en: AiBackgroundRemovalGuideEn },
   'free-id-photo-maker-guide': { zh: FreeIdPhotoMakerGuideZh, en: FreeIdPhotoMakerGuideEn },
   'qr-code-generator-guide': { zh: QrCodeGeneratorGuideZh, en: QrCodeGeneratorGuideEn },
+  'webp-conversion-guide': { zh: WebpConversionGuideZh, en: WebpConversionGuideEn },
 };
 
 export async function generateStaticParams() {

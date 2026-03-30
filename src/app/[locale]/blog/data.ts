@@ -124,6 +124,18 @@ export const blogPosts: BlogPost[] = [
       'ID photo size specs, selfie tips, and online tool tutorial. Create compliant passport and ID photos from home.',
   },
   {
+    slug: 'webp-conversion-guide',
+    date: '2026-03-31',
+    icon: '🖼️',
+    category: 'image',
+    readingTimeZh: 8,
+    readingTimeEn: 7,
+    titleZh: 'WebP 是什麼？WebP 轉 JPG/PNG 完整教學',
+    titleEn: 'What is WebP? Complete Guide to Converting WebP to JPG/PNG',
+    summaryZh: 'WebP 格式是什麼？為什麼有些圖片打不開？完整教學教你免費線上轉檔，一鍵把 WebP 轉成 JPG 或 PNG。',
+    summaryEn: 'What is WebP format? Why can\'t you open some images? Learn how to convert WebP to JPG or PNG for free with online tools.',
+  },
+  {
     slug: 'qr-code-generator-guide',
     date: '2026-03-09',
     icon: '📲',
